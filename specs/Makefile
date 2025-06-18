@@ -3,10 +3,12 @@ OAS3_API_SPEC=$(OAS3_API_SPEC_FILEPREFIX).json
 GEN_DIR=../
 # This make file task produces the go code from the openapi specificaton code. 
 # Tool reference: https://openapi-generator.tech/docs/configuration/
-# Tool reference: https://github.com/OpenAPITools/openapi-generator/blob/master/docs/generators/go.md
+# Tool reference (Go specific): https://openapi-generator.tech/docs/generators/go
 codegen: 
 	openapi-generator generate -i $(OAS3_API_SPEC) -g go -o $(GEN_DIR) -p packageName="github.com/fastah/libattio" -p useDefaultValuesForRequiredVars=true 
-	sed -i '' 's|^module github.com/[^ ]*|module github.com/fastah/libattio|' $(GEN_DIR)/go.mod
+	find $(GEN_DIR) -type f \( -name '*.go' -o -name '*.mod' \) -exec sed -i '' \
+  		-e 's|openapiclient|libattio|g' \
+  		-e 's|github\.com/GIT_USER_ID/GIT_REPO_ID|github.com/fastah/libattio|g' {} +
 
 deps: 
 	brew install openapi-generator
