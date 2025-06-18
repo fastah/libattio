@@ -33,15 +33,15 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	object := "people" // string | 
-	v2ObjectsObjectRecordsPostRequest := *openapiclient.NewV2ObjectsObjectRecordsPostRequest(*openapiclient.NewV2ObjectsObjectRecordsPostRequestData(map[string][]interface{}{"key": []interface{}{nil}})) // V2ObjectsObjectRecordsPostRequest | 
+	v2ObjectsObjectRecordsPostRequest := *libattio.NewV2ObjectsObjectRecordsPostRequest(*libattio.NewV2ObjectsObjectRecordsPostRequestData(map[string][]interface{}{"key": []interface{}{nil}})) // V2ObjectsObjectRecordsPostRequest | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.RecordsAPI.V2ObjectsObjectRecordsPost(context.Background(), object).V2ObjectsObjectRecordsPostRequest(v2ObjectsObjectRecordsPostRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecordsAPI.V2ObjectsObjectRecordsPost``: %v\n", err)
@@ -105,16 +105,16 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	object := "people" // string | 
 	matchingAttribute := "41252299-f8c7-4b5e-99c9-4ff8321d2f96" // string | 
-	v2ObjectsObjectRecordsPutRequest := *openapiclient.NewV2ObjectsObjectRecordsPutRequest(*openapiclient.NewV2ObjectsObjectRecordsPutRequestData(map[string][]interface{}{"key": []interface{}{nil}})) // V2ObjectsObjectRecordsPutRequest | 
+	v2ObjectsObjectRecordsPutRequest := *libattio.NewV2ObjectsObjectRecordsPutRequest(*libattio.NewV2ObjectsObjectRecordsPutRequestData(map[string][]interface{}{"key": []interface{}{nil}})) // V2ObjectsObjectRecordsPutRequest | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.RecordsAPI.V2ObjectsObjectRecordsPut(context.Background(), object).MatchingAttribute(matchingAttribute).V2ObjectsObjectRecordsPutRequest(v2ObjectsObjectRecordsPutRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecordsAPI.V2ObjectsObjectRecordsPut``: %v\n", err)
@@ -179,15 +179,15 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	object := "people" // string | 
-	v2ObjectsObjectRecordsQueryPostRequest := *openapiclient.NewV2ObjectsObjectRecordsQueryPostRequest() // V2ObjectsObjectRecordsQueryPostRequest | 
+	v2ObjectsObjectRecordsQueryPostRequest := *libattio.NewV2ObjectsObjectRecordsQueryPostRequest() // V2ObjectsObjectRecordsQueryPostRequest | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.RecordsAPI.V2ObjectsObjectRecordsQueryPost(context.Background(), object).V2ObjectsObjectRecordsQueryPostRequest(v2ObjectsObjectRecordsQueryPostRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecordsAPI.V2ObjectsObjectRecordsQueryPost``: %v\n", err)
@@ -251,7 +251,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
@@ -262,8 +262,8 @@ func main() {
 	limit := int32(10) // int32 |  (optional)
 	offset := int32(5) // int32 |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.RecordsAPI.V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet(context.Background(), object, recordId, attribute).ShowHistoric(showHistoric).Limit(limit).Offset(offset).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecordsAPI.V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet``: %v\n", err)
@@ -333,15 +333,15 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	object := "people" // string | 
 	recordId := "891dcbfc-9141-415d-9b2a-2238a6cc012d" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.RecordsAPI.V2ObjectsObjectRecordsRecordIdDelete(context.Background(), object, recordId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecordsAPI.V2ObjectsObjectRecordsRecordIdDelete``: %v\n", err)
@@ -406,7 +406,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
@@ -415,8 +415,8 @@ func main() {
 	limit := int32(10) // int32 |  (optional)
 	offset := int32(5) // int32 |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.RecordsAPI.V2ObjectsObjectRecordsRecordIdEntriesGet(context.Background(), object, recordId).Limit(limit).Offset(offset).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecordsAPI.V2ObjectsObjectRecordsRecordIdEntriesGet``: %v\n", err)
@@ -483,15 +483,15 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	object := "people" // string | 
 	recordId := "891dcbfc-9141-415d-9b2a-2238a6cc012d" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.RecordsAPI.V2ObjectsObjectRecordsRecordIdGet(context.Background(), object, recordId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecordsAPI.V2ObjectsObjectRecordsRecordIdGet``: %v\n", err)
@@ -556,16 +556,16 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	object := "people" // string | 
 	recordId := "891dcbfc-9141-415d-9b2a-2238a6cc012d" // string | 
-	v2ObjectsObjectRecordsPutRequest := *openapiclient.NewV2ObjectsObjectRecordsPutRequest(*openapiclient.NewV2ObjectsObjectRecordsPutRequestData(map[string][]interface{}{"key": []interface{}{nil}})) // V2ObjectsObjectRecordsPutRequest | 
+	v2ObjectsObjectRecordsPutRequest := *libattio.NewV2ObjectsObjectRecordsPutRequest(*libattio.NewV2ObjectsObjectRecordsPutRequestData(map[string][]interface{}{"key": []interface{}{nil}})) // V2ObjectsObjectRecordsPutRequest | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.RecordsAPI.V2ObjectsObjectRecordsRecordIdPatch(context.Background(), object, recordId).V2ObjectsObjectRecordsPutRequest(v2ObjectsObjectRecordsPutRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecordsAPI.V2ObjectsObjectRecordsRecordIdPatch``: %v\n", err)
@@ -631,16 +631,16 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	object := "people" // string | 
 	recordId := "891dcbfc-9141-415d-9b2a-2238a6cc012d" // string | 
-	v2ObjectsObjectRecordsPutRequest := *openapiclient.NewV2ObjectsObjectRecordsPutRequest(*openapiclient.NewV2ObjectsObjectRecordsPutRequestData(map[string][]interface{}{"key": []interface{}{nil}})) // V2ObjectsObjectRecordsPutRequest | 
+	v2ObjectsObjectRecordsPutRequest := *libattio.NewV2ObjectsObjectRecordsPutRequest(*libattio.NewV2ObjectsObjectRecordsPutRequestData(map[string][]interface{}{"key": []interface{}{nil}})) // V2ObjectsObjectRecordsPutRequest | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.RecordsAPI.V2ObjectsObjectRecordsRecordIdPut(context.Background(), object, recordId).V2ObjectsObjectRecordsPutRequest(v2ObjectsObjectRecordsPutRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecordsAPI.V2ObjectsObjectRecordsRecordIdPut``: %v\n", err)

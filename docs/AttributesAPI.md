@@ -34,7 +34,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
@@ -42,8 +42,8 @@ func main() {
 	identifier := "33ebdbe9-e529-47c9-b894-0ba25e9c15c0" // string | 
 	attribute := "41252299-f8c7-4b5e-99c9-4ff8321d2f96" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.AttributesAPI.V2TargetIdentifierAttributesAttributeGet(context.Background(), target, identifier, attribute).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AttributesAPI.V2TargetIdentifierAttributesAttributeGet``: %v\n", err)
@@ -110,7 +110,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
@@ -119,8 +119,8 @@ func main() {
 	attribute := "41252299-f8c7-4b5e-99c9-4ff8321d2f96" // string | 
 	showArchived := true // bool |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.AttributesAPI.V2TargetIdentifierAttributesAttributeOptionsGet(context.Background(), target, identifier, attribute).ShowArchived(showArchived).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AttributesAPI.V2TargetIdentifierAttributesAttributeOptionsGet``: %v\n", err)
@@ -188,7 +188,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
@@ -196,10 +196,10 @@ func main() {
 	identifier := "33ebdbe9-e529-47c9-b894-0ba25e9c15c0" // string | 
 	attribute := "41252299-f8c7-4b5e-99c9-4ff8321d2f96" // string | 
 	option := "Medium" // string | 
-	v2TargetIdentifierAttributesAttributeOptionsOptionPatchRequest := *openapiclient.NewV2TargetIdentifierAttributesAttributeOptionsOptionPatchRequest(*openapiclient.NewV2TargetIdentifierAttributesAttributeOptionsOptionPatchRequestData()) // V2TargetIdentifierAttributesAttributeOptionsOptionPatchRequest | 
+	v2TargetIdentifierAttributesAttributeOptionsOptionPatchRequest := *libattio.NewV2TargetIdentifierAttributesAttributeOptionsOptionPatchRequest(*libattio.NewV2TargetIdentifierAttributesAttributeOptionsOptionPatchRequestData()) // V2TargetIdentifierAttributesAttributeOptionsOptionPatchRequest | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.AttributesAPI.V2TargetIdentifierAttributesAttributeOptionsOptionPatch(context.Background(), target, identifier, attribute, option).V2TargetIdentifierAttributesAttributeOptionsOptionPatchRequest(v2TargetIdentifierAttributesAttributeOptionsOptionPatchRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AttributesAPI.V2TargetIdentifierAttributesAttributeOptionsOptionPatch``: %v\n", err)
@@ -269,17 +269,17 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	target := "lists" // string | 
 	identifier := "33ebdbe9-e529-47c9-b894-0ba25e9c15c0" // string | 
 	attribute := "41252299-f8c7-4b5e-99c9-4ff8321d2f96" // string | 
-	v2TargetIdentifierAttributesAttributeOptionsPostRequest := *openapiclient.NewV2TargetIdentifierAttributesAttributeOptionsPostRequest(*openapiclient.NewV2TargetIdentifierAttributesAttributeOptionsPostRequestData("Medium")) // V2TargetIdentifierAttributesAttributeOptionsPostRequest | 
+	v2TargetIdentifierAttributesAttributeOptionsPostRequest := *libattio.NewV2TargetIdentifierAttributesAttributeOptionsPostRequest(*libattio.NewV2TargetIdentifierAttributesAttributeOptionsPostRequestData("Medium")) // V2TargetIdentifierAttributesAttributeOptionsPostRequest | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.AttributesAPI.V2TargetIdentifierAttributesAttributeOptionsPost(context.Background(), target, identifier, attribute).V2TargetIdentifierAttributesAttributeOptionsPostRequest(v2TargetIdentifierAttributesAttributeOptionsPostRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AttributesAPI.V2TargetIdentifierAttributesAttributeOptionsPost``: %v\n", err)
@@ -347,17 +347,17 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	target := "lists" // string | 
 	identifier := "33ebdbe9-e529-47c9-b894-0ba25e9c15c0" // string | 
 	attribute := "41252299-f8c7-4b5e-99c9-4ff8321d2f96" // string | 
-	v2TargetIdentifierAttributesAttributePatchRequest := *openapiclient.NewV2TargetIdentifierAttributesAttributePatchRequest(*openapiclient.NewV2TargetIdentifierAttributesAttributePatchRequestData()) // V2TargetIdentifierAttributesAttributePatchRequest | 
+	v2TargetIdentifierAttributesAttributePatchRequest := *libattio.NewV2TargetIdentifierAttributesAttributePatchRequest(*libattio.NewV2TargetIdentifierAttributesAttributePatchRequestData()) // V2TargetIdentifierAttributesAttributePatchRequest | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.AttributesAPI.V2TargetIdentifierAttributesAttributePatch(context.Background(), target, identifier, attribute).V2TargetIdentifierAttributesAttributePatchRequest(v2TargetIdentifierAttributesAttributePatchRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AttributesAPI.V2TargetIdentifierAttributesAttributePatch``: %v\n", err)
@@ -425,7 +425,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
@@ -434,8 +434,8 @@ func main() {
 	attribute := "41252299-f8c7-4b5e-99c9-4ff8321d2f96" // string | 
 	showArchived := true // bool |  (optional) (default to false)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.AttributesAPI.V2TargetIdentifierAttributesAttributeStatusesGet(context.Background(), target, identifier, attribute).ShowArchived(showArchived).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AttributesAPI.V2TargetIdentifierAttributesAttributeStatusesGet``: %v\n", err)
@@ -503,17 +503,17 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	target := "lists" // string | 
 	identifier := "33ebdbe9-e529-47c9-b894-0ba25e9c15c0" // string | 
 	attribute := "41252299-f8c7-4b5e-99c9-4ff8321d2f96" // string | 
-	v2TargetIdentifierAttributesAttributeStatusesPostRequest := *openapiclient.NewV2TargetIdentifierAttributesAttributeStatusesPostRequest(*openapiclient.NewV2TargetIdentifierAttributesAttributeStatusesPostRequestData("In Progress")) // V2TargetIdentifierAttributesAttributeStatusesPostRequest | 
+	v2TargetIdentifierAttributesAttributeStatusesPostRequest := *libattio.NewV2TargetIdentifierAttributesAttributeStatusesPostRequest(*libattio.NewV2TargetIdentifierAttributesAttributeStatusesPostRequestData("In Progress")) // V2TargetIdentifierAttributesAttributeStatusesPostRequest | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.AttributesAPI.V2TargetIdentifierAttributesAttributeStatusesPost(context.Background(), target, identifier, attribute).V2TargetIdentifierAttributesAttributeStatusesPostRequest(v2TargetIdentifierAttributesAttributeStatusesPostRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AttributesAPI.V2TargetIdentifierAttributesAttributeStatusesPost``: %v\n", err)
@@ -581,7 +581,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
@@ -589,10 +589,10 @@ func main() {
 	identifier := "33ebdbe9-e529-47c9-b894-0ba25e9c15c0" // string | 
 	attribute := "41252299-f8c7-4b5e-99c9-4ff8321d2f96" // string | 
 	status := "In Progress" // string | 
-	v2TargetIdentifierAttributesAttributeStatusesStatusPatchRequest := *openapiclient.NewV2TargetIdentifierAttributesAttributeStatusesStatusPatchRequest(*openapiclient.NewV2TargetIdentifierAttributesAttributeStatusesStatusPatchRequestData()) // V2TargetIdentifierAttributesAttributeStatusesStatusPatchRequest | 
+	v2TargetIdentifierAttributesAttributeStatusesStatusPatchRequest := *libattio.NewV2TargetIdentifierAttributesAttributeStatusesStatusPatchRequest(*libattio.NewV2TargetIdentifierAttributesAttributeStatusesStatusPatchRequestData()) // V2TargetIdentifierAttributesAttributeStatusesStatusPatchRequest | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.AttributesAPI.V2TargetIdentifierAttributesAttributeStatusesStatusPatch(context.Background(), target, identifier, attribute, status).V2TargetIdentifierAttributesAttributeStatusesStatusPatchRequest(v2TargetIdentifierAttributesAttributeStatusesStatusPatchRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AttributesAPI.V2TargetIdentifierAttributesAttributeStatusesStatusPatch``: %v\n", err)
@@ -662,7 +662,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
@@ -672,8 +672,8 @@ func main() {
 	offset := int32(5) // int32 |  (optional)
 	showArchived := true // bool |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.AttributesAPI.V2TargetIdentifierAttributesGet(context.Background(), target, identifier).Limit(limit).Offset(offset).ShowArchived(showArchived).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AttributesAPI.V2TargetIdentifierAttributesGet``: %v\n", err)
@@ -741,16 +741,16 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	target := "lists" // string | 
 	identifier := "97052eb9-e65e-443f-a297-f2d9a4a7f795" // string | 
-	v2TargetIdentifierAttributesPostRequest := *openapiclient.NewV2TargetIdentifierAttributesPostRequest(*openapiclient.NewV2TargetIdentifierAttributesPostRequestData("Your Attribute", "Lorem ipsum", "my-attribute", "text", true, true, true, *openapiclient.NewV2TargetIdentifierAttributesPostRequestDataConfig())) // V2TargetIdentifierAttributesPostRequest | 
+	v2TargetIdentifierAttributesPostRequest := *libattio.NewV2TargetIdentifierAttributesPostRequest(*libattio.NewV2TargetIdentifierAttributesPostRequestData("Your Attribute", "Lorem ipsum", "my-attribute", "text", true, true, true, *libattio.NewV2TargetIdentifierAttributesPostRequestDataConfig())) // V2TargetIdentifierAttributesPostRequest | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.AttributesAPI.V2TargetIdentifierAttributesPost(context.Background(), target, identifier).V2TargetIdentifierAttributesPostRequest(v2TargetIdentifierAttributesPostRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AttributesAPI.V2TargetIdentifierAttributesPost``: %v\n", err)

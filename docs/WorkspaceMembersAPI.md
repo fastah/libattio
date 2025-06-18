@@ -26,13 +26,13 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.WorkspaceMembersAPI.V2WorkspaceMembersGet(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkspaceMembersAPI.V2WorkspaceMembersGet``: %v\n", err)
@@ -87,14 +87,14 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	workspaceMemberId := "50cf242c-7fa3-4cad-87d0-75b1af71c57b" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.WorkspaceMembersAPI.V2WorkspaceMembersWorkspaceMemberIdGet(context.Background(), workspaceMemberId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkspaceMembersAPI.V2WorkspaceMembersWorkspaceMemberIdGet``: %v\n", err)

@@ -27,14 +27,14 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	commentId := "aa1dc1d9-93ac-4c6c-987e-16b6eea9aab2" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.CommentsAPI.V2CommentsCommentIdDelete(context.Background(), commentId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CommentsAPI.V2CommentsCommentIdDelete``: %v\n", err)
@@ -97,14 +97,14 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	commentId := "aa1dc1d9-93ac-4c6c-987e-16b6eea9aab2" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.CommentsAPI.V2CommentsCommentIdGet(context.Background(), commentId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CommentsAPI.V2CommentsCommentIdGet``: %v\n", err)
@@ -167,14 +167,14 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
-	v2CommentsPostRequest := *openapiclient.NewV2CommentsPostRequest(*openapiclient.NewV2CommentsPostRequestData("Format_example", "If I put the email address of my colleague on Attio in here, e.g. alice@attio.com, they will be notified. Other emails (e.g. person@example.com) will be turned into clickable links.", *openapiclient.NewV2CommentsPostRequestDataAnyOfAuthor("Type_example", "Id_example"), "aa1dc1d9-93ac-4c6c-987e-16b6eea9aab2", *openapiclient.NewV2CommentsPostRequestDataAnyOf1Record("97052eb9-e65e-443f-a297-f2d9a4a7f795", "bf071e1f-6035-429d-b874-d83ea64ea13b"), *openapiclient.NewV2CommentsPostRequestDataAnyOf2Entry("33ebdbe9-e529-47c9-b894-0ba25e9c15c0", "2e6e29ea-c4e0-4f44-842d-78a891f8c156"))) // V2CommentsPostRequest | 
+	v2CommentsPostRequest := *libattio.NewV2CommentsPostRequest(*libattio.NewV2CommentsPostRequestData("Format_example", "If I put the email address of my colleague on Attio in here, e.g. alice@attio.com, they will be notified. Other emails (e.g. person@example.com) will be turned into clickable links.", *libattio.NewV2CommentsPostRequestDataAnyOfAuthor("Type_example", "Id_example"), "aa1dc1d9-93ac-4c6c-987e-16b6eea9aab2", *libattio.NewV2CommentsPostRequestDataAnyOf1Record("97052eb9-e65e-443f-a297-f2d9a4a7f795", "bf071e1f-6035-429d-b874-d83ea64ea13b"), *libattio.NewV2CommentsPostRequestDataAnyOf2Entry("33ebdbe9-e529-47c9-b894-0ba25e9c15c0", "2e6e29ea-c4e0-4f44-842d-78a891f8c156"))) // V2CommentsPostRequest | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.CommentsAPI.V2CommentsPost(context.Background()).V2CommentsPostRequest(v2CommentsPostRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CommentsAPI.V2CommentsPost``: %v\n", err)

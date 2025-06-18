@@ -29,7 +29,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
@@ -41,8 +41,8 @@ func main() {
 	assignee := "assignee_example" // string |  (optional)
 	isCompleted := true // bool |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.TasksAPI.V2TasksGet(context.Background()).Limit(limit).Offset(offset).Sort(sort).LinkedObject(linkedObject).LinkedRecordId(linkedRecordId).Assignee(assignee).IsCompleted(isCompleted).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TasksAPI.V2TasksGet``: %v\n", err)
@@ -107,14 +107,14 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
-	v2TasksPostRequest := *openapiclient.NewV2TasksPostRequest(*openapiclient.NewV2TasksPostRequestData("Follow up on current software solutions", "Format_example", "2023-01-01T15:00:00.000000000Z", false, []openapiclient.V2TasksPostRequestDataLinkedRecordsInner{*openapiclient.NewV2TasksPostRequestDataLinkedRecordsInner("people", "891dcbfc-9141-415d-9b2a-2238a6cc012d", []openapiclient.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInner{*openapiclient.NewV2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInner()})}, []openapiclient.V2TasksPostRequestDataAssigneesInner{*openapiclient.NewV2TasksPostRequestDataAssigneesInner("workspace-member", "50cf242c-7fa3-4cad-87d0-75b1af71c57b", "alice@attio.com")})) // V2TasksPostRequest | 
+	v2TasksPostRequest := *libattio.NewV2TasksPostRequest(*libattio.NewV2TasksPostRequestData("Follow up on current software solutions", "Format_example", "2023-01-01T15:00:00.000000000Z", false, []libattio.V2TasksPostRequestDataLinkedRecordsInner{*libattio.NewV2TasksPostRequestDataLinkedRecordsInner("people", "891dcbfc-9141-415d-9b2a-2238a6cc012d", []libattio.V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInner{*libattio.NewV2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInner()})}, []libattio.V2TasksPostRequestDataAssigneesInner{*libattio.NewV2TasksPostRequestDataAssigneesInner("workspace-member", "50cf242c-7fa3-4cad-87d0-75b1af71c57b", "alice@attio.com")})) // V2TasksPostRequest | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.TasksAPI.V2TasksPost(context.Background()).V2TasksPostRequest(v2TasksPostRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TasksAPI.V2TasksPost``: %v\n", err)
@@ -173,14 +173,14 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	taskId := "649e34f4-c39a-4f4d-99ef-48a36bef8f04" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.TasksAPI.V2TasksTaskIdDelete(context.Background(), taskId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TasksAPI.V2TasksTaskIdDelete``: %v\n", err)
@@ -243,14 +243,14 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	taskId := "649e34f4-c39a-4f4d-99ef-48a36bef8f04" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.TasksAPI.V2TasksTaskIdGet(context.Background(), taskId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TasksAPI.V2TasksTaskIdGet``: %v\n", err)
@@ -313,15 +313,15 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	taskId := "649e34f4-c39a-4f4d-99ef-48a36bef8f04" // string | 
-	v2TasksTaskIdPatchRequest := *openapiclient.NewV2TasksTaskIdPatchRequest(*openapiclient.NewV2TasksTaskIdPatchRequestData()) // V2TasksTaskIdPatchRequest | 
+	v2TasksTaskIdPatchRequest := *libattio.NewV2TasksTaskIdPatchRequest(*libattio.NewV2TasksTaskIdPatchRequestData()) // V2TasksTaskIdPatchRequest | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.TasksAPI.V2TasksTaskIdPatch(context.Background(), taskId).V2TasksTaskIdPatchRequest(v2TasksTaskIdPatchRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TasksAPI.V2TasksTaskIdPatch``: %v\n", err)

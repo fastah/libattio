@@ -28,13 +28,13 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.ListsAPI.V2ListsGet(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ListsAPI.V2ListsGet``: %v\n", err)
@@ -89,14 +89,14 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	list := "33ebdbe9-e529-47c9-b894-0ba25e9c15c0" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.ListsAPI.V2ListsListGet(context.Background(), list).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ListsAPI.V2ListsListGet``: %v\n", err)
@@ -159,15 +159,15 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	list := "33ebdbe9-e529-47c9-b894-0ba25e9c15c0" // string | 
-	v2ListsListPatchRequest := *openapiclient.NewV2ListsListPatchRequest(*openapiclient.NewV2ListsListPatchRequestData()) // V2ListsListPatchRequest | 
+	v2ListsListPatchRequest := *libattio.NewV2ListsListPatchRequest(*libattio.NewV2ListsListPatchRequestData()) // V2ListsListPatchRequest | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.ListsAPI.V2ListsListPatch(context.Background(), list).V2ListsListPatchRequest(v2ListsListPatchRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ListsAPI.V2ListsListPatch``: %v\n", err)
@@ -231,14 +231,14 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
-	v2ListsPostRequest := *openapiclient.NewV2ListsPostRequest(*openapiclient.NewV2ListsPostRequestData("Enterprise Sales", "enterprise_sales", "people", "read-and-write", []openapiclient.V2ListsPostRequestDataWorkspaceMemberAccessInner{*openapiclient.NewV2ListsPostRequestDataWorkspaceMemberAccessInner("50cf242c-7fa3-4cad-87d0-75b1af71c57b", "read-and-write")})) // V2ListsPostRequest | 
+	v2ListsPostRequest := *libattio.NewV2ListsPostRequest(*libattio.NewV2ListsPostRequestData("Enterprise Sales", "enterprise_sales", "people", "read-and-write", []libattio.V2ListsPostRequestDataWorkspaceMemberAccessInner{*libattio.NewV2ListsPostRequestDataWorkspaceMemberAccessInner("50cf242c-7fa3-4cad-87d0-75b1af71c57b", "read-and-write")})) // V2ListsPostRequest | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.ListsAPI.V2ListsPost(context.Background()).V2ListsPostRequest(v2ListsPostRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ListsAPI.V2ListsPost``: %v\n", err)

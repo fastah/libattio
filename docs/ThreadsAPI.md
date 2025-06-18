@@ -26,7 +26,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
@@ -37,8 +37,8 @@ func main() {
 	limit := int32(10) // int32 |  (optional)
 	offset := int32(5) // int32 |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.ThreadsAPI.V2ThreadsGet(context.Background()).RecordId(recordId).Object(object).EntryId(entryId).List(list).Limit(limit).Offset(offset).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ThreadsAPI.V2ThreadsGet``: %v\n", err)
@@ -102,14 +102,14 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	threadId := "a649e4d9-435c-43fb-83ba-847b4876f27a" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.ThreadsAPI.V2ThreadsThreadIdGet(context.Background(), threadId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ThreadsAPI.V2ThreadsThreadIdGet``: %v\n", err)

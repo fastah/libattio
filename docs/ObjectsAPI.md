@@ -28,13 +28,13 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.ObjectsAPI.V2ObjectsGet(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectsAPI.V2ObjectsGet``: %v\n", err)
@@ -89,14 +89,14 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	object := "people" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.ObjectsAPI.V2ObjectsObjectGet(context.Background(), object).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectsAPI.V2ObjectsObjectGet``: %v\n", err)
@@ -159,15 +159,15 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	object := "people" // string | 
-	v2ObjectsObjectPatchRequest := *openapiclient.NewV2ObjectsObjectPatchRequest(*openapiclient.NewV2ObjectsObjectPatchRequestData()) // V2ObjectsObjectPatchRequest | 
+	v2ObjectsObjectPatchRequest := *libattio.NewV2ObjectsObjectPatchRequest(*libattio.NewV2ObjectsObjectPatchRequestData()) // V2ObjectsObjectPatchRequest | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.ObjectsAPI.V2ObjectsObjectPatch(context.Background(), object).V2ObjectsObjectPatchRequest(v2ObjectsObjectPatchRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectsAPI.V2ObjectsObjectPatch``: %v\n", err)
@@ -231,14 +231,14 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
-	v2ObjectsPostRequest := *openapiclient.NewV2ObjectsPostRequest(*openapiclient.NewV2ObjectsPostRequestData("people", "Person", "People")) // V2ObjectsPostRequest | 
+	v2ObjectsPostRequest := *libattio.NewV2ObjectsPostRequest(*libattio.NewV2ObjectsPostRequestData("people", "Person", "People")) // V2ObjectsPostRequest | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.ObjectsAPI.V2ObjectsPost(context.Background()).V2ObjectsPostRequest(v2ObjectsPostRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ObjectsAPI.V2ObjectsPost``: %v\n", err)

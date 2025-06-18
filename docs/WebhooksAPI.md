@@ -29,15 +29,15 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	limit := int32(10) // int32 |  (optional)
 	offset := int32(5) // int32 |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.WebhooksAPI.V2WebhooksGet(context.Background()).Limit(limit).Offset(offset).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.V2WebhooksGet``: %v\n", err)
@@ -97,14 +97,14 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
-	v2WebhooksPostRequest := *openapiclient.NewV2WebhooksPostRequest(*openapiclient.NewV2WebhooksPostRequestData("https://example.com/webhook", []openapiclient.V2WebhooksGet200ResponseDataInnerSubscriptionsInner{*openapiclient.NewV2WebhooksGet200ResponseDataInnerSubscriptionsInner("note.created", "TODO")})) // V2WebhooksPostRequest | 
+	v2WebhooksPostRequest := *libattio.NewV2WebhooksPostRequest(*libattio.NewV2WebhooksPostRequestData("https://example.com/webhook", []libattio.V2WebhooksGet200ResponseDataInnerSubscriptionsInner{*libattio.NewV2WebhooksGet200ResponseDataInnerSubscriptionsInner("note.created", "TODO")})) // V2WebhooksPostRequest | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.WebhooksAPI.V2WebhooksPost(context.Background()).V2WebhooksPostRequest(v2WebhooksPostRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.V2WebhooksPost``: %v\n", err)
@@ -163,14 +163,14 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	webhookId := "23e42eaf-323a-41da-b5bb-fd67eebda553" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.WebhooksAPI.V2WebhooksWebhookIdDelete(context.Background(), webhookId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.V2WebhooksWebhookIdDelete``: %v\n", err)
@@ -233,14 +233,14 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	webhookId := "23e42eaf-323a-41da-b5bb-fd67eebda553" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.WebhooksAPI.V2WebhooksWebhookIdGet(context.Background(), webhookId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.V2WebhooksWebhookIdGet``: %v\n", err)
@@ -303,15 +303,15 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	webhookId := "23e42eaf-323a-41da-b5bb-fd67eebda553" // string | 
-	v2WebhooksWebhookIdPatchRequest := *openapiclient.NewV2WebhooksWebhookIdPatchRequest(*openapiclient.NewV2WebhooksWebhookIdPatchRequestData()) // V2WebhooksWebhookIdPatchRequest | 
+	v2WebhooksWebhookIdPatchRequest := *libattio.NewV2WebhooksWebhookIdPatchRequest(*libattio.NewV2WebhooksWebhookIdPatchRequestData()) // V2WebhooksWebhookIdPatchRequest | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.WebhooksAPI.V2WebhooksWebhookIdPatch(context.Background(), webhookId).V2WebhooksWebhookIdPatchRequest(v2WebhooksWebhookIdPatchRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WebhooksAPI.V2WebhooksWebhookIdPatch``: %v\n", err)

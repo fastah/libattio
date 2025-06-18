@@ -32,7 +32,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
@@ -43,8 +43,8 @@ func main() {
 	limit := int32(10) // int32 |  (optional)
 	offset := int32(5) // int32 |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.EntriesAPI.V2ListsListEntriesEntryIdAttributesAttributeValuesGet(context.Background(), list, entryId, attribute).ShowHistoric(showHistoric).Limit(limit).Offset(offset).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EntriesAPI.V2ListsListEntriesEntryIdAttributesAttributeValuesGet``: %v\n", err)
@@ -114,15 +114,15 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	list := "enterprise_sales" // string | 
 	entryId := "2e6e29ea-c4e0-4f44-842d-78a891f8c156" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.EntriesAPI.V2ListsListEntriesEntryIdDelete(context.Background(), list, entryId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EntriesAPI.V2ListsListEntriesEntryIdDelete``: %v\n", err)
@@ -187,15 +187,15 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	list := "33ebdbe9-e529-47c9-b894-0ba25e9c15c0" // string | 
 	entryId := "2e6e29ea-c4e0-4f44-842d-78a891f8c156" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.EntriesAPI.V2ListsListEntriesEntryIdGet(context.Background(), list, entryId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EntriesAPI.V2ListsListEntriesEntryIdGet``: %v\n", err)
@@ -260,16 +260,16 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	list := "33ebdbe9-e529-47c9-b894-0ba25e9c15c0" // string | 
 	entryId := "2e6e29ea-c4e0-4f44-842d-78a891f8c156" // string | 
-	v2ListsListEntriesEntryIdPutRequest := *openapiclient.NewV2ListsListEntriesEntryIdPutRequest(*openapiclient.NewV2ListsListEntriesEntryIdPutRequestData(map[string][]interface{}{"key": []interface{}{nil}})) // V2ListsListEntriesEntryIdPutRequest | 
+	v2ListsListEntriesEntryIdPutRequest := *libattio.NewV2ListsListEntriesEntryIdPutRequest(*libattio.NewV2ListsListEntriesEntryIdPutRequestData(map[string][]interface{}{"key": []interface{}{nil}})) // V2ListsListEntriesEntryIdPutRequest | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.EntriesAPI.V2ListsListEntriesEntryIdPatch(context.Background(), list, entryId).V2ListsListEntriesEntryIdPutRequest(v2ListsListEntriesEntryIdPutRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EntriesAPI.V2ListsListEntriesEntryIdPatch``: %v\n", err)
@@ -335,16 +335,16 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	list := "33ebdbe9-e529-47c9-b894-0ba25e9c15c0" // string | 
 	entryId := "2e6e29ea-c4e0-4f44-842d-78a891f8c156" // string | 
-	v2ListsListEntriesEntryIdPutRequest := *openapiclient.NewV2ListsListEntriesEntryIdPutRequest(*openapiclient.NewV2ListsListEntriesEntryIdPutRequestData(map[string][]interface{}{"key": []interface{}{nil}})) // V2ListsListEntriesEntryIdPutRequest | 
+	v2ListsListEntriesEntryIdPutRequest := *libattio.NewV2ListsListEntriesEntryIdPutRequest(*libattio.NewV2ListsListEntriesEntryIdPutRequestData(map[string][]interface{}{"key": []interface{}{nil}})) // V2ListsListEntriesEntryIdPutRequest | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.EntriesAPI.V2ListsListEntriesEntryIdPut(context.Background(), list, entryId).V2ListsListEntriesEntryIdPutRequest(v2ListsListEntriesEntryIdPutRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EntriesAPI.V2ListsListEntriesEntryIdPut``: %v\n", err)
@@ -410,15 +410,15 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	list := "33ebdbe9-e529-47c9-b894-0ba25e9c15c0" // string | 
-	v2ListsListEntriesPutRequest := *openapiclient.NewV2ListsListEntriesPutRequest(*openapiclient.NewV2ListsListEntriesPutRequestData("891dcbfc-9141-415d-9b2a-2238a6cc012d", "people", map[string][]interface{}{"key": []interface{}{nil}})) // V2ListsListEntriesPutRequest | 
+	v2ListsListEntriesPutRequest := *libattio.NewV2ListsListEntriesPutRequest(*libattio.NewV2ListsListEntriesPutRequestData("891dcbfc-9141-415d-9b2a-2238a6cc012d", "people", map[string][]interface{}{"key": []interface{}{nil}})) // V2ListsListEntriesPutRequest | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.EntriesAPI.V2ListsListEntriesPost(context.Background(), list).V2ListsListEntriesPutRequest(v2ListsListEntriesPutRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EntriesAPI.V2ListsListEntriesPost``: %v\n", err)
@@ -482,15 +482,15 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	list := "33ebdbe9-e529-47c9-b894-0ba25e9c15c0" // string | 
-	v2ListsListEntriesPutRequest := *openapiclient.NewV2ListsListEntriesPutRequest(*openapiclient.NewV2ListsListEntriesPutRequestData("891dcbfc-9141-415d-9b2a-2238a6cc012d", "people", map[string][]interface{}{"key": []interface{}{nil}})) // V2ListsListEntriesPutRequest | 
+	v2ListsListEntriesPutRequest := *libattio.NewV2ListsListEntriesPutRequest(*libattio.NewV2ListsListEntriesPutRequestData("891dcbfc-9141-415d-9b2a-2238a6cc012d", "people", map[string][]interface{}{"key": []interface{}{nil}})) // V2ListsListEntriesPutRequest | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.EntriesAPI.V2ListsListEntriesPut(context.Background(), list).V2ListsListEntriesPutRequest(v2ListsListEntriesPutRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EntriesAPI.V2ListsListEntriesPut``: %v\n", err)
@@ -554,15 +554,15 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	list := "33ebdbe9-e529-47c9-b894-0ba25e9c15c0" // string | 
-	v2ObjectsObjectRecordsQueryPostRequest := *openapiclient.NewV2ObjectsObjectRecordsQueryPostRequest() // V2ObjectsObjectRecordsQueryPostRequest | 
+	v2ObjectsObjectRecordsQueryPostRequest := *libattio.NewV2ObjectsObjectRecordsQueryPostRequest() // V2ObjectsObjectRecordsQueryPostRequest | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.EntriesAPI.V2ListsListEntriesQueryPost(context.Background(), list).V2ObjectsObjectRecordsQueryPostRequest(v2ObjectsObjectRecordsQueryPostRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EntriesAPI.V2ListsListEntriesQueryPost``: %v\n", err)

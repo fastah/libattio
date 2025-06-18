@@ -28,7 +28,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
@@ -37,8 +37,8 @@ func main() {
 	parentObject := "people" // string |  (optional)
 	parentRecordId := "891dcbfc-9141-415d-9b2a-2238a6cc012d" // string |  (optional)
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.NotesAPI.V2NotesGet(context.Background()).Limit(limit).Offset(offset).ParentObject(parentObject).ParentRecordId(parentRecordId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NotesAPI.V2NotesGet``: %v\n", err)
@@ -100,14 +100,14 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	noteId := "ff3f3bd4-40f4-4f80-8187-cd02385af424" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.NotesAPI.V2NotesNoteIdDelete(context.Background(), noteId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NotesAPI.V2NotesNoteIdDelete``: %v\n", err)
@@ -170,14 +170,14 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
 	noteId := "ff3f3bd4-40f4-4f80-8187-cd02385af424" // string | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.NotesAPI.V2NotesNoteIdGet(context.Background(), noteId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NotesAPI.V2NotesNoteIdGet``: %v\n", err)
@@ -240,11 +240,11 @@ import (
 	"context"
 	"fmt"
 	"os"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
+	libattio "github.com/fastah/libattio"
 )
 
 func main() {
-	v2NotesPostRequest := *openapiclient.NewV2NotesPostRequest(*openapiclient.NewV2NotesPostRequestData("people", "891dcbfc-9141-415d-9b2a-2238a6cc012d", "Initial Prospecting Call Summary", "Format_example", "# Meeting Recap: Q4 Planning
+	v2NotesPostRequest := *libattio.NewV2NotesPostRequest(*libattio.NewV2NotesPostRequestData("people", "891dcbfc-9141-415d-9b2a-2238a6cc012d", "Initial Prospecting Call Summary", "Format_example", "# Meeting Recap: Q4 Planning
 
 **Date:** 2023-10-26
 **Attendees:** Alex, Jamie, Casey
@@ -263,8 +263,8 @@ func main() {
 
 *Next steps: Review draft roadmap next week.*")) // V2NotesPostRequest | 
 
-	configuration := openapiclient.NewConfiguration()
-	apiClient := openapiclient.NewAPIClient(configuration)
+	configuration := libattio.NewConfiguration()
+	apiClient := libattio.NewAPIClient(configuration)
 	resp, r, err := apiClient.NotesAPI.V2NotesPost(context.Background()).V2NotesPostRequest(v2NotesPostRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NotesAPI.V2NotesPost``: %v\n", err)
