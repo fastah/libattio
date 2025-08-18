@@ -13,15 +13,3 @@ codegen:
 
 deps: 
 	brew install openapi-generator
-
-deps-oas2:
-	GOPRIVATE=github.com/fastah/*
-	go install github.com/oapi-codegen/oapi-codegen/v2/cmd/oapi-codegen@latest
-	npm i @apiture/openapi-down-convert
-
-# Look inside the yaml specified in the --config flag to see where the code is generated.
-codegen-oas2: 
-	oapi-codegen --config=config-codegen.yaml $(OAS3_API_SPEC)
-
-$(OAS3_API_SPEC_FILEPREFIX)-downgraded.json: openapi-attio.json
-	openapi-down-convert --input $(OAS3_API_SPEC) --output $(OAS3_API_SPEC_FILEPREFIX)-downgraded.json

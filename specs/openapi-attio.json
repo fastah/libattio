@@ -43,6 +43,18 @@
             "description": "Notes are rich text documents that reference a single parent record."
         },
         {
+            "name": "Meetings",
+            "description": "Meetings are events synced from your calendar, added manually or added from third-party integrations."
+        },
+        {
+            "name": "Call recordings",
+            "description": "Call recordings store video, audio, transcript and speaker information for calls. They are linked to meetings."
+        },
+        {
+            "name": "Transcripts",
+            "description": "Transcripts contain the speech segments and speaker information for a call recording. They are linked to call recordings."
+        },
+        {
             "name": "Tasks",
             "description": "A task is a defined, actionable item with references to linked records and assigned workspace members."
         },
@@ -120,6 +132,10 @@
                             "task:read-write": "View, and optionally write, tasks.",
                             "note:read": "View, and optionally write, notes.",
                             "note:read-write": "View, and optionally write, notes.",
+                            "meeting:read": "View, and optionally write, meetings.",
+                            "meeting:read-write": "View, and optionally write, meetings.",
+                            "call_recording:read": "View, and optionally write, call recordings, transcripts and speakers for meetings.",
+                            "call_recording:read-write": "View, and optionally write, call recordings, transcripts and speakers for meetings.",
                             "webhook:read": "View, and optionally manage, webhooks.",
                             "webhook:read-write": "View, and optionally manage, webhooks."
                         }
@@ -690,7 +706,9 @@
                                                         "ZW",
                                                         "BQ",
                                                         "KP",
-                                                        "SX"
+                                                        "SX",
+                                                        "XK",
+                                                        "AC"
                                                     ],
                                                     "example": "GB",
                                                     "description": "The ISO 3166-1 alpha-2 country code representing the country that this phone number belongs to."
@@ -1085,7 +1103,9 @@
                                     "ZW",
                                     "BQ",
                                     "KP",
-                                    "SX"
+                                    "SX",
+                                    "XK",
+                                    "AC"
                                 ],
                                 "description": "The ISO 3166-1 alpha-2 country code for the country this location is in.",
                                 "example": "US"
@@ -1423,7 +1443,9 @@
                                     "ZW",
                                     "BQ",
                                     "KP",
-                                    "SX"
+                                    "SX",
+                                    "XK",
+                                    "AC"
                                 ],
                                 "example": "GB",
                                 "description": "The ISO 3166-1 alpha-2 country code representing the country that this phone number belongs to. Optional if `original_phone_number` includes a country code prefix."
@@ -1584,10 +1606,12 @@
                                     "null"
                                 ],
                                 "enum": [
+                                    "ARS",
                                     "AUD",
                                     "BRL",
                                     "BEL",
                                     "CAD",
+                                    "CLP",
                                     "CNY",
                                     "COP",
                                     "CZK",
@@ -1610,12 +1634,14 @@
                                     "PHP",
                                     "PLN",
                                     "GBP",
+                                    "RWF",
                                     "SAR",
                                     "SGD",
                                     "ZAR",
                                     "SEK",
                                     "CHF",
                                     "AED",
+                                    "UYU",
                                     "USD"
                                 ],
                                 "description": "The ISO4217 currency code representing the currency that the value is stored in.",
@@ -2136,7 +2162,9 @@
                                     "ZW",
                                     "BQ",
                                     "KP",
-                                    "SX"
+                                    "SX",
+                                    "XK",
+                                    "AC"
                                 ],
                                 "description": "The ISO 3166-1 alpha-2 country code for the country this location is in.",
                                 "example": "US"
@@ -2501,7 +2529,9 @@
                                     "ZW",
                                     "BQ",
                                     "KP",
-                                    "SX"
+                                    "SX",
+                                    "XK",
+                                    "AC"
                                 ],
                                 "example": "US"
                             },
@@ -2927,10 +2957,12 @@
                                             "null"
                                         ],
                                         "enum": [
+                                            "ARS",
                                             "AUD",
                                             "BRL",
                                             "BEL",
                                             "CAD",
+                                            "CLP",
                                             "CNY",
                                             "COP",
                                             "CZK",
@@ -2953,12 +2985,14 @@
                                             "PHP",
                                             "PLN",
                                             "GBP",
+                                            "RWF",
                                             "SAR",
                                             "SGD",
                                             "ZAR",
                                             "SEK",
                                             "CHF",
                                             "AED",
+                                            "UYU",
                                             "USD"
                                         ],
                                         "description": "The ISO4217 code representing the currency that values for this attribute should be stored in.",
@@ -3489,6 +3523,236 @@
                     "author"
                 ]
             },
+            "meeting": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "object",
+                        "properties": {
+                            "workspace_id": {
+                                "type": "string",
+                                "format": "uuid",
+                                "description": "The ID of the workspace the meeting belongs to.",
+                                "example": "14beef7a-99f7-4534-a87e-70b564330a4c"
+                            },
+                            "meeting_id": {
+                                "type": "string",
+                                "format": "uuid",
+                                "description": "The ID of the Attio meeting.",
+                                "example": "cb59ab17-ad15-460c-a126-0715617c0853"
+                            }
+                        },
+                        "required": [
+                            "workspace_id",
+                            "meeting_id"
+                        ]
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "The title of the meeting.",
+                        "example": "Onboarding Session"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The description of the meeting.",
+                        "example": "Getting you up to speed with the platform and answering any questions you have."
+                    },
+                    "is_all_day": {
+                        "type": "boolean",
+                        "description": "Whether or not the meeting is an all day event. All day events may span multiple days.",
+                        "example": false
+                    },
+                    "start": {
+                        "anyOf": [
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "datetime": {
+                                        "type": "string",
+                                        "description": "If a non-all day event, a datetime representing when the meeting starts. Datetimes are formatted as UTC if no timezone is available. If a timezone is available, the datetime will offset using the specified timezone.",
+                                        "example": "2027-11-27T14:00:00.000-04:00"
+                                    },
+                                    "timezone": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ],
+                                        "description": "The IANA timezone in which the meeting starts, if available.",
+                                        "example": "America/New_York"
+                                    }
+                                },
+                                "required": [
+                                    "datetime",
+                                    "timezone"
+                                ]
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "date": {
+                                        "type": "string",
+                                        "description": "If an all day event, a date representing when the meeting starts.",
+                                        "example": "2027-11-27"
+                                    }
+                                },
+                                "required": [
+                                    "date"
+                                ]
+                            }
+                        ]
+                    },
+                    "end": {
+                        "anyOf": [
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "datetime": {
+                                        "type": "string",
+                                        "description": "A datetime representing when the meeting ends. All day meetings will return a date whereas non-all day meetings will return a datetime. Datetimes do not include timezone information; please refer to `timezone` for timezone information. Following iCalendar RFC 5545, the `end_at` property is exclusive, meaning that the meeting ends before the specified time, not at it. For example, a one day meeting on June 3rd would have an `end_at` of June 4th, not June 3rd; a one hour meeting starting at 14:00 would have an `end_at` of 15:00, not 14:00.",
+                                        "example": "2027-11-27T15:00:00.000-04:00"
+                                    },
+                                    "timezone": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ],
+                                        "description": "The IANA timezone in which the meeting ends, if available.",
+                                        "example": "America/New_York"
+                                    }
+                                },
+                                "required": [
+                                    "datetime",
+                                    "timezone"
+                                ]
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "date": {
+                                        "type": "string",
+                                        "description": "If an all day event, a date representing when the meeting ends.",
+                                        "example": "2027-11-27"
+                                    }
+                                },
+                                "required": [
+                                    "date"
+                                ]
+                            }
+                        ]
+                    },
+                    "participants": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "status": {
+                                    "type": "string",
+                                    "enum": [
+                                        "accepted",
+                                        "tentative",
+                                        "declined",
+                                        "pending"
+                                    ],
+                                    "description": "The status of the individual meeting participant.",
+                                    "example": "accepted"
+                                },
+                                "is_organizer": {
+                                    "type": "boolean",
+                                    "description": "Whether or not the participant is the organizer of the meeting.",
+                                    "example": false
+                                },
+                                "email_address": {
+                                    "type": [
+                                        "string",
+                                        "null"
+                                    ],
+                                    "description": "The normalized email address of the meeting participant.",
+                                    "example": "person@company.com"
+                                }
+                            },
+                            "required": [
+                                "status",
+                                "is_organizer",
+                                "email_address"
+                            ]
+                        }
+                    },
+                    "linked_records": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "object_slug": {
+                                    "type": "string",
+                                    "description": "The slug of the object the meeting linked record belongs to.",
+                                    "example": "people"
+                                },
+                                "object_id": {
+                                    "type": "string",
+                                    "format": "uuid",
+                                    "description": "The ID of the object the meeting linked record belongs to.",
+                                    "example": "891dcbfc-9141-415d-9b2a-2238a6cc012d"
+                                },
+                                "record_id": {
+                                    "type": "string",
+                                    "format": "uuid",
+                                    "description": "The ID of the meeting linked record.",
+                                    "example": "891dcbfc-9141-415d-9b2a-2238a6cc012d"
+                                }
+                            },
+                            "required": [
+                                "object_slug",
+                                "object_id",
+                                "record_id"
+                            ]
+                        },
+                        "description": "A list of records that are linked to the meeting. Participants with matching person records are automatically linked to the meeting but other records may also be linked explicitly."
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "description": "Timestamp representing when the meeting was created.",
+                        "example": "2023-01-01T15:00:00.000000000Z"
+                    },
+                    "created_by_actor": {
+                        "type": "object",
+                        "description": "The actor that created this meeting.",
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "description": "An ID to identify the actor.",
+                                "nullable": true
+                            },
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "api-token",
+                                    "workspace-member",
+                                    "system",
+                                    "app"
+                                ],
+                                "nullable": true,
+                                "description": "The type of actor. [Read more information on actor types here](/docs/actors)."
+                            }
+                        },
+                        "example": {
+                            "type": "workspace-member",
+                            "id": "50cf242c-7fa3-4cad-87d0-75b1af71c57b"
+                        }
+                    }
+                },
+                "required": [
+                    "id",
+                    "title",
+                    "description",
+                    "is_all_day",
+                    "start",
+                    "end",
+                    "participants",
+                    "linked_records",
+                    "created_at",
+                    "created_by_actor"
+                ]
+            },
             "note": {
                 "type": "object",
                 "properties": {
@@ -3528,6 +3792,15 @@
                         "type": "string",
                         "description": "The note title. The title is plaintext only and has no formatting.",
                         "example": "Initial Prospecting Call Summary"
+                    },
+                    "meeting_id": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "format": "uuid",
+                        "description": "The ID of the meeting associated with this note, or null if no meeting is associated.",
+                        "example": "14beef7a-99f7-4534-a87e-70b564330a4c"
                     },
                     "content_plaintext": {
                         "type": "string",
@@ -3645,6 +3918,7 @@
                     "parent_object",
                     "parent_record_id",
                     "title",
+                    "meeting_id",
                     "content_plaintext",
                     "content_markdown",
                     "tags",
@@ -4581,10 +4855,12 @@
                                                             "default_currency_code": {
                                                                 "type": "string",
                                                                 "enum": [
+                                                                    "ARS",
                                                                     "AUD",
                                                                     "BRL",
                                                                     "BEL",
                                                                     "CAD",
+                                                                    "CLP",
                                                                     "CNY",
                                                                     "COP",
                                                                     "CZK",
@@ -4607,12 +4883,14 @@
                                                                     "PHP",
                                                                     "PLN",
                                                                     "GBP",
+                                                                    "RWF",
                                                                     "SAR",
                                                                     "SGD",
                                                                     "ZAR",
                                                                     "SEK",
                                                                     "CHF",
                                                                     "AED",
+                                                                    "UYU",
                                                                     "USD"
                                                                 ],
                                                                 "description": "The ISO4217 code representing the currency that values for this attribute should be stored in.",
@@ -5113,10 +5391,12 @@
                                                             "default_currency_code": {
                                                                 "type": "string",
                                                                 "enum": [
+                                                                    "ARS",
                                                                     "AUD",
                                                                     "BRL",
                                                                     "BEL",
                                                                     "CAD",
+                                                                    "CLP",
                                                                     "CNY",
                                                                     "COP",
                                                                     "CZK",
@@ -5139,12 +5419,14 @@
                                                                     "PHP",
                                                                     "PLN",
                                                                     "GBP",
+                                                                    "RWF",
                                                                     "SAR",
                                                                     "SGD",
                                                                     "ZAR",
                                                                     "SEK",
                                                                     "CHF",
                                                                     "AED",
+                                                                    "UYU",
                                                                     "USD"
                                                                 ],
                                                                 "description": "The ISO4217 code representing the currency that values for this attribute should be stored in.",
@@ -6919,10 +7201,12 @@
                                                                                     "null"
                                                                                 ],
                                                                                 "enum": [
+                                                                                    "ARS",
                                                                                     "AUD",
                                                                                     "BRL",
                                                                                     "BEL",
                                                                                     "CAD",
+                                                                                    "CLP",
                                                                                     "CNY",
                                                                                     "COP",
                                                                                     "CZK",
@@ -6945,12 +7229,14 @@
                                                                                     "PHP",
                                                                                     "PLN",
                                                                                     "GBP",
+                                                                                    "RWF",
                                                                                     "SAR",
                                                                                     "SGD",
                                                                                     "ZAR",
                                                                                     "SEK",
                                                                                     "CHF",
                                                                                     "AED",
+                                                                                    "UYU",
                                                                                     "USD"
                                                                                 ],
                                                                                 "description": "The ISO4217 currency code representing the currency that the value is stored in.",
@@ -7735,7 +8021,9 @@
                                                                                     "ZW",
                                                                                     "BQ",
                                                                                     "KP",
-                                                                                    "SX"
+                                                                                    "SX",
+                                                                                    "XK",
+                                                                                    "AC"
                                                                                 ],
                                                                                 "description": "The ISO 3166-1 alpha-2 country code for the country this location is in.",
                                                                                 "example": "US"
@@ -8232,7 +8520,9 @@
                                                                                     "ZW",
                                                                                     "BQ",
                                                                                     "KP",
-                                                                                    "SX"
+                                                                                    "SX",
+                                                                                    "XK",
+                                                                                    "AC"
                                                                                 ],
                                                                                 "example": "US"
                                                                             },
@@ -9024,10 +9314,12 @@
                                                                                 "null"
                                                                             ],
                                                                             "enum": [
+                                                                                "ARS",
                                                                                 "AUD",
                                                                                 "BRL",
                                                                                 "BEL",
                                                                                 "CAD",
+                                                                                "CLP",
                                                                                 "CNY",
                                                                                 "COP",
                                                                                 "CZK",
@@ -9050,12 +9342,14 @@
                                                                                 "PHP",
                                                                                 "PLN",
                                                                                 "GBP",
+                                                                                "RWF",
                                                                                 "SAR",
                                                                                 "SGD",
                                                                                 "ZAR",
                                                                                 "SEK",
                                                                                 "CHF",
                                                                                 "AED",
+                                                                                "UYU",
                                                                                 "USD"
                                                                             ],
                                                                             "description": "The ISO4217 currency code representing the currency that the value is stored in.",
@@ -9840,7 +10134,9 @@
                                                                                 "ZW",
                                                                                 "BQ",
                                                                                 "KP",
-                                                                                "SX"
+                                                                                "SX",
+                                                                                "XK",
+                                                                                "AC"
                                                                             ],
                                                                             "description": "The ISO 3166-1 alpha-2 country code for the country this location is in.",
                                                                             "example": "US"
@@ -10337,7 +10633,9 @@
                                                                                 "ZW",
                                                                                 "BQ",
                                                                                 "KP",
-                                                                                "SX"
+                                                                                "SX",
+                                                                                "XK",
+                                                                                "AC"
                                                                             ],
                                                                             "example": "US"
                                                                         },
@@ -11137,10 +11435,12 @@
                                                                                 "null"
                                                                             ],
                                                                             "enum": [
+                                                                                "ARS",
                                                                                 "AUD",
                                                                                 "BRL",
                                                                                 "BEL",
                                                                                 "CAD",
+                                                                                "CLP",
                                                                                 "CNY",
                                                                                 "COP",
                                                                                 "CZK",
@@ -11163,12 +11463,14 @@
                                                                                 "PHP",
                                                                                 "PLN",
                                                                                 "GBP",
+                                                                                "RWF",
                                                                                 "SAR",
                                                                                 "SGD",
                                                                                 "ZAR",
                                                                                 "SEK",
                                                                                 "CHF",
                                                                                 "AED",
+                                                                                "UYU",
                                                                                 "USD"
                                                                             ],
                                                                             "description": "The ISO4217 currency code representing the currency that the value is stored in.",
@@ -11953,7 +12255,9 @@
                                                                                 "ZW",
                                                                                 "BQ",
                                                                                 "KP",
-                                                                                "SX"
+                                                                                "SX",
+                                                                                "XK",
+                                                                                "AC"
                                                                             ],
                                                                             "description": "The ISO 3166-1 alpha-2 country code for the country this location is in.",
                                                                             "example": "US"
@@ -12450,7 +12754,9 @@
                                                                                 "ZW",
                                                                                 "BQ",
                                                                                 "KP",
-                                                                                "SX"
+                                                                                "SX",
+                                                                                "XK",
+                                                                                "AC"
                                                                             ],
                                                                             "example": "US"
                                                                         },
@@ -13215,10 +13521,12 @@
                                                                                 "null"
                                                                             ],
                                                                             "enum": [
+                                                                                "ARS",
                                                                                 "AUD",
                                                                                 "BRL",
                                                                                 "BEL",
                                                                                 "CAD",
+                                                                                "CLP",
                                                                                 "CNY",
                                                                                 "COP",
                                                                                 "CZK",
@@ -13241,12 +13549,14 @@
                                                                                 "PHP",
                                                                                 "PLN",
                                                                                 "GBP",
+                                                                                "RWF",
                                                                                 "SAR",
                                                                                 "SGD",
                                                                                 "ZAR",
                                                                                 "SEK",
                                                                                 "CHF",
                                                                                 "AED",
+                                                                                "UYU",
                                                                                 "USD"
                                                                             ],
                                                                             "description": "The ISO4217 currency code representing the currency that the value is stored in.",
@@ -14031,7 +14341,9 @@
                                                                                 "ZW",
                                                                                 "BQ",
                                                                                 "KP",
-                                                                                "SX"
+                                                                                "SX",
+                                                                                "XK",
+                                                                                "AC"
                                                                             ],
                                                                             "description": "The ISO 3166-1 alpha-2 country code for the country this location is in.",
                                                                             "example": "US"
@@ -14528,7 +14840,9 @@
                                                                                 "ZW",
                                                                                 "BQ",
                                                                                 "KP",
-                                                                                "SX"
+                                                                                "SX",
+                                                                                "XK",
+                                                                                "AC"
                                                                             ],
                                                                             "example": "US"
                                                                         },
@@ -15287,10 +15601,12 @@
                                                                                 "null"
                                                                             ],
                                                                             "enum": [
+                                                                                "ARS",
                                                                                 "AUD",
                                                                                 "BRL",
                                                                                 "BEL",
                                                                                 "CAD",
+                                                                                "CLP",
                                                                                 "CNY",
                                                                                 "COP",
                                                                                 "CZK",
@@ -15313,12 +15629,14 @@
                                                                                 "PHP",
                                                                                 "PLN",
                                                                                 "GBP",
+                                                                                "RWF",
                                                                                 "SAR",
                                                                                 "SGD",
                                                                                 "ZAR",
                                                                                 "SEK",
                                                                                 "CHF",
                                                                                 "AED",
+                                                                                "UYU",
                                                                                 "USD"
                                                                             ],
                                                                             "description": "The ISO4217 currency code representing the currency that the value is stored in.",
@@ -16103,7 +16421,9 @@
                                                                                 "ZW",
                                                                                 "BQ",
                                                                                 "KP",
-                                                                                "SX"
+                                                                                "SX",
+                                                                                "XK",
+                                                                                "AC"
                                                                             ],
                                                                             "description": "The ISO 3166-1 alpha-2 country code for the country this location is in.",
                                                                             "example": "US"
@@ -16600,7 +16920,9 @@
                                                                                 "ZW",
                                                                                 "BQ",
                                                                                 "KP",
-                                                                                "SX"
+                                                                                "SX",
+                                                                                "XK",
+                                                                                "AC"
                                                                             ],
                                                                             "example": "US"
                                                                         },
@@ -17400,10 +17722,12 @@
                                                                                 "null"
                                                                             ],
                                                                             "enum": [
+                                                                                "ARS",
                                                                                 "AUD",
                                                                                 "BRL",
                                                                                 "BEL",
                                                                                 "CAD",
+                                                                                "CLP",
                                                                                 "CNY",
                                                                                 "COP",
                                                                                 "CZK",
@@ -17426,12 +17750,14 @@
                                                                                 "PHP",
                                                                                 "PLN",
                                                                                 "GBP",
+                                                                                "RWF",
                                                                                 "SAR",
                                                                                 "SGD",
                                                                                 "ZAR",
                                                                                 "SEK",
                                                                                 "CHF",
                                                                                 "AED",
+                                                                                "UYU",
                                                                                 "USD"
                                                                             ],
                                                                             "description": "The ISO4217 currency code representing the currency that the value is stored in.",
@@ -18216,7 +18542,9 @@
                                                                                 "ZW",
                                                                                 "BQ",
                                                                                 "KP",
-                                                                                "SX"
+                                                                                "SX",
+                                                                                "XK",
+                                                                                "AC"
                                                                             ],
                                                                             "description": "The ISO 3166-1 alpha-2 country code for the country this location is in.",
                                                                             "example": "US"
@@ -18713,7 +19041,9 @@
                                                                                 "ZW",
                                                                                 "BQ",
                                                                                 "KP",
-                                                                                "SX"
+                                                                                "SX",
+                                                                                "XK",
+                                                                                "AC"
                                                                             ],
                                                                             "example": "US"
                                                                         },
@@ -19274,7 +19604,7 @@
         "/v2/objects/{object}/records/{record_id}/attributes/{attribute}/values": {
             "get": {
                 "summary": "List record attribute values",
-                "description": "Gets all values for a given attribute on a record. If the attribute is historic, this endpoint has the ability to return all historic values using the `show_historic` query param.\n\nRequired scopes: `record_permission:read`, `object_configuration:read`.",
+                "description": "Gets all values for a given attribute on a record. Historic values can be queried using the `show_historic` query param. Historic values cannot be queried on COMINT (Communication Intelligence) or enriched attributes and the endpoint will return a 400 error if this is attempted. Historic values are sorted from oldest to newest (by `active_from`). Some attributes are subject to billing status and will return an empty array of values if theworkspace being queried does not have the required billing flag enabled.\n\nRequired scopes: `record_permission:read`, `object_configuration:read`.",
                 "tags": [
                     "Records"
                 ],
@@ -19321,7 +19651,7 @@
                     {
                         "schema": {
                             "type": "boolean",
-                            "description": "If `true`, the endpoint will return all historic values for the attribute. If `false`, the endpoint will only return the currently active value(s). Defaults to `false`. Can only be set to `true` for attributes which support historic data; the endpoint will throw if set to `true` for non-historic attributes.",
+                            "description": "If `true`, the endpoint will return all historic values for the attribute. If `false`, the endpoint will only return the currently active value(s). Defaults to `false`. Cannot be set to `true` for COMINT attributes or enriched attributes on people/company objects.",
                             "example": true,
                             "default": false
                         },
@@ -19567,10 +19897,12 @@
                                                                     "null"
                                                                 ],
                                                                 "enum": [
+                                                                    "ARS",
                                                                     "AUD",
                                                                     "BRL",
                                                                     "BEL",
                                                                     "CAD",
+                                                                    "CLP",
                                                                     "CNY",
                                                                     "COP",
                                                                     "CZK",
@@ -19593,12 +19925,14 @@
                                                                     "PHP",
                                                                     "PLN",
                                                                     "GBP",
+                                                                    "RWF",
                                                                     "SAR",
                                                                     "SGD",
                                                                     "ZAR",
                                                                     "SEK",
                                                                     "CHF",
                                                                     "AED",
+                                                                    "UYU",
                                                                     "USD"
                                                                 ],
                                                                 "description": "The ISO4217 currency code representing the currency that the value is stored in.",
@@ -20383,7 +20717,9 @@
                                                                     "ZW",
                                                                     "BQ",
                                                                     "KP",
-                                                                    "SX"
+                                                                    "SX",
+                                                                    "XK",
+                                                                    "AC"
                                                                 ],
                                                                 "description": "The ISO 3166-1 alpha-2 country code for the country this location is in.",
                                                                 "example": "US"
@@ -20880,7 +21216,9 @@
                                                                     "ZW",
                                                                     "BQ",
                                                                     "KP",
-                                                                    "SX"
+                                                                    "SX",
+                                                                    "XK",
+                                                                    "AC"
                                                                 ],
                                                                 "example": "US"
                                                             },
@@ -21278,7 +21616,7 @@
                                         },
                                         "message": {
                                             "type": "string",
-                                            "example": "Cannot set show_historic param to true when querying a non-historic attribute."
+                                            "example": "Cannot set show_historic param to true when querying a COMINT attribute."
                                         }
                                     },
                                     "required": [
@@ -22474,10 +22812,12 @@
                                                                                     "null"
                                                                                 ],
                                                                                 "enum": [
+                                                                                    "ARS",
                                                                                     "AUD",
                                                                                     "BRL",
                                                                                     "BEL",
                                                                                     "CAD",
+                                                                                    "CLP",
                                                                                     "CNY",
                                                                                     "COP",
                                                                                     "CZK",
@@ -22500,12 +22840,14 @@
                                                                                     "PHP",
                                                                                     "PLN",
                                                                                     "GBP",
+                                                                                    "RWF",
                                                                                     "SAR",
                                                                                     "SGD",
                                                                                     "ZAR",
                                                                                     "SEK",
                                                                                     "CHF",
                                                                                     "AED",
+                                                                                    "UYU",
                                                                                     "USD"
                                                                                 ],
                                                                                 "description": "The ISO4217 currency code representing the currency that the value is stored in.",
@@ -23290,7 +23632,9 @@
                                                                                     "ZW",
                                                                                     "BQ",
                                                                                     "KP",
-                                                                                    "SX"
+                                                                                    "SX",
+                                                                                    "XK",
+                                                                                    "AC"
                                                                                 ],
                                                                                 "description": "The ISO 3166-1 alpha-2 country code for the country this location is in.",
                                                                                 "example": "US"
@@ -23787,7 +24131,9 @@
                                                                                     "ZW",
                                                                                     "BQ",
                                                                                     "KP",
-                                                                                    "SX"
+                                                                                    "SX",
+                                                                                    "XK",
+                                                                                    "AC"
                                                                                 ],
                                                                                 "example": "US"
                                                                             },
@@ -24607,10 +24953,12 @@
                                                                                 "null"
                                                                             ],
                                                                             "enum": [
+                                                                                "ARS",
                                                                                 "AUD",
                                                                                 "BRL",
                                                                                 "BEL",
                                                                                 "CAD",
+                                                                                "CLP",
                                                                                 "CNY",
                                                                                 "COP",
                                                                                 "CZK",
@@ -24633,12 +24981,14 @@
                                                                                 "PHP",
                                                                                 "PLN",
                                                                                 "GBP",
+                                                                                "RWF",
                                                                                 "SAR",
                                                                                 "SGD",
                                                                                 "ZAR",
                                                                                 "SEK",
                                                                                 "CHF",
                                                                                 "AED",
+                                                                                "UYU",
                                                                                 "USD"
                                                                             ],
                                                                             "description": "The ISO4217 currency code representing the currency that the value is stored in.",
@@ -25423,7 +25773,9 @@
                                                                                 "ZW",
                                                                                 "BQ",
                                                                                 "KP",
-                                                                                "SX"
+                                                                                "SX",
+                                                                                "XK",
+                                                                                "AC"
                                                                             ],
                                                                             "description": "The ISO 3166-1 alpha-2 country code for the country this location is in.",
                                                                             "example": "US"
@@ -25920,7 +26272,9 @@
                                                                                 "ZW",
                                                                                 "BQ",
                                                                                 "KP",
-                                                                                "SX"
+                                                                                "SX",
+                                                                                "XK",
+                                                                                "AC"
                                                                             ],
                                                                             "example": "US"
                                                                         },
@@ -26778,10 +27132,12 @@
                                                                                 "null"
                                                                             ],
                                                                             "enum": [
+                                                                                "ARS",
                                                                                 "AUD",
                                                                                 "BRL",
                                                                                 "BEL",
                                                                                 "CAD",
+                                                                                "CLP",
                                                                                 "CNY",
                                                                                 "COP",
                                                                                 "CZK",
@@ -26804,12 +27160,14 @@
                                                                                 "PHP",
                                                                                 "PLN",
                                                                                 "GBP",
+                                                                                "RWF",
                                                                                 "SAR",
                                                                                 "SGD",
                                                                                 "ZAR",
                                                                                 "SEK",
                                                                                 "CHF",
                                                                                 "AED",
+                                                                                "UYU",
                                                                                 "USD"
                                                                             ],
                                                                             "description": "The ISO4217 currency code representing the currency that the value is stored in.",
@@ -27594,7 +27952,9 @@
                                                                                 "ZW",
                                                                                 "BQ",
                                                                                 "KP",
-                                                                                "SX"
+                                                                                "SX",
+                                                                                "XK",
+                                                                                "AC"
                                                                             ],
                                                                             "description": "The ISO 3166-1 alpha-2 country code for the country this location is in.",
                                                                             "example": "US"
@@ -28091,7 +28451,9 @@
                                                                                 "ZW",
                                                                                 "BQ",
                                                                                 "KP",
-                                                                                "SX"
+                                                                                "SX",
+                                                                                "XK",
+                                                                                "AC"
                                                                             ],
                                                                             "example": "US"
                                                                         },
@@ -28912,10 +29274,12 @@
                                                                                 "null"
                                                                             ],
                                                                             "enum": [
+                                                                                "ARS",
                                                                                 "AUD",
                                                                                 "BRL",
                                                                                 "BEL",
                                                                                 "CAD",
+                                                                                "CLP",
                                                                                 "CNY",
                                                                                 "COP",
                                                                                 "CZK",
@@ -28938,12 +29302,14 @@
                                                                                 "PHP",
                                                                                 "PLN",
                                                                                 "GBP",
+                                                                                "RWF",
                                                                                 "SAR",
                                                                                 "SGD",
                                                                                 "ZAR",
                                                                                 "SEK",
                                                                                 "CHF",
                                                                                 "AED",
+                                                                                "UYU",
                                                                                 "USD"
                                                                             ],
                                                                             "description": "The ISO4217 currency code representing the currency that the value is stored in.",
@@ -29728,7 +30094,9 @@
                                                                                 "ZW",
                                                                                 "BQ",
                                                                                 "KP",
-                                                                                "SX"
+                                                                                "SX",
+                                                                                "XK",
+                                                                                "AC"
                                                                             ],
                                                                             "description": "The ISO 3166-1 alpha-2 country code for the country this location is in.",
                                                                             "example": "US"
@@ -30225,7 +30593,9 @@
                                                                                 "ZW",
                                                                                 "BQ",
                                                                                 "KP",
-                                                                                "SX"
+                                                                                "SX",
+                                                                                "XK",
+                                                                                "AC"
                                                                             ],
                                                                             "example": "US"
                                                                         },
@@ -31040,10 +31410,12 @@
                                                                                 "null"
                                                                             ],
                                                                             "enum": [
+                                                                                "ARS",
                                                                                 "AUD",
                                                                                 "BRL",
                                                                                 "BEL",
                                                                                 "CAD",
+                                                                                "CLP",
                                                                                 "CNY",
                                                                                 "COP",
                                                                                 "CZK",
@@ -31066,12 +31438,14 @@
                                                                                 "PHP",
                                                                                 "PLN",
                                                                                 "GBP",
+                                                                                "RWF",
                                                                                 "SAR",
                                                                                 "SGD",
                                                                                 "ZAR",
                                                                                 "SEK",
                                                                                 "CHF",
                                                                                 "AED",
+                                                                                "UYU",
                                                                                 "USD"
                                                                             ],
                                                                             "description": "The ISO4217 currency code representing the currency that the value is stored in.",
@@ -31856,7 +32230,9 @@
                                                                                 "ZW",
                                                                                 "BQ",
                                                                                 "KP",
-                                                                                "SX"
+                                                                                "SX",
+                                                                                "XK",
+                                                                                "AC"
                                                                             ],
                                                                             "description": "The ISO 3166-1 alpha-2 country code for the country this location is in.",
                                                                             "example": "US"
@@ -32353,7 +32729,9 @@
                                                                                 "ZW",
                                                                                 "BQ",
                                                                                 "KP",
-                                                                                "SX"
+                                                                                "SX",
+                                                                                "XK",
+                                                                                "AC"
                                                                             ],
                                                                             "example": "US"
                                                                         },
@@ -33209,10 +33587,12 @@
                                                                                 "null"
                                                                             ],
                                                                             "enum": [
+                                                                                "ARS",
                                                                                 "AUD",
                                                                                 "BRL",
                                                                                 "BEL",
                                                                                 "CAD",
+                                                                                "CLP",
                                                                                 "CNY",
                                                                                 "COP",
                                                                                 "CZK",
@@ -33235,12 +33615,14 @@
                                                                                 "PHP",
                                                                                 "PLN",
                                                                                 "GBP",
+                                                                                "RWF",
                                                                                 "SAR",
                                                                                 "SGD",
                                                                                 "ZAR",
                                                                                 "SEK",
                                                                                 "CHF",
                                                                                 "AED",
+                                                                                "UYU",
                                                                                 "USD"
                                                                             ],
                                                                             "description": "The ISO4217 currency code representing the currency that the value is stored in.",
@@ -34025,7 +34407,9 @@
                                                                                 "ZW",
                                                                                 "BQ",
                                                                                 "KP",
-                                                                                "SX"
+                                                                                "SX",
+                                                                                "XK",
+                                                                                "AC"
                                                                             ],
                                                                             "description": "The ISO 3166-1 alpha-2 country code for the country this location is in.",
                                                                             "example": "US"
@@ -34522,7 +34906,9 @@
                                                                                 "ZW",
                                                                                 "BQ",
                                                                                 "KP",
-                                                                                "SX"
+                                                                                "SX",
+                                                                                "XK",
+                                                                                "AC"
                                                                             ],
                                                                             "example": "US"
                                                                         },
@@ -35135,7 +35521,7 @@
         "/v2/lists/{list}/entries/{entry_id}/attributes/{attribute}/values": {
             "get": {
                 "summary": "List attribute values for a list entry",
-                "description": "Gets all values for a given attribute on a list entry. If the attribute is historic, this endpoint has the ability to return all historic values using the `show_historic` query param.\n\nRequired scopes: `list_entry:read`, `list_configuration:read`.",
+                "description": "Gets all values for a given attribute on a list entry. This endpoint has the ability to return all historic values using the `show_historic` query param. Historic values are sorted from oldest to newest (by `active_from`).\n\nRequired scopes: `list_entry:read`, `list_configuration:read`.",
                 "tags": [
                     "Entries"
                 ],
@@ -35428,10 +35814,12 @@
                                                                     "null"
                                                                 ],
                                                                 "enum": [
+                                                                    "ARS",
                                                                     "AUD",
                                                                     "BRL",
                                                                     "BEL",
                                                                     "CAD",
+                                                                    "CLP",
                                                                     "CNY",
                                                                     "COP",
                                                                     "CZK",
@@ -35454,12 +35842,14 @@
                                                                     "PHP",
                                                                     "PLN",
                                                                     "GBP",
+                                                                    "RWF",
                                                                     "SAR",
                                                                     "SGD",
                                                                     "ZAR",
                                                                     "SEK",
                                                                     "CHF",
                                                                     "AED",
+                                                                    "UYU",
                                                                     "USD"
                                                                 ],
                                                                 "description": "The ISO4217 currency code representing the currency that the value is stored in.",
@@ -36244,7 +36634,9 @@
                                                                     "ZW",
                                                                     "BQ",
                                                                     "KP",
-                                                                    "SX"
+                                                                    "SX",
+                                                                    "XK",
+                                                                    "AC"
                                                                 ],
                                                                 "description": "The ISO 3166-1 alpha-2 country code for the country this location is in.",
                                                                 "example": "US"
@@ -36741,7 +37133,9 @@
                                                                     "ZW",
                                                                     "BQ",
                                                                     "KP",
-                                                                    "SX"
+                                                                    "SX",
+                                                                    "XK",
+                                                                    "AC"
                                                                 ],
                                                                 "example": "US"
                                                             },
@@ -37112,47 +37506,6 @@
                             }
                         }
                     },
-                    "400": {
-                        "description": "Bad Request",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "status_code": {
-                                            "type": "number",
-                                            "enum": [
-                                                400
-                                            ]
-                                        },
-                                        "type": {
-                                            "type": "string",
-                                            "enum": [
-                                                "invalid_request_error"
-                                            ]
-                                        },
-                                        "code": {
-                                            "type": "string",
-                                            "enum": [
-                                                "validation_type"
-                                            ]
-                                        },
-                                        "message": {
-                                            "type": "string",
-                                            "example": "Cannot set show_historic param to true when querying a non-historic attribute."
-                                        }
-                                    },
-                                    "required": [
-                                        "status_code",
-                                        "type",
-                                        "code",
-                                        "message"
-                                    ],
-                                    "description": "Bad Request"
-                                }
-                            }
-                        }
-                    },
                     "404": {
                         "description": "Not Found",
                         "content": {
@@ -37511,6 +37864,15 @@
                                                 "type": "string",
                                                 "description": "`created_at` will default to the current time. However, if you wish to backdate a note for migration or other purposes, you can override with a custom `created_at` value. Note that dates before 1970 or in the future are not allowed.",
                                                 "example": "2023-01-01T15:00:00.000000000Z"
+                                            },
+                                            "meeting_id": {
+                                                "type": [
+                                                    "string",
+                                                    "null"
+                                                ],
+                                                "format": "uuid",
+                                                "description": "An optional ID to associate this note with a meeting. If provided, the meeting must exist. Use `null` to explicitly set no meeting association.",
+                                                "example": "14beef7a-99f7-4534-a87e-70b564330a4c"
                                             }
                                         },
                                         "required": [
@@ -38282,7 +38644,9 @@
                                                                                             "ZW",
                                                                                             "BQ",
                                                                                             "KP",
-                                                                                            "SX"
+                                                                                            "SX",
+                                                                                            "XK",
+                                                                                            "AC"
                                                                                         ],
                                                                                         "example": "GB",
                                                                                         "description": "The ISO 3166-1 alpha-2 country code representing the country that this phone number belongs to."
@@ -38962,7 +39326,9 @@
                                                                                             "ZW",
                                                                                             "BQ",
                                                                                             "KP",
-                                                                                            "SX"
+                                                                                            "SX",
+                                                                                            "XK",
+                                                                                            "AC"
                                                                                         ],
                                                                                         "example": "GB",
                                                                                         "description": "The ISO 3166-1 alpha-2 country code representing the country that this phone number belongs to."
@@ -39903,6 +40269,1538 @@
                 }
             }
         },
+        "/v2/meetings": {
+            "get": {
+                "summary": "List meetings",
+                "description": "Lists all meetings in the workspace using a deterministic sort order.\n\nRequired scopes: `meeting:read`, `record_permission:read`.",
+                "tags": [
+                    "Meetings"
+                ],
+                "security": [
+                    {
+                        "oauth2": [
+                            "meeting:read",
+                            "record_permission:read"
+                        ]
+                    }
+                ],
+                "x-hidden": true,
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 200,
+                            "default": 50,
+                            "description": "The maximum number of meetings to return. Must be between 1 and 200. Defaults to 50.",
+                            "example": 50
+                        },
+                        "required": false,
+                        "name": "limit",
+                        "in": "query"
+                    },
+                    {
+                        "schema": {
+                            "type": "string",
+                            "description": "A pagination cursor used to fetch the next page of meetings. Responses with more meetings will include a cursor for you to use here. If not provided, the first page will be returned."
+                        },
+                        "required": false,
+                        "name": "cursor",
+                        "in": "query"
+                    },
+                    {
+                        "schema": {
+                            "type": "string",
+                            "minLength": 1,
+                            "description": "The object to filter meetings by. Must be a valid object slug or ID. If provided, linked_record_id must also be provided."
+                        },
+                        "required": false,
+                        "name": "linked_object",
+                        "in": "query"
+                    },
+                    {
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid",
+                            "description": "Used to filter meetings to only those values that include a specific linked record. Must be a valid record ID. If provided, linked_object must also be provided."
+                        },
+                        "required": false,
+                        "name": "linked_record_id",
+                        "in": "query"
+                    },
+                    {
+                        "schema": {
+                            "type": "string",
+                            "default": "",
+                            "description": "A comma-separated list of emails to filter meetings by. If provided, meetings will be filtered to only include meetings that include at least one of the provided emails as participants."
+                        },
+                        "required": false,
+                        "name": "participants",
+                        "in": "query"
+                    },
+                    {
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "start_asc",
+                                "start_desc"
+                            ],
+                            "default": "start_asc",
+                            "description": "The order in which to sort the meetings. Defaults to start_asc."
+                        },
+                        "required": false,
+                        "name": "sort",
+                        "in": "query"
+                    },
+                    {
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "description": "Use `ends_from` to filter meetings to only those that end after the specified timestamp. `ends_from` is inclusive, meaning that meetings that end at the exact timestamp will be included in results. When evaluating all-day meetings, we filter results from the perspective of a specific timezone (see `timezone` for more information)."
+                        },
+                        "required": false,
+                        "name": "ends_from",
+                        "in": "query"
+                    },
+                    {
+                        "schema": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "description": "Use `starts_before` to filter meetings to only those that start before the specified timestamp. `starts_before` is exclusive, meaning that meetings that start at the exact timestamp will not be included in results. When evaluating all-day meetings, we filter results from the perspective of a specific timezone (see `timezone` for more information)."
+                        },
+                        "required": false,
+                        "name": "starts_before",
+                        "in": "query"
+                    },
+                    {
+                        "schema": {
+                            "type": "string",
+                            "default": "UTC",
+                            "description": "The timezone to use when filtering meetings using `ends_from` and `starts_before`. Defaults to UTC. This property has no effect for non-all-day meetings."
+                        },
+                        "required": false,
+                        "name": "timezone",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/meeting"
+                                            }
+                                        },
+                                        "pagination": {
+                                            "type": "object",
+                                            "properties": {
+                                                "next_cursor": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "next_cursor"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "data",
+                                        "pagination"
+                                    ],
+                                    "description": "Success"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/meetings/{meeting_id}": {
+            "get": {
+                "summary": "Get a meeting",
+                "description": "Get a single meeting by ID.\n\nRequired scopes: `meeting:read`, `record_permission:read`.",
+                "tags": [
+                    "Meetings"
+                ],
+                "security": [
+                    {
+                        "oauth2": [
+                            "meeting:read",
+                            "record_permission:read"
+                        ]
+                    }
+                ],
+                "x-hidden": true,
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid",
+                            "description": "A UUID which identifies the meeting.",
+                            "example": "cb59ab17-ad15-460c-a126-0715617c0853"
+                        },
+                        "required": true,
+                        "name": "meeting_id",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/meeting"
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ],
+                                    "description": "Success"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "number",
+                                            "enum": [
+                                                404
+                                            ]
+                                        },
+                                        "type": {
+                                            "type": "string",
+                                            "enum": [
+                                                "invalid_request_error"
+                                            ]
+                                        },
+                                        "code": {
+                                            "type": "string",
+                                            "enum": [
+                                                "not_found"
+                                            ]
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Meeting with ID \"cb59ab17-ad15-460c-a126-0715617c0853\" was not found."
+                                        }
+                                    },
+                                    "required": [
+                                        "status_code",
+                                        "type",
+                                        "code",
+                                        "message"
+                                    ],
+                                    "description": "Not Found"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/meetings/{meeting_id}/call_recordings": {
+            "get": {
+                "summary": "List call recordings",
+                "description": "List all call recordings for a meeting.\n\nRequired scopes: `meeting:read`, `call_recording:read`.",
+                "tags": [
+                    "Call recordings"
+                ],
+                "security": [
+                    {
+                        "oauth2": [
+                            "meeting:read",
+                            "call_recording:read"
+                        ]
+                    }
+                ],
+                "x-hidden": true,
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid",
+                            "description": "The ID of the meeting to list call recordings for.",
+                            "example": "cb59ab17-ad15-460c-a126-0715617c0853"
+                        },
+                        "required": true,
+                        "name": "meeting_id",
+                        "in": "path"
+                    },
+                    {
+                        "schema": {
+                            "type": "integer",
+                            "description": "The maximum number of results to return. Defaults to 50 with a maximum of 200.",
+                            "example": 50
+                        },
+                        "required": false,
+                        "name": "limit",
+                        "in": "query"
+                    },
+                    {
+                        "schema": {
+                            "type": "string",
+                            "minLength": 1,
+                            "description": "A cursor for pagination. Use the `next_cursor` from the previous response to get the next page of results.",
+                            "example": "eyJkZXNjcmlwdGlvbiI6ICJ0aGlzIGlzIGEgY3Vyc29yIn0=.eM56CGbqZ6G1NHiJchTIkH4vKDr"
+                        },
+                        "required": false,
+                        "name": "cursor",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "workspace_id": {
+                                                                "type": "string",
+                                                                "format": "uuid",
+                                                                "description": "The ID of the workspace this call recording belongs to.",
+                                                                "example": "14beef7a-99f7-4534-a87e-70b564330a4c"
+                                                            },
+                                                            "meeting_id": {
+                                                                "type": "string",
+                                                                "format": "uuid",
+                                                                "description": "The ID of the meeting associated with this call recording.",
+                                                                "example": "cb59ab17-ad15-460c-a126-0715617c0853"
+                                                            },
+                                                            "call_recording_id": {
+                                                                "type": "string",
+                                                                "format": "uuid",
+                                                                "description": "The call recording ID of the call recording.",
+                                                                "example": "e8f2a3b7-9b4d-4c5e-8a1f-3d7b2c5e8f9a"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "workspace_id",
+                                                            "meeting_id",
+                                                            "call_recording_id"
+                                                        ]
+                                                    },
+                                                    "status": {
+                                                        "type": "string",
+                                                        "enum": [
+                                                            "processing",
+                                                            "completed",
+                                                            "failed"
+                                                        ],
+                                                        "description": "The status of the call recording. When a call recording is first created, it will have a status of `PROCESSING`. Once the recording is ready, it will transition to `COMPLETED`. If the recording fails for any reason, the status will be `FAILED`.",
+                                                        "example": "completed"
+                                                    },
+                                                    "created_by_actor": {
+                                                        "type": "object",
+                                                        "description": "The actor that created this call recording.",
+                                                        "properties": {
+                                                            "id": {
+                                                                "type": "string",
+                                                                "description": "An ID to identify the actor.",
+                                                                "nullable": true
+                                                            },
+                                                            "type": {
+                                                                "type": "string",
+                                                                "enum": [
+                                                                    "api-token",
+                                                                    "workspace-member",
+                                                                    "system",
+                                                                    "app"
+                                                                ],
+                                                                "nullable": true,
+                                                                "description": "The type of actor. [Read more information on actor types here](/docs/actors)."
+                                                            }
+                                                        },
+                                                        "example": {
+                                                            "type": "workspace-member",
+                                                            "id": "50cf242c-7fa3-4cad-87d0-75b1af71c57b"
+                                                        }
+                                                    },
+                                                    "created_at": {
+                                                        "type": "string",
+                                                        "description": "The timestamp of when the call recording was created.",
+                                                        "example": "2023-01-01T15:00:00.000000000Z"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "id",
+                                                    "status",
+                                                    "created_by_actor",
+                                                    "created_at"
+                                                ]
+                                            }
+                                        },
+                                        "pagination": {
+                                            "type": "object",
+                                            "properties": {
+                                                "next_cursor": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "next_cursor"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "data",
+                                        "pagination"
+                                    ],
+                                    "description": "Success"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create call recording",
+                "description": "Create a call recording for a meeting. This endpoint is rate limited to 1 request per second.\n\nRequired scopes: `meeting:read`, `call_recording:read-write`.",
+                "tags": [
+                    "Call recordings"
+                ],
+                "security": [
+                    {
+                        "oauth2": [
+                            "meeting:read",
+                            "call_recording:read-write"
+                        ]
+                    }
+                ],
+                "x-hidden": true,
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid",
+                            "description": "The ID of the meeting this recording belongs to.",
+                            "example": "cb59ab17-ad15-460c-a126-0715617c0853"
+                        },
+                        "required": true,
+                        "name": "meeting_id",
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "video_url": {
+                                        "type": "string",
+                                        "format": "uri",
+                                        "description": "A publicly accessible URL to a video file of the call recording. Attio will download the video from this URL asynchronously.\n\n**Requirements:**\n- **Protocol:** The URL must use the `https` protocol.\n- **File type:** The file must be a `.mp4` file.\n- **File size:** The file must not exceed 30MB in size.\n- **Accessibility:** For the request to be accepted, the URL must be publicly accessible. Attio will make a `HEAD` request to the URL to verify its accessibility and retrieve file metadata. The response to this request must include a `Content-Length` header.",
+                                        "example": "https://example.com/recording.mp4"
+                                    }
+                                },
+                                "required": [
+                                    "video_url"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "workspace_id": {
+                                                            "type": "string",
+                                                            "format": "uuid",
+                                                            "description": "The ID of the workspace this call recording belongs to.",
+                                                            "example": "14beef7a-99f7-4534-a87e-70b564330a4c"
+                                                        },
+                                                        "meeting_id": {
+                                                            "type": "string",
+                                                            "format": "uuid",
+                                                            "description": "The ID of the meeting associated with this call recording.",
+                                                            "example": "cb59ab17-ad15-460c-a126-0715617c0853"
+                                                        },
+                                                        "call_recording_id": {
+                                                            "type": "string",
+                                                            "format": "uuid",
+                                                            "description": "The call recording ID of the call recording.",
+                                                            "example": "e8f2a3b7-9b4d-4c5e-8a1f-3d7b2c5e8f9a"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "workspace_id",
+                                                        "meeting_id",
+                                                        "call_recording_id"
+                                                    ]
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "processing",
+                                                        "completed",
+                                                        "failed"
+                                                    ],
+                                                    "description": "The status of the call recording. When a call recording is first created, it will have a status of `PROCESSING`. Once the recording is ready, it will transition to `COMPLETED`. If the recording fails for any reason, the status will be `FAILED`.",
+                                                    "example": "completed"
+                                                },
+                                                "created_by_actor": {
+                                                    "type": "object",
+                                                    "description": "The actor that created this call recording.",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string",
+                                                            "description": "An ID to identify the actor.",
+                                                            "nullable": true
+                                                        },
+                                                        "type": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "api-token",
+                                                                "workspace-member",
+                                                                "system",
+                                                                "app"
+                                                            ],
+                                                            "nullable": true,
+                                                            "description": "The type of actor. [Read more information on actor types here](/docs/actors)."
+                                                        }
+                                                    },
+                                                    "example": {
+                                                        "type": "workspace-member",
+                                                        "id": "50cf242c-7fa3-4cad-87d0-75b1af71c57b"
+                                                    }
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "description": "The timestamp of when the call recording was created.",
+                                                    "example": "2023-01-01T15:00:00.000000000Z"
+                                                }
+                                            },
+                                            "required": [
+                                                "id",
+                                                "status",
+                                                "created_by_actor",
+                                                "created_at"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ],
+                                    "description": "Success"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "number",
+                                            "enum": [
+                                                400
+                                            ]
+                                        },
+                                        "type": {
+                                            "type": "string",
+                                            "enum": [
+                                                "invalid_request_error"
+                                            ]
+                                        },
+                                        "code": {
+                                            "type": "string",
+                                            "enum": [
+                                                "validation_type"
+                                            ]
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Invalid video URL protocol. Only https is supported"
+                                        }
+                                    },
+                                    "required": [
+                                        "status_code",
+                                        "type",
+                                        "code",
+                                        "message"
+                                    ],
+                                    "description": "Bad Request"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "number",
+                                            "enum": [
+                                                403
+                                            ]
+                                        },
+                                        "type": {
+                                            "type": "string",
+                                            "enum": [
+                                                "auth_error"
+                                            ]
+                                        },
+                                        "code": {
+                                            "anyOf": [
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "billing_error"
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "quota_exceeded"
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "status_code",
+                                        "type",
+                                        "code",
+                                        "message"
+                                    ],
+                                    "description": "Forbidden"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "number",
+                                            "enum": [
+                                                404
+                                            ]
+                                        },
+                                        "type": {
+                                            "type": "string",
+                                            "enum": [
+                                                "invalid_request_error"
+                                            ]
+                                        },
+                                        "code": {
+                                            "type": "string",
+                                            "enum": [
+                                                "not_found"
+                                            ]
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The referenced meeting was not found."
+                                        }
+                                    },
+                                    "required": [
+                                        "status_code",
+                                        "type",
+                                        "code",
+                                        "message"
+                                    ],
+                                    "description": "Not Found"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/meetings/{meeting_id}/call_recordings/{call_recording_id}": {
+            "get": {
+                "summary": "Get call recording",
+                "description": "Get a single call recording by ID.\n\nRequired scopes: `meeting:read`, `call_recording:read`.",
+                "tags": [
+                    "Call recordings"
+                ],
+                "security": [
+                    {
+                        "oauth2": [
+                            "meeting:read",
+                            "call_recording:read"
+                        ]
+                    }
+                ],
+                "x-hidden": true,
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid",
+                            "description": "The ID of the meeting this recording belongs to.",
+                            "example": "cb59ab17-ad15-460c-a126-0715617c0853"
+                        },
+                        "required": true,
+                        "name": "meeting_id",
+                        "in": "path"
+                    },
+                    {
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid",
+                            "description": "The ID of the call recording to retrieve.",
+                            "example": "e8f2a3b7-9b4d-4c5e-8a1f-3d7b2c5e8f9a"
+                        },
+                        "required": true,
+                        "name": "call_recording_id",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "workspace_id": {
+                                                            "type": "string",
+                                                            "format": "uuid",
+                                                            "description": "The ID of the workspace this call recording belongs to.",
+                                                            "example": "14beef7a-99f7-4534-a87e-70b564330a4c"
+                                                        },
+                                                        "meeting_id": {
+                                                            "type": "string",
+                                                            "format": "uuid",
+                                                            "description": "The ID of the meeting associated with this call recording.",
+                                                            "example": "cb59ab17-ad15-460c-a126-0715617c0853"
+                                                        },
+                                                        "call_recording_id": {
+                                                            "type": "string",
+                                                            "format": "uuid",
+                                                            "description": "The call recording ID of the call recording.",
+                                                            "example": "e8f2a3b7-9b4d-4c5e-8a1f-3d7b2c5e8f9a"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "workspace_id",
+                                                        "meeting_id",
+                                                        "call_recording_id"
+                                                    ]
+                                                },
+                                                "status": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "processing",
+                                                        "completed",
+                                                        "failed"
+                                                    ],
+                                                    "description": "The status of the call recording. When a call recording is first created, it will have a status of `PROCESSING`. Once the recording is ready, it will transition to `COMPLETED`. If the recording fails for any reason, the status will be `FAILED`.",
+                                                    "example": "completed"
+                                                },
+                                                "created_by_actor": {
+                                                    "type": "object",
+                                                    "description": "The actor that created this call recording.",
+                                                    "properties": {
+                                                        "id": {
+                                                            "type": "string",
+                                                            "description": "An ID to identify the actor.",
+                                                            "nullable": true
+                                                        },
+                                                        "type": {
+                                                            "type": "string",
+                                                            "enum": [
+                                                                "api-token",
+                                                                "workspace-member",
+                                                                "system",
+                                                                "app"
+                                                            ],
+                                                            "nullable": true,
+                                                            "description": "The type of actor. [Read more information on actor types here](/docs/actors)."
+                                                        }
+                                                    },
+                                                    "example": {
+                                                        "type": "workspace-member",
+                                                        "id": "50cf242c-7fa3-4cad-87d0-75b1af71c57b"
+                                                    }
+                                                },
+                                                "created_at": {
+                                                    "type": "string",
+                                                    "description": "The timestamp of when the call recording was created.",
+                                                    "example": "2023-01-01T15:00:00.000000000Z"
+                                                }
+                                            },
+                                            "required": [
+                                                "id",
+                                                "status",
+                                                "created_by_actor",
+                                                "created_at"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ],
+                                    "description": "Success"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "number",
+                                            "enum": [
+                                                404
+                                            ]
+                                        },
+                                        "type": {
+                                            "type": "string",
+                                            "enum": [
+                                                "invalid_request_error"
+                                            ]
+                                        },
+                                        "code": {
+                                            "type": "string",
+                                            "enum": [
+                                                "not_found"
+                                            ]
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Call recording with ID \"e8f2a3b7-9b4d-4c5e-8a1f-3d7b2c5e8f9a\" was not found."
+                                        }
+                                    },
+                                    "required": [
+                                        "status_code",
+                                        "type",
+                                        "code",
+                                        "message"
+                                    ],
+                                    "description": "Not Found"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete call recording",
+                "description": "Deletes the specified call recording. This will remove the call recording and all associated data.\n\nRequired scopes: `meeting:read`, `call_recording:read-write`.",
+                "tags": [
+                    "Call recordings"
+                ],
+                "security": [
+                    {
+                        "oauth2": [
+                            "meeting:read",
+                            "call_recording:read-write"
+                        ]
+                    }
+                ],
+                "x-hidden": true,
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid",
+                            "description": "The ID of the meeting this call recording belongs to.",
+                            "example": "cb59ab17-ad15-460c-a126-0715617c0853"
+                        },
+                        "required": true,
+                        "name": "meeting_id",
+                        "in": "path"
+                    },
+                    {
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid",
+                            "description": "The ID of the call recording to delete.",
+                            "example": "e8f2a3b7-9b4d-4c5e-8a1f-3d7b2c5e8f9a"
+                        },
+                        "required": true,
+                        "name": "call_recording_id",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {},
+                                    "description": "Success"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Call recording not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "number",
+                                            "enum": [
+                                                404
+                                            ]
+                                        },
+                                        "type": {
+                                            "type": "string",
+                                            "enum": [
+                                                "invalid_request_error"
+                                            ]
+                                        },
+                                        "code": {
+                                            "type": "string",
+                                            "enum": [
+                                                "not_found"
+                                            ]
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The referenced call recording was not found."
+                                        }
+                                    },
+                                    "required": [
+                                        "status_code",
+                                        "type",
+                                        "code",
+                                        "message"
+                                    ],
+                                    "description": "Call recording not found"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/meetings/{meeting_id}/call_recordings/{call_recording_id}/transcript": {
+            "get": {
+                "summary": "Get call transcript",
+                "description": "Get the transcript for a call recording.\n\nRequired scopes: `meeting:read`, `call_recording:read`.",
+                "tags": [
+                    "Transcripts"
+                ],
+                "security": [
+                    {
+                        "oauth2": [
+                            "meeting:read",
+                            "call_recording:read"
+                        ]
+                    }
+                ],
+                "x-hidden": true,
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid",
+                            "description": "The ID of the meeting.",
+                            "example": "cb59ab17-ad15-460c-a126-0715617c0853"
+                        },
+                        "required": true,
+                        "name": "meeting_id",
+                        "in": "path"
+                    },
+                    {
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid",
+                            "description": "The ID of the call recording to get the transcript for.",
+                            "example": "e8f2a3b7-9b4d-4c5e-8a1f-3d7b2c5e8f9a"
+                        },
+                        "required": true,
+                        "name": "call_recording_id",
+                        "in": "path"
+                    },
+                    {
+                        "schema": {
+                            "type": "string",
+                            "description": "A cursor for pagination through transcript segments. Use the `next_cursor` from the previous response to get the next page of speech segments within this transcript.",
+                            "example": "eyJkZXNjcmlwdGlvbiI6ICJ0aGlzIGlzIGEgY3Vyc29yIn0=.eM56CGbqZ6G1NHiJchTIkH4vKDr"
+                        },
+                        "required": false,
+                        "name": "cursor",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "workspace_id": {
+                                                            "type": "string",
+                                                            "format": "uuid",
+                                                            "description": "The ID of the workspace this transcript belongs to.",
+                                                            "example": "14beef7a-99f7-4534-a87e-70b564330a4c"
+                                                        },
+                                                        "meeting_id": {
+                                                            "type": "string",
+                                                            "format": "uuid",
+                                                            "description": "The ID of the meeting associated with this transcript.",
+                                                            "example": "cb59ab17-ad15-460c-a126-0715617c0853"
+                                                        },
+                                                        "call_recording_id": {
+                                                            "type": "string",
+                                                            "format": "uuid",
+                                                            "description": "The ID of the call recording this transcript belongs to.",
+                                                            "example": "e8f2a3b7-9b4d-4c5e-8a1f-3d7b2c5e8f9a"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "workspace_id",
+                                                        "meeting_id",
+                                                        "call_recording_id"
+                                                    ]
+                                                },
+                                                "transcript": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "speech": {
+                                                                "type": "string",
+                                                                "description": "The spoken text for this segment of the transcript.",
+                                                                "example": "Hello, how are you?"
+                                                            },
+                                                            "start_time": {
+                                                                "type": "number",
+                                                                "description": "The start time of this speech segment in seconds, measured from the start of the recording.",
+                                                                "example": 0.512
+                                                            },
+                                                            "end_time": {
+                                                                "type": "number",
+                                                                "description": "The end time of this speech segment in seconds, measured from the start of the recording.",
+                                                                "example": 3.212
+                                                            },
+                                                            "speaker": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "name": {
+                                                                        "type": "string",
+                                                                        "description": "The name of the speaker.",
+                                                                        "example": "Simon Mitchell"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "name"
+                                                                ],
+                                                                "description": "The speaker of this transcript segment."
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "speech",
+                                                            "start_time",
+                                                            "end_time",
+                                                            "speaker"
+                                                        ]
+                                                    },
+                                                    "description": "The transcript segments with speech, timing, and speaker information."
+                                                }
+                                            },
+                                            "required": [
+                                                "id",
+                                                "transcript"
+                                            ]
+                                        },
+                                        "pagination": {
+                                            "type": "object",
+                                            "properties": {
+                                                "next_cursor": {
+                                                    "type": [
+                                                        "string",
+                                                        "null"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "next_cursor"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "data",
+                                        "pagination"
+                                    ],
+                                    "description": "Success"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create transcript",
+                "description": "Creates a transcript for the specified call recording. Each call recording can have only one associated transcript. Once created, transcripts are immutable and cannot be modified. To update a transcript, you must first delete the existing one and then create a new transcript.\n\nRequired scopes: `meeting:read`, `call_recording:read-write`.",
+                "tags": [
+                    "Transcripts"
+                ],
+                "security": [
+                    {
+                        "oauth2": [
+                            "meeting:read",
+                            "call_recording:read-write"
+                        ]
+                    }
+                ],
+                "x-hidden": true,
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid",
+                            "description": "The ID of the meeting this transcript belongs to.",
+                            "example": "cb59ab17-ad15-460c-a126-0715617c0853"
+                        },
+                        "required": true,
+                        "name": "meeting_id",
+                        "in": "path"
+                    },
+                    {
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid",
+                            "description": "The ID of the call recording this transcript belongs to.",
+                            "example": "e8f2a3b7-9b4d-4c5e-8a1f-3d7b2c5e8f9a"
+                        },
+                        "required": true,
+                        "name": "call_recording_id",
+                        "in": "path"
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "data": {
+                                        "type": "object",
+                                        "properties": {
+                                            "transcript": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "speech": {
+                                                            "type": "string",
+                                                            "description": "The spoken text for this segment of the transcript.",
+                                                            "example": "Hello everyone, welcome to the meeting."
+                                                        },
+                                                        "start_time": {
+                                                            "type": "number",
+                                                            "minimum": 0,
+                                                            "description": "The start time of this speech segment in seconds.",
+                                                            "example": 0.5123
+                                                        },
+                                                        "end_time": {
+                                                            "type": "number",
+                                                            "description": "The end time of this speech segment in seconds.",
+                                                            "example": 3.2123
+                                                        },
+                                                        "speaker": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "name": {
+                                                                    "type": "string",
+                                                                    "description": "The name of the speaker.",
+                                                                    "example": "Simon Mitchell"
+                                                                },
+                                                                "email_address": {
+                                                                    "type": "string",
+                                                                    "format": "email",
+                                                                    "description": "The email address of the speaker.",
+                                                                    "example": "person@company.com"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "name"
+                                                            ]
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "speech",
+                                                        "start_time",
+                                                        "end_time",
+                                                        "speaker"
+                                                    ]
+                                                },
+                                                "maxItems": 4000,
+                                                "description": "Array of transcript segments with speech, timing, and speaker information. A maximum of 4000 transcript segments and 50 unique speakers are allowed per transcript."
+                                            }
+                                        },
+                                        "required": [
+                                            "transcript"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "data"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "workspace_id": {
+                                                            "type": "string",
+                                                            "format": "uuid",
+                                                            "description": "The ID of the workspace this transcript belongs to.",
+                                                            "example": "14beef7a-99f7-4534-a87e-70b564330a4c"
+                                                        },
+                                                        "meeting_id": {
+                                                            "type": "string",
+                                                            "format": "uuid",
+                                                            "description": "The ID of the meeting associated with this transcript.",
+                                                            "example": "cb59ab17-ad15-460c-a126-0715617c0853"
+                                                        },
+                                                        "call_recording_id": {
+                                                            "type": "string",
+                                                            "format": "uuid",
+                                                            "description": "The ID of the call recording this transcript belongs to.",
+                                                            "example": "e8f2a3b7-9b4d-4c5e-8a1f-3d7b2c5e8f9a"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "workspace_id",
+                                                        "meeting_id",
+                                                        "call_recording_id"
+                                                    ]
+                                                },
+                                                "transcript": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "speech": {
+                                                                "type": "string",
+                                                                "description": "The spoken text for this segment of the transcript.",
+                                                                "example": "Hello, how are you?"
+                                                            },
+                                                            "start_time": {
+                                                                "type": "number",
+                                                                "description": "The start time of this speech segment in seconds, measured from the start of the recording.",
+                                                                "example": 0.512
+                                                            },
+                                                            "end_time": {
+                                                                "type": "number",
+                                                                "description": "The end time of this speech segment in seconds, measured from the start of the recording.",
+                                                                "example": 3.212
+                                                            },
+                                                            "speaker": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "name": {
+                                                                        "type": "string",
+                                                                        "description": "The name of the speaker.",
+                                                                        "example": "Simon Mitchell"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "name"
+                                                                ],
+                                                                "description": "The speaker of this transcript segment."
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "speech",
+                                                            "start_time",
+                                                            "end_time",
+                                                            "speaker"
+                                                        ]
+                                                    },
+                                                    "description": "The transcript segments with speech, timing, and speaker information."
+                                                }
+                                            },
+                                            "required": [
+                                                "id",
+                                                "transcript"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "data"
+                                    ],
+                                    "description": "Success"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "number",
+                                            "enum": [
+                                                400
+                                            ]
+                                        },
+                                        "type": {
+                                            "type": "string",
+                                            "enum": [
+                                                "invalid_request_error"
+                                            ]
+                                        },
+                                        "code": {
+                                            "type": "string",
+                                            "enum": [
+                                                "validation_type"
+                                            ]
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "An invalid email address was provided for one of the speakers."
+                                        }
+                                    },
+                                    "required": [
+                                        "status_code",
+                                        "type",
+                                        "code",
+                                        "message"
+                                    ],
+                                    "description": "Bad Request"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "number",
+                                            "enum": [
+                                                404
+                                            ]
+                                        },
+                                        "type": {
+                                            "type": "string",
+                                            "enum": [
+                                                "invalid_request_error"
+                                            ]
+                                        },
+                                        "code": {
+                                            "type": "string",
+                                            "enum": [
+                                                "not_found"
+                                            ]
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The referenced call recording was not found."
+                                        }
+                                    },
+                                    "required": [
+                                        "status_code",
+                                        "type",
+                                        "code",
+                                        "message"
+                                    ],
+                                    "description": "Not Found"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete call recording transcript",
+                "description": "Deletes the transcript for the specified call recording.\n\nRequired scopes: `meeting:read`, `call_recording:read-write`.",
+                "tags": [
+                    "Transcripts"
+                ],
+                "security": [
+                    {
+                        "oauth2": [
+                            "meeting:read",
+                            "call_recording:read-write"
+                        ]
+                    }
+                ],
+                "x-hidden": true,
+                "parameters": [
+                    {
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid",
+                            "description": "The ID of the meeting this transcript belongs to.",
+                            "example": "cb59ab17-ad15-460c-a126-0715617c0853"
+                        },
+                        "required": true,
+                        "name": "meeting_id",
+                        "in": "path"
+                    },
+                    {
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid",
+                            "description": "The ID of the call recording this transcript belongs to.",
+                            "example": "e8f2a3b7-9b4d-4c5e-8a1f-3d7b2c5e8f9a"
+                        },
+                        "required": true,
+                        "name": "call_recording_id",
+                        "in": "path"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {},
+                                    "description": "Success"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Call recording not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status_code": {
+                                            "type": "number",
+                                            "enum": [
+                                                404
+                                            ]
+                                        },
+                                        "type": {
+                                            "type": "string",
+                                            "enum": [
+                                                "invalid_request_error"
+                                            ]
+                                        },
+                                        "code": {
+                                            "type": "string",
+                                            "enum": [
+                                                "not_found"
+                                            ]
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "The referenced call recording was not found."
+                                        }
+                                    },
+                                    "required": [
+                                        "status_code",
+                                        "type",
+                                        "code",
+                                        "message"
+                                    ],
+                                    "description": "Call recording not found"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/v2/webhooks": {
             "get": {
                 "summary": "List webhooks",
@@ -39967,6 +41865,7 @@
                                                                 "event_type": {
                                                                     "type": "string",
                                                                     "enum": [
+                                                                        "call-recording.created",
                                                                         "comment.created",
                                                                         "comment.resolved",
                                                                         "comment.unresolved",
@@ -40235,6 +42134,7 @@
                                                         "event_type": {
                                                             "type": "string",
                                                             "enum": [
+                                                                "call-recording.created",
                                                                 "comment.created",
                                                                 "comment.resolved",
                                                                 "comment.unresolved",
@@ -40448,6 +42348,7 @@
                                                             "event_type": {
                                                                 "type": "string",
                                                                 "enum": [
+                                                                    "call-recording.created",
                                                                     "comment.created",
                                                                     "comment.resolved",
                                                                     "comment.unresolved",
@@ -40778,6 +42679,7 @@
                                                             "event_type": {
                                                                 "type": "string",
                                                                 "enum": [
+                                                                    "call-recording.created",
                                                                     "comment.created",
                                                                     "comment.resolved",
                                                                     "comment.unresolved",
@@ -41099,6 +43001,7 @@
                                                         "event_type": {
                                                             "type": "string",
                                                             "enum": [
+                                                                "call-recording.created",
                                                                 "comment.created",
                                                                 "comment.resolved",
                                                                 "comment.unresolved",
@@ -41308,6 +43211,7 @@
                                                             "event_type": {
                                                                 "type": "string",
                                                                 "enum": [
+                                                                    "call-recording.created",
                                                                     "comment.created",
                                                                     "comment.resolved",
                                                                     "comment.unresolved",
