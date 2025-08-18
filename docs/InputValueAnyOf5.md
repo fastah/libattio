@@ -4,14 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TargetObject** | **string** | A UUID or slug to identify the object that the referenced record belongs to. | 
-**TargetRecordId** | **string** | A UUID to identify the referenced record. | 
+**InteractionType** | **string** | The type of interaction e.g. calendar or email. | 
+**InteractedAt** | **time.Time** | When the interaction occurred. | 
+**OwnerActor** | [**V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor**](V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor.md) |  | 
 
 ## Methods
 
 ### NewInputValueAnyOf5
 
-`func NewInputValueAnyOf5(targetObject string, targetRecordId string, ) *InputValueAnyOf5`
+`func NewInputValueAnyOf5(interactionType string, interactedAt time.Time, ownerActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, ) *InputValueAnyOf5`
 
 NewInputValueAnyOf5 instantiates a new InputValueAnyOf5 object
 This constructor will assign default values to properties that have it defined,
@@ -26,44 +27,64 @@ NewInputValueAnyOf5WithDefaults instantiates a new InputValueAnyOf5 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetTargetObject
+### GetInteractionType
 
-`func (o *InputValueAnyOf5) GetTargetObject() string`
+`func (o *InputValueAnyOf5) GetInteractionType() string`
 
-GetTargetObject returns the TargetObject field if non-nil, zero value otherwise.
+GetInteractionType returns the InteractionType field if non-nil, zero value otherwise.
 
-### GetTargetObjectOk
+### GetInteractionTypeOk
 
-`func (o *InputValueAnyOf5) GetTargetObjectOk() (*string, bool)`
+`func (o *InputValueAnyOf5) GetInteractionTypeOk() (*string, bool)`
 
-GetTargetObjectOk returns a tuple with the TargetObject field if it's non-nil, zero value otherwise
+GetInteractionTypeOk returns a tuple with the InteractionType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTargetObject
+### SetInteractionType
 
-`func (o *InputValueAnyOf5) SetTargetObject(v string)`
+`func (o *InputValueAnyOf5) SetInteractionType(v string)`
 
-SetTargetObject sets TargetObject field to given value.
+SetInteractionType sets InteractionType field to given value.
 
 
-### GetTargetRecordId
+### GetInteractedAt
 
-`func (o *InputValueAnyOf5) GetTargetRecordId() string`
+`func (o *InputValueAnyOf5) GetInteractedAt() time.Time`
 
-GetTargetRecordId returns the TargetRecordId field if non-nil, zero value otherwise.
+GetInteractedAt returns the InteractedAt field if non-nil, zero value otherwise.
 
-### GetTargetRecordIdOk
+### GetInteractedAtOk
 
-`func (o *InputValueAnyOf5) GetTargetRecordIdOk() (*string, bool)`
+`func (o *InputValueAnyOf5) GetInteractedAtOk() (*time.Time, bool)`
 
-GetTargetRecordIdOk returns a tuple with the TargetRecordId field if it's non-nil, zero value otherwise
+GetInteractedAtOk returns a tuple with the InteractedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTargetRecordId
+### SetInteractedAt
 
-`func (o *InputValueAnyOf5) SetTargetRecordId(v string)`
+`func (o *InputValueAnyOf5) SetInteractedAt(v time.Time)`
 
-SetTargetRecordId sets TargetRecordId field to given value.
+SetInteractedAt sets InteractedAt field to given value.
+
+
+### GetOwnerActor
+
+`func (o *InputValueAnyOf5) GetOwnerActor() V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor`
+
+GetOwnerActor returns the OwnerActor field if non-nil, zero value otherwise.
+
+### GetOwnerActorOk
+
+`func (o *InputValueAnyOf5) GetOwnerActorOk() (*V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, bool)`
+
+GetOwnerActorOk returns a tuple with the OwnerActor field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwnerActor
+
+`func (o *InputValueAnyOf5) SetOwnerActor(v V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor)`
+
+SetOwnerActor sets OwnerActor field to given value.
 
 
 

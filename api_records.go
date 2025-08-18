@@ -480,7 +480,7 @@ func (r ApiV2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGetRequest) Ex
 /*
 V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet List record attribute values
 
-Gets all values for a given attribute on a record. If the attribute is historic, this endpoint has the ability to return all historic values using the `show_historic` query param.
+Gets all values for a given attribute on a record. Historic values can be queried using the `show_historic` query param. Historic values cannot be queried on COMINT (Communication Intelligence) or enriched attributes and the endpoint will return a 400 error if this is attempted. Historic values are sorted from oldest to newest (by `active_from`). Some attributes are subject to billing status and will return an empty array of values if theworkspace being queried does not have the required billing flag enabled.
 
 Required scopes: `record_permission:read`, `object_configuration:read`.
 
@@ -981,11 +981,11 @@ type ApiV2ObjectsObjectRecordsRecordIdPatchRequest struct {
 	ApiService *RecordsAPIService
 	object string
 	recordId string
-	v2ObjectsObjectRecordsPutRequest *V2ObjectsObjectRecordsPutRequest
+	v2ObjectsObjectRecordsRecordIdPatchRequest *V2ObjectsObjectRecordsRecordIdPatchRequest
 }
 
-func (r ApiV2ObjectsObjectRecordsRecordIdPatchRequest) V2ObjectsObjectRecordsPutRequest(v2ObjectsObjectRecordsPutRequest V2ObjectsObjectRecordsPutRequest) ApiV2ObjectsObjectRecordsRecordIdPatchRequest {
-	r.v2ObjectsObjectRecordsPutRequest = &v2ObjectsObjectRecordsPutRequest
+func (r ApiV2ObjectsObjectRecordsRecordIdPatchRequest) V2ObjectsObjectRecordsRecordIdPatchRequest(v2ObjectsObjectRecordsRecordIdPatchRequest V2ObjectsObjectRecordsRecordIdPatchRequest) ApiV2ObjectsObjectRecordsRecordIdPatchRequest {
+	r.v2ObjectsObjectRecordsRecordIdPatchRequest = &v2ObjectsObjectRecordsRecordIdPatchRequest
 	return r
 }
 
@@ -1036,8 +1036,8 @@ func (a *RecordsAPIService) V2ObjectsObjectRecordsRecordIdPatchExecute(r ApiV2Ob
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.v2ObjectsObjectRecordsPutRequest == nil {
-		return localVarReturnValue, nil, reportError("v2ObjectsObjectRecordsPutRequest is required and must be specified")
+	if r.v2ObjectsObjectRecordsRecordIdPatchRequest == nil {
+		return localVarReturnValue, nil, reportError("v2ObjectsObjectRecordsRecordIdPatchRequest is required and must be specified")
 	}
 
 	// to determine the Content-Type header
@@ -1058,7 +1058,7 @@ func (a *RecordsAPIService) V2ObjectsObjectRecordsRecordIdPatchExecute(r ApiV2Ob
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.v2ObjectsObjectRecordsPutRequest
+	localVarPostBody = r.v2ObjectsObjectRecordsRecordIdPatchRequest
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err

@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | **bool** | A boolean representing whether the checkbox is checked or not. The string values &#39;true&#39; and &#39;false&#39; are also accepted. | 
+**CurrencyValue** | **float32** | A numerical representation of the currency value. A decimal with a max of 4 decimal places. | 
 
 ## Methods
 
 ### NewInputValueAnyOf2
 
-`func NewInputValueAnyOf2(value bool, ) *InputValueAnyOf2`
+`func NewInputValueAnyOf2(currencyValue float32, ) *InputValueAnyOf2`
 
 NewInputValueAnyOf2 instantiates a new InputValueAnyOf2 object
 This constructor will assign default values to properties that have it defined,
@@ -25,24 +25,24 @@ NewInputValueAnyOf2WithDefaults instantiates a new InputValueAnyOf2 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetValue
+### GetCurrencyValue
 
-`func (o *InputValueAnyOf2) GetValue() bool`
+`func (o *InputValueAnyOf2) GetCurrencyValue() float32`
 
-GetValue returns the Value field if non-nil, zero value otherwise.
+GetCurrencyValue returns the CurrencyValue field if non-nil, zero value otherwise.
 
-### GetValueOk
+### GetCurrencyValueOk
 
-`func (o *InputValueAnyOf2) GetValueOk() (*bool, bool)`
+`func (o *InputValueAnyOf2) GetCurrencyValueOk() (*float32, bool)`
 
-GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
+GetCurrencyValueOk returns a tuple with the CurrencyValue field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetValue
+### SetCurrencyValue
 
-`func (o *InputValueAnyOf2) SetValue(v bool)`
+`func (o *InputValueAnyOf2) SetCurrencyValue(v float32)`
 
-SetValue sets Value field to given value.
+SetCurrencyValue sets CurrencyValue field to given value.
 
 
 

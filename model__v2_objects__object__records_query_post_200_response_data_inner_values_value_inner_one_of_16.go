@@ -26,7 +26,7 @@ type V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16 
 	ActiveFrom time.Time `json:"active_from"`
 	// The point in time at which this value was deactivated. If `null`, the value is active.
 	ActiveUntil NullableTime `json:"active_until"`
-	CreatedByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor `json:"created_by_actor"`
+	CreatedByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor `json:"created_by_actor"`
 	// The attribute type of the value.
 	AttributeType string `json:"attribute_type"`
 	// A timestamp value represents a single, universal moment in time using an ISO 8601 formatted string. This means that a timestamp consists of a date, a time (with nanosecond precision), and a time zone. Attio will coerce timestamps which do not provide full nanosecond precision and UTC is assumed if no time zone is provided. For example, \"2023\", \"2023-01\", \"2023-01-02\", \"2023-01-02T13:00\", \"2023-01-02T13:00:00\", and \"2023-01-02T13:00:00.000000000\" will all be coerced to \"2023-01-02T13:00:00.000000000Z\". Timestamps are always returned in UTC. For example, writing a timestamp value using the string \"2023-01-02T13:00:00.000000000+02:00\" will result in the value \"2023-01-02T11:00:00.000000000Z\" being returned. The maximum date is \"9999-12-31T23:59:59.999999999Z\".
@@ -40,7 +40,7 @@ type _V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor, attributeType string, value string) *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16 {
+func NewV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, attributeType string, value string) *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16 {
 	this := V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16{}
 	this.ActiveFrom = activeFrom
 	this.ActiveUntil = activeUntil
@@ -111,9 +111,9 @@ func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneO
 
 
 // GetCreatedByActor returns the CreatedByActor field value
-func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16) GetCreatedByActor() V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor {
+func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16) GetCreatedByActor() V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor {
 	if o == nil {
-		var ret V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor
+		var ret V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor
 		return ret
 	}
 
@@ -122,7 +122,7 @@ func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneO
 
 // GetCreatedByActorOk returns a tuple with the CreatedByActor field value
 // and a boolean to check if the value has been set.
-func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16) GetCreatedByActorOk() (*V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor, bool) {
+func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16) GetCreatedByActorOk() (*V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -130,7 +130,7 @@ func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneO
 }
 
 // SetCreatedByActor sets field value
-func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16) SetCreatedByActor(v V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor) {
+func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf16) SetCreatedByActor(v V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor) {
 	o.CreatedByActor = v
 }
 

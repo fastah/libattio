@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **ParentObject** | **string** | The slug or ID of the parent object the note belongs to. | 
 **ParentRecordId** | **string** | The ID of the parent record the note belongs to. | 
 **Title** | **string** | The note title. The title is plaintext only and has no formatting. | 
+**MeetingId** | **NullableString** | The ID of the meeting associated with this note, or null if no meeting is associated. | 
 **ContentPlaintext** | **string** | The plaintext representation of the note content. The line feed character &#x60;\\n&#x60; represents new lines within the note content. | 
 **ContentMarkdown** | **string** | The markdown representation of the note content. Supports a subset of markdown features including: - Headings (levels 1-3 only with &#x60;#&#x60;, &#x60;##&#x60;, &#x60;###&#x60;) - Unordered lists (&#x60;-&#x60;, &#x60;*&#x60;, &#x60;+&#x60;) - Ordered lists (&#x60;1.&#x60;, &#x60;2.&#x60;, etc.) - Text styling: &#x60;**bold**&#x60;, &#x60;*italic*&#x60;, &#x60;~~strikethrough~~&#x60;, &#x60;&#x3D;&#x3D;highlighted&#x3D;&#x3D;&#x60; - Links: &#x60;[link text](https://example.com)&#x60;  Note that note images are not returned as part of the markdown API representation. | 
 **Tags** | [**[]NoteTagsInner**](NoteTagsInner.md) | An array of records or workspace members that are @-tagged in the note content. | 
@@ -18,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewNote
 
-`func NewNote(id NoteId, parentObject string, parentRecordId string, title string, contentPlaintext string, contentMarkdown string, tags []NoteTagsInner, createdByActor NoteCreatedByActor, createdAt string, ) *Note`
+`func NewNote(id NoteId, parentObject string, parentRecordId string, title string, meetingId NullableString, contentPlaintext string, contentMarkdown string, tags []NoteTagsInner, createdByActor NoteCreatedByActor, createdAt string, ) *Note`
 
 NewNote instantiates a new Note object
 This constructor will assign default values to properties that have it defined,
@@ -113,6 +114,36 @@ and a boolean to check if the value has been set.
 SetTitle sets Title field to given value.
 
 
+### GetMeetingId
+
+`func (o *Note) GetMeetingId() string`
+
+GetMeetingId returns the MeetingId field if non-nil, zero value otherwise.
+
+### GetMeetingIdOk
+
+`func (o *Note) GetMeetingIdOk() (*string, bool)`
+
+GetMeetingIdOk returns a tuple with the MeetingId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMeetingId
+
+`func (o *Note) SetMeetingId(v string)`
+
+SetMeetingId sets MeetingId field to given value.
+
+
+### SetMeetingIdNil
+
+`func (o *Note) SetMeetingIdNil(b bool)`
+
+ SetMeetingIdNil sets the value for MeetingId to be an explicit nil
+
+### UnsetMeetingId
+`func (o *Note) UnsetMeetingId()`
+
+UnsetMeetingId ensures that no value is present for MeetingId, not even an explicit nil
 ### GetContentPlaintext
 
 `func (o *Note) GetContentPlaintext() string`

@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | **float32** | A number between 0 and 5 (inclusive) to represent a star rating. | 
+**Option** | **string** | The UUID or select option title identifying the selected select option. | 
 
 ## Methods
 
 ### NewInputValueAnyOf12
 
-`func NewInputValueAnyOf12(value float32, ) *InputValueAnyOf12`
+`func NewInputValueAnyOf12(option string, ) *InputValueAnyOf12`
 
 NewInputValueAnyOf12 instantiates a new InputValueAnyOf12 object
 This constructor will assign default values to properties that have it defined,
@@ -25,24 +25,24 @@ NewInputValueAnyOf12WithDefaults instantiates a new InputValueAnyOf12 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetValue
+### GetOption
 
-`func (o *InputValueAnyOf12) GetValue() float32`
+`func (o *InputValueAnyOf12) GetOption() string`
 
-GetValue returns the Value field if non-nil, zero value otherwise.
+GetOption returns the Option field if non-nil, zero value otherwise.
 
-### GetValueOk
+### GetOptionOk
 
-`func (o *InputValueAnyOf12) GetValueOk() (*float32, bool)`
+`func (o *InputValueAnyOf12) GetOptionOk() (*string, bool)`
 
-GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
+GetOptionOk returns a tuple with the Option field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetValue
+### SetOption
 
-`func (o *InputValueAnyOf12) SetValue(v float32)`
+`func (o *InputValueAnyOf12) SetOption(v string)`
 
-SetValue sets Value field to given value.
+SetOption sets Option field to given value.
 
 
 

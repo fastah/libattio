@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Option** | **string** | The UUID or select option title identifying the selected select option. | 
+**Value** | **string** | A raw text field. Values are limited to 10MB. | 
 
 ## Methods
 
 ### NewInputValueAnyOf13
 
-`func NewInputValueAnyOf13(option string, ) *InputValueAnyOf13`
+`func NewInputValueAnyOf13(value string, ) *InputValueAnyOf13`
 
 NewInputValueAnyOf13 instantiates a new InputValueAnyOf13 object
 This constructor will assign default values to properties that have it defined,
@@ -25,24 +25,24 @@ NewInputValueAnyOf13WithDefaults instantiates a new InputValueAnyOf13 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetOption
+### GetValue
 
-`func (o *InputValueAnyOf13) GetOption() string`
+`func (o *InputValueAnyOf13) GetValue() string`
 
-GetOption returns the Option field if non-nil, zero value otherwise.
+GetValue returns the Value field if non-nil, zero value otherwise.
 
-### GetOptionOk
+### GetValueOk
 
-`func (o *InputValueAnyOf13) GetOptionOk() (*string, bool)`
+`func (o *InputValueAnyOf13) GetValueOk() (*string, bool)`
 
-GetOptionOk returns a tuple with the Option field if it's non-nil, zero value otherwise
+GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOption
+### SetValue
 
-`func (o *InputValueAnyOf13) SetOption(v string)`
+`func (o *InputValueAnyOf13) SetValue(v string)`
 
-SetOption sets Option field to given value.
+SetValue sets Value field to given value.
 
 
 

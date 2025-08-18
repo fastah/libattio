@@ -26,7 +26,7 @@ type V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10 
 	ActiveFrom time.Time `json:"active_from"`
 	// The point in time at which this value was deactivated. If `null`, the value is active.
 	ActiveUntil NullableTime `json:"active_until"`
-	CreatedByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor `json:"created_by_actor"`
+	CreatedByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor `json:"created_by_actor"`
 	// The first name.
 	FirstName string `json:"first_name"`
 	// The last name.
@@ -44,7 +44,7 @@ type _V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor, firstName string, lastName string, fullName string, attributeType string) *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10 {
+func NewV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, firstName string, lastName string, fullName string, attributeType string) *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10 {
 	this := V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10{}
 	this.ActiveFrom = activeFrom
 	this.ActiveUntil = activeUntil
@@ -117,9 +117,9 @@ func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneO
 
 
 // GetCreatedByActor returns the CreatedByActor field value
-func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10) GetCreatedByActor() V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor {
+func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10) GetCreatedByActor() V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor {
 	if o == nil {
-		var ret V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor
+		var ret V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor
 		return ret
 	}
 
@@ -128,7 +128,7 @@ func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneO
 
 // GetCreatedByActorOk returns a tuple with the CreatedByActor field value
 // and a boolean to check if the value has been set.
-func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10) GetCreatedByActorOk() (*V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor, bool) {
+func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10) GetCreatedByActorOk() (*V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -136,7 +136,7 @@ func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneO
 }
 
 // SetCreatedByActor sets field value
-func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10) SetCreatedByActor(v V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor) {
+func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf10) SetCreatedByActor(v V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor) {
 	o.CreatedByActor = v
 }
 

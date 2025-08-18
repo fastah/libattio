@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 
 ## V2ListsListEntriesEntryIdPatch
 
-> V2ListsListEntriesPut200Response V2ListsListEntriesEntryIdPatch(ctx, list, entryId).V2ListsListEntriesEntryIdPutRequest(v2ListsListEntriesEntryIdPutRequest).Execute()
+> V2ListsListEntriesPut200Response V2ListsListEntriesEntryIdPatch(ctx, list, entryId).V2ListsListEntriesEntryIdPatchRequest(v2ListsListEntriesEntryIdPatchRequest).Execute()
 
 Update a list entry (append multiselect values)
 
@@ -266,11 +266,11 @@ import (
 func main() {
 	list := "33ebdbe9-e529-47c9-b894-0ba25e9c15c0" // string | 
 	entryId := "2e6e29ea-c4e0-4f44-842d-78a891f8c156" // string | 
-	v2ListsListEntriesEntryIdPutRequest := *libattio.NewV2ListsListEntriesEntryIdPutRequest(*libattio.NewV2ListsListEntriesEntryIdPutRequestData(map[string][]interface{}{"key": []interface{}{nil}})) // V2ListsListEntriesEntryIdPutRequest | 
+	v2ListsListEntriesEntryIdPatchRequest := *libattio.NewV2ListsListEntriesEntryIdPatchRequest(*libattio.NewV2ListsListEntriesEntryIdPatchRequestData(map[string][]interface{}{"key": []interface{}{nil}})) // V2ListsListEntriesEntryIdPatchRequest | 
 
 	configuration := libattio.NewConfiguration()
 	apiClient := libattio.NewAPIClient(configuration)
-	resp, r, err := apiClient.EntriesAPI.V2ListsListEntriesEntryIdPatch(context.Background(), list, entryId).V2ListsListEntriesEntryIdPutRequest(v2ListsListEntriesEntryIdPutRequest).Execute()
+	resp, r, err := apiClient.EntriesAPI.V2ListsListEntriesEntryIdPatch(context.Background(), list, entryId).V2ListsListEntriesEntryIdPatchRequest(v2ListsListEntriesEntryIdPatchRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EntriesAPI.V2ListsListEntriesEntryIdPatch``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -298,7 +298,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **v2ListsListEntriesEntryIdPutRequest** | [**V2ListsListEntriesEntryIdPutRequest**](V2ListsListEntriesEntryIdPutRequest.md) |  | 
+ **v2ListsListEntriesEntryIdPatchRequest** | [**V2ListsListEntriesEntryIdPatchRequest**](V2ListsListEntriesEntryIdPatchRequest.md) |  | 
 
 ### Return type
 
@@ -539,7 +539,7 @@ Name | Type | Description  | Notes
 
 ## V2ListsListEntriesQueryPost
 
-> V2ListsListEntriesQueryPost200Response V2ListsListEntriesQueryPost(ctx, list).V2ObjectsObjectRecordsQueryPostRequest(v2ObjectsObjectRecordsQueryPostRequest).Execute()
+> V2ListsListEntriesQueryPost200Response V2ListsListEntriesQueryPost(ctx, list).V2ListsListEntriesQueryPostRequest(v2ListsListEntriesQueryPostRequest).Execute()
 
 List entries
 
@@ -559,11 +559,11 @@ import (
 
 func main() {
 	list := "33ebdbe9-e529-47c9-b894-0ba25e9c15c0" // string | 
-	v2ObjectsObjectRecordsQueryPostRequest := *libattio.NewV2ObjectsObjectRecordsQueryPostRequest() // V2ObjectsObjectRecordsQueryPostRequest | 
+	v2ListsListEntriesQueryPostRequest := *libattio.NewV2ListsListEntriesQueryPostRequest() // V2ListsListEntriesQueryPostRequest | 
 
 	configuration := libattio.NewConfiguration()
 	apiClient := libattio.NewAPIClient(configuration)
-	resp, r, err := apiClient.EntriesAPI.V2ListsListEntriesQueryPost(context.Background(), list).V2ObjectsObjectRecordsQueryPostRequest(v2ObjectsObjectRecordsQueryPostRequest).Execute()
+	resp, r, err := apiClient.EntriesAPI.V2ListsListEntriesQueryPost(context.Background(), list).V2ListsListEntriesQueryPostRequest(v2ListsListEntriesQueryPostRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EntriesAPI.V2ListsListEntriesQueryPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -589,7 +589,7 @@ Other parameters are passed through a pointer to a apiV2ListsListEntriesQueryPos
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **v2ObjectsObjectRecordsQueryPostRequest** | [**V2ObjectsObjectRecordsQueryPostRequest**](V2ObjectsObjectRecordsQueryPostRequest.md) |  | 
+ **v2ListsListEntriesQueryPostRequest** | [**V2ListsListEntriesQueryPostRequest**](V2ListsListEntriesQueryPostRequest.md) |  | 
 
 ### Return type
 

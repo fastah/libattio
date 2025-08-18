@@ -4,15 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FirstName** | Pointer to **string** | The first name. | [optional] 
-**LastName** | Pointer to **string** | The last name. | [optional] 
-**FullName** | Pointer to **string** | The full name. | [optional] 
+**OriginalPhoneNumber** | **string** | A phone number which is either a) prefixed with a country code (e.g. &#x60;+44....&#x60;) or b) a local number, where &#x60;country_code&#x60; is specified in addition. | 
+**CountryCode** | Pointer to **NullableString** | The ISO 3166-1 alpha-2 country code representing the country that this phone number belongs to. Optional if &#x60;original_phone_number&#x60; includes a country code prefix. | [optional] 
 
 ## Methods
 
 ### NewInputValueAnyOf9
 
-`func NewInputValueAnyOf9() *InputValueAnyOf9`
+`func NewInputValueAnyOf9(originalPhoneNumber string, ) *InputValueAnyOf9`
 
 NewInputValueAnyOf9 instantiates a new InputValueAnyOf9 object
 This constructor will assign default values to properties that have it defined,
@@ -27,81 +26,61 @@ NewInputValueAnyOf9WithDefaults instantiates a new InputValueAnyOf9 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetFirstName
+### GetOriginalPhoneNumber
 
-`func (o *InputValueAnyOf9) GetFirstName() string`
+`func (o *InputValueAnyOf9) GetOriginalPhoneNumber() string`
 
-GetFirstName returns the FirstName field if non-nil, zero value otherwise.
+GetOriginalPhoneNumber returns the OriginalPhoneNumber field if non-nil, zero value otherwise.
 
-### GetFirstNameOk
+### GetOriginalPhoneNumberOk
 
-`func (o *InputValueAnyOf9) GetFirstNameOk() (*string, bool)`
+`func (o *InputValueAnyOf9) GetOriginalPhoneNumberOk() (*string, bool)`
 
-GetFirstNameOk returns a tuple with the FirstName field if it's non-nil, zero value otherwise
+GetOriginalPhoneNumberOk returns a tuple with the OriginalPhoneNumber field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFirstName
+### SetOriginalPhoneNumber
 
-`func (o *InputValueAnyOf9) SetFirstName(v string)`
+`func (o *InputValueAnyOf9) SetOriginalPhoneNumber(v string)`
 
-SetFirstName sets FirstName field to given value.
+SetOriginalPhoneNumber sets OriginalPhoneNumber field to given value.
 
-### HasFirstName
 
-`func (o *InputValueAnyOf9) HasFirstName() bool`
+### GetCountryCode
 
-HasFirstName returns a boolean if a field has been set.
+`func (o *InputValueAnyOf9) GetCountryCode() string`
 
-### GetLastName
+GetCountryCode returns the CountryCode field if non-nil, zero value otherwise.
 
-`func (o *InputValueAnyOf9) GetLastName() string`
+### GetCountryCodeOk
 
-GetLastName returns the LastName field if non-nil, zero value otherwise.
+`func (o *InputValueAnyOf9) GetCountryCodeOk() (*string, bool)`
 
-### GetLastNameOk
-
-`func (o *InputValueAnyOf9) GetLastNameOk() (*string, bool)`
-
-GetLastNameOk returns a tuple with the LastName field if it's non-nil, zero value otherwise
+GetCountryCodeOk returns a tuple with the CountryCode field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetLastName
+### SetCountryCode
 
-`func (o *InputValueAnyOf9) SetLastName(v string)`
+`func (o *InputValueAnyOf9) SetCountryCode(v string)`
 
-SetLastName sets LastName field to given value.
+SetCountryCode sets CountryCode field to given value.
 
-### HasLastName
+### HasCountryCode
 
-`func (o *InputValueAnyOf9) HasLastName() bool`
+`func (o *InputValueAnyOf9) HasCountryCode() bool`
 
-HasLastName returns a boolean if a field has been set.
+HasCountryCode returns a boolean if a field has been set.
 
-### GetFullName
+### SetCountryCodeNil
 
-`func (o *InputValueAnyOf9) GetFullName() string`
+`func (o *InputValueAnyOf9) SetCountryCodeNil(b bool)`
 
-GetFullName returns the FullName field if non-nil, zero value otherwise.
+ SetCountryCodeNil sets the value for CountryCode to be an explicit nil
 
-### GetFullNameOk
+### UnsetCountryCode
+`func (o *InputValueAnyOf9) UnsetCountryCode()`
 
-`func (o *InputValueAnyOf9) GetFullNameOk() (*string, bool)`
-
-GetFullNameOk returns a tuple with the FullName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFullName
-
-`func (o *InputValueAnyOf9) SetFullName(v string)`
-
-SetFullName sets FullName field to given value.
-
-### HasFullName
-
-`func (o *InputValueAnyOf9) HasFullName() bool`
-
-HasFullName returns a boolean if a field has been set.
-
+UnsetCountryCode ensures that no value is present for CountryCode, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

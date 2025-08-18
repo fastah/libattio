@@ -29,6 +29,8 @@ type Note struct {
 	ParentRecordId string `json:"parent_record_id"`
 	// The note title. The title is plaintext only and has no formatting.
 	Title string `json:"title"`
+	// The ID of the meeting associated with this note, or null if no meeting is associated.
+	MeetingId NullableString `json:"meeting_id"`
 	// The plaintext representation of the note content. The line feed character `\\n` represents new lines within the note content.
 	ContentPlaintext string `json:"content_plaintext"`
 	// The markdown representation of the note content. Supports a subset of markdown features including: - Headings (levels 1-3 only with `#`, `##`, `###`) - Unordered lists (`-`, `*`, `+`) - Ordered lists (`1.`, `2.`, etc.) - Text styling: `**bold**`, `*italic*`, `~~strikethrough~~`, `==highlighted==` - Links: `[link text](https://example.com)`  Note that note images are not returned as part of the markdown API representation.
@@ -46,12 +48,13 @@ type _Note Note
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNote(id NoteId, parentObject string, parentRecordId string, title string, contentPlaintext string, contentMarkdown string, tags []NoteTagsInner, createdByActor NoteCreatedByActor, createdAt string) *Note {
+func NewNote(id NoteId, parentObject string, parentRecordId string, title string, meetingId NullableString, contentPlaintext string, contentMarkdown string, tags []NoteTagsInner, createdByActor NoteCreatedByActor, createdAt string) *Note {
 	this := Note{}
 	this.Id = id
 	this.ParentObject = parentObject
 	this.ParentRecordId = parentRecordId
 	this.Title = title
+	this.MeetingId = meetingId
 	this.ContentPlaintext = contentPlaintext
 	this.ContentMarkdown = contentMarkdown
 	this.Tags = tags
@@ -165,6 +168,33 @@ func (o *Note) GetTitleOk() (*string, bool) {
 // SetTitle sets field value
 func (o *Note) SetTitle(v string) {
 	o.Title = v
+}
+
+
+// GetMeetingId returns the MeetingId field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *Note) GetMeetingId() string {
+	if o == nil || o.MeetingId.Get() == nil {
+		var ret string
+		return ret
+	}
+
+	return *o.MeetingId.Get()
+}
+
+// GetMeetingIdOk returns a tuple with the MeetingId field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Note) GetMeetingIdOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.MeetingId.Get(), o.MeetingId.IsSet()
+}
+
+// SetMeetingId sets field value
+func (o *Note) SetMeetingId(v string) {
+	o.MeetingId.Set(&v)
 }
 
 
@@ -307,6 +337,7 @@ func (o Note) ToMap() (map[string]interface{}, error) {
 	toSerialize["parent_object"] = o.ParentObject
 	toSerialize["parent_record_id"] = o.ParentRecordId
 	toSerialize["title"] = o.Title
+	toSerialize["meeting_id"] = o.MeetingId.Get()
 	toSerialize["content_plaintext"] = o.ContentPlaintext
 	toSerialize["content_markdown"] = o.ContentMarkdown
 	toSerialize["tags"] = o.Tags
@@ -324,6 +355,7 @@ func (o *Note) UnmarshalJSON(data []byte) (err error) {
 		"parent_object",
 		"parent_record_id",
 		"title",
+		"meeting_id",
 		"content_plaintext",
 		"content_markdown",
 		"tags",

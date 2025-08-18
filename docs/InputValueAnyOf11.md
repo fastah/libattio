@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **string** | The UUID or status title identifying the selected status. | 
+**Value** | **float32** | A number between 0 and 5 (inclusive) to represent a star rating. | 
 
 ## Methods
 
 ### NewInputValueAnyOf11
 
-`func NewInputValueAnyOf11(status string, ) *InputValueAnyOf11`
+`func NewInputValueAnyOf11(value float32, ) *InputValueAnyOf11`
 
 NewInputValueAnyOf11 instantiates a new InputValueAnyOf11 object
 This constructor will assign default values to properties that have it defined,
@@ -25,24 +25,24 @@ NewInputValueAnyOf11WithDefaults instantiates a new InputValueAnyOf11 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetStatus
+### GetValue
 
-`func (o *InputValueAnyOf11) GetStatus() string`
+`func (o *InputValueAnyOf11) GetValue() float32`
 
-GetStatus returns the Status field if non-nil, zero value otherwise.
+GetValue returns the Value field if non-nil, zero value otherwise.
 
-### GetStatusOk
+### GetValueOk
 
-`func (o *InputValueAnyOf11) GetStatusOk() (*string, bool)`
+`func (o *InputValueAnyOf11) GetValueOk() (*float32, bool)`
 
-GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetStatus
+### SetValue
 
-`func (o *InputValueAnyOf11) SetStatus(v string)`
+`func (o *InputValueAnyOf11) SetValue(v float32)`
 
-SetStatus sets Status field to given value.
+SetValue sets Value field to given value.
 
 
 

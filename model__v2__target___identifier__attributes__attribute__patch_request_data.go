@@ -30,7 +30,7 @@ type V2TargetIdentifierAttributesAttributePatchRequestData struct {
 	IsRequired *bool `json:"is_required,omitempty"`
 	// Whether or not new values for this attribute must be unique. Uniqueness restrictions are only applied to new data and do not apply retroactively to previously created data.
 	IsUnique *bool `json:"is_unique,omitempty"`
-	DefaultValue *V2TargetIdentifierAttributesAttributePatchRequestDataDefaultValue `json:"default_value,omitempty"`
+	DefaultValue *V2TargetIdentifierAttributesPostRequestDataDefaultValue `json:"default_value,omitempty"`
 	Config *V2TargetIdentifierAttributesAttributePatchRequestDataConfig `json:"config,omitempty"`
 	// Whether the attribute has been archived or not. See our [archiving guide](/docs/archiving-vs-deleting) for more information on archiving.
 	IsArchived *bool `json:"is_archived,omitempty"`
@@ -217,9 +217,9 @@ func (o *V2TargetIdentifierAttributesAttributePatchRequestData) SetIsUnique(v bo
 }
 
 // GetDefaultValue returns the DefaultValue field value if set, zero value otherwise.
-func (o *V2TargetIdentifierAttributesAttributePatchRequestData) GetDefaultValue() V2TargetIdentifierAttributesAttributePatchRequestDataDefaultValue {
+func (o *V2TargetIdentifierAttributesAttributePatchRequestData) GetDefaultValue() V2TargetIdentifierAttributesPostRequestDataDefaultValue {
 	if o == nil || IsNil(o.DefaultValue) {
-		var ret V2TargetIdentifierAttributesAttributePatchRequestDataDefaultValue
+		var ret V2TargetIdentifierAttributesPostRequestDataDefaultValue
 		return ret
 	}
 	return *o.DefaultValue
@@ -227,7 +227,7 @@ func (o *V2TargetIdentifierAttributesAttributePatchRequestData) GetDefaultValue(
 
 // GetDefaultValueOk returns a tuple with the DefaultValue field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *V2TargetIdentifierAttributesAttributePatchRequestData) GetDefaultValueOk() (*V2TargetIdentifierAttributesAttributePatchRequestDataDefaultValue, bool) {
+func (o *V2TargetIdentifierAttributesAttributePatchRequestData) GetDefaultValueOk() (*V2TargetIdentifierAttributesPostRequestDataDefaultValue, bool) {
 	if o == nil || IsNil(o.DefaultValue) {
 		return nil, false
 	}
@@ -243,8 +243,8 @@ func (o *V2TargetIdentifierAttributesAttributePatchRequestData) HasDefaultValue(
 	return false
 }
 
-// SetDefaultValue gets a reference to the given V2TargetIdentifierAttributesAttributePatchRequestDataDefaultValue and assigns it to the DefaultValue field.
-func (o *V2TargetIdentifierAttributesAttributePatchRequestData) SetDefaultValue(v V2TargetIdentifierAttributesAttributePatchRequestDataDefaultValue) {
+// SetDefaultValue gets a reference to the given V2TargetIdentifierAttributesPostRequestDataDefaultValue and assigns it to the DefaultValue field.
+func (o *V2TargetIdentifierAttributesAttributePatchRequestData) SetDefaultValue(v V2TargetIdentifierAttributesPostRequestDataDefaultValue) {
 	o.DefaultValue = &v
 }
 

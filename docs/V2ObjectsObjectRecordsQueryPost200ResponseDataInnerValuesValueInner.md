@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ActiveFrom** | **time.Time** | The point in time at which this value was made \&quot;active\&quot;. &#x60;active_from&#x60; can be considered roughly analogous to &#x60;created_at&#x60;. | 
 **ActiveUntil** | **time.Time** | The point in time at which this value was deactivated. If &#x60;null&#x60;, the value is active. | 
-**CreatedByActor** | [**V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor**](V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor.md) |  | 
+**CreatedByActor** | [**V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor**](V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor.md) |  | 
 **ReferencedActorType** | **string** | The type of the referenced actor. [Read more information on actor types here](/docs/actors). | 
 **ReferencedActorId** | **string** | The ID of the referenced actor. | 
 **AttributeType** | **string** | The attribute type of the value. | 
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **TargetRecordId** | **string** | A UUID to identify the referenced record. | 
 **InteractionType** | **string** | The type of interaction e.g. calendar or email. | 
 **InteractedAt** | **time.Time** | When the interaction occurred. | 
-**OwnerActor** | [**V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor**](V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor.md) |  | 
+**OwnerActor** | [**V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor**](V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor.md) |  | 
 **Line1** | **string** | The first line of the address. Note that this value is not currently represented in the UI but will be persisted and readable through API calls. | 
 **Line2** | **string** | The second line of the address. Note that this value is not currently represented in the UI but will be persisted and readable through API calls. | 
 **Line3** | **string** | The third line of the address. Note that this value is not currently represented in the UI but will be persisted and readable through API calls. | 
@@ -47,7 +47,7 @@ Name | Type | Description | Notes
 
 ### NewV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner
 
-`func NewV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner(activeFrom time.Time, activeUntil time.Time, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor, referencedActorType string, referencedActorId string, attributeType string, value string, currencyValue float32, domain string, rootDomain string, originalEmailAddress string, emailAddress string, emailDomain string, emailRootDomain string, emailLocalSpecifier string, targetObject string, targetRecordId string, interactionType string, interactedAt time.Time, ownerActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor, line1 string, line2 string, line3 string, line4 string, locality string, region string, postcode string, countryCode string, latitude string, longitude string, firstName string, lastName string, fullName string, originalPhoneNumber string, phoneNumber string, status Status, option SelectOption, ) *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner`
+`func NewV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner(activeFrom time.Time, activeUntil time.Time, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, referencedActorType string, referencedActorId string, attributeType string, value string, currencyValue float32, domain string, rootDomain string, originalEmailAddress string, emailAddress string, emailDomain string, emailRootDomain string, emailLocalSpecifier string, targetObject string, targetRecordId string, interactionType string, interactedAt time.Time, ownerActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, line1 string, line2 string, line3 string, line4 string, locality string, region string, postcode string, countryCode string, latitude string, longitude string, firstName string, lastName string, fullName string, originalPhoneNumber string, phoneNumber string, status Status, option SelectOption, ) *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner`
 
 NewV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner instantiates a new V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner object
 This constructor will assign default values to properties that have it defined,
@@ -104,20 +104,20 @@ SetActiveUntil sets ActiveUntil field to given value.
 
 ### GetCreatedByActor
 
-`func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner) GetCreatedByActor() V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor`
+`func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner) GetCreatedByActor() V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor`
 
 GetCreatedByActor returns the CreatedByActor field if non-nil, zero value otherwise.
 
 ### GetCreatedByActorOk
 
-`func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner) GetCreatedByActorOk() (*V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor, bool)`
+`func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner) GetCreatedByActorOk() (*V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, bool)`
 
 GetCreatedByActorOk returns a tuple with the CreatedByActor field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedByActor
 
-`func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner) SetCreatedByActor(v V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor)`
+`func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner) SetCreatedByActor(v V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor)`
 
 SetCreatedByActor sets CreatedByActor field to given value.
 
@@ -469,20 +469,20 @@ SetInteractedAt sets InteractedAt field to given value.
 
 ### GetOwnerActor
 
-`func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner) GetOwnerActor() V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor`
+`func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner) GetOwnerActor() V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor`
 
 GetOwnerActor returns the OwnerActor field if non-nil, zero value otherwise.
 
 ### GetOwnerActorOk
 
-`func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner) GetOwnerActorOk() (*V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor, bool)`
+`func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner) GetOwnerActorOk() (*V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, bool)`
 
 GetOwnerActorOk returns a tuple with the OwnerActor field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOwnerActor
 
-`func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner) SetOwnerActor(v V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor)`
+`func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInner) SetOwnerActor(v V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor)`
 
 SetOwnerActor sets OwnerActor field to given value.
 

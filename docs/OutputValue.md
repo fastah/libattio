@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **TargetRecordId** | **string** | A UUID to identify the referenced record. | 
 **InteractionType** | **string** | The type of interaction e.g. calendar or email. | 
 **InteractedAt** | **time.Time** | When the interaction occurred. | 
-**OwnerActor** | [**V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor**](V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor.md) |  | 
+**OwnerActor** | [**V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor**](V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor.md) |  | 
 **Line1** | **string** | The first line of the address. Note that this value is not currently represented in the UI but will be persisted and readable through API calls. | 
 **Line2** | **string** | The second line of the address. Note that this value is not currently represented in the UI but will be persisted and readable through API calls. | 
 **Line3** | **string** | The third line of the address. Note that this value is not currently represented in the UI but will be persisted and readable through API calls. | 
@@ -44,7 +44,7 @@ Name | Type | Description | Notes
 
 ### NewOutputValue
 
-`func NewOutputValue(referencedActorType string, referencedActorId string, attributeType string, value string, currencyValue float32, domain string, rootDomain string, originalEmailAddress string, emailAddress string, emailDomain string, emailRootDomain string, emailLocalSpecifier string, targetObject string, targetRecordId string, interactionType string, interactedAt time.Time, ownerActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor, line1 string, line2 string, line3 string, line4 string, locality string, region string, postcode string, countryCode string, latitude string, longitude string, firstName string, lastName string, fullName string, originalPhoneNumber string, phoneNumber string, status Status, option SelectOption, ) *OutputValue`
+`func NewOutputValue(referencedActorType string, referencedActorId string, attributeType string, value string, currencyValue float32, domain string, rootDomain string, originalEmailAddress string, emailAddress string, emailDomain string, emailRootDomain string, emailLocalSpecifier string, targetObject string, targetRecordId string, interactionType string, interactedAt time.Time, ownerActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, line1 string, line2 string, line3 string, line4 string, locality string, region string, postcode string, countryCode string, latitude string, longitude string, firstName string, lastName string, fullName string, originalPhoneNumber string, phoneNumber string, status Status, option SelectOption, ) *OutputValue`
 
 NewOutputValue instantiates a new OutputValue object
 This constructor will assign default values to properties that have it defined,
@@ -406,20 +406,20 @@ SetInteractedAt sets InteractedAt field to given value.
 
 ### GetOwnerActor
 
-`func (o *OutputValue) GetOwnerActor() V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor`
+`func (o *OutputValue) GetOwnerActor() V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor`
 
 GetOwnerActor returns the OwnerActor field if non-nil, zero value otherwise.
 
 ### GetOwnerActorOk
 
-`func (o *OutputValue) GetOwnerActorOk() (*V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor, bool)`
+`func (o *OutputValue) GetOwnerActorOk() (*V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, bool)`
 
 GetOwnerActorOk returns a tuple with the OwnerActor field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOwnerActor
 
-`func (o *OutputValue) SetOwnerActor(v V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor)`
+`func (o *OutputValue) SetOwnerActor(v V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor)`
 
 SetOwnerActor sets OwnerActor field to given value.
 

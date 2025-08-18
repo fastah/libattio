@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**WorkspaceMemberEmailAddress** | **string** | Workspace member actors can be referenced by email address as well as actor ID. | 
+**Value** | **bool** | A boolean representing whether the checkbox is checked or not. The string values &#39;true&#39; and &#39;false&#39; are also accepted. | 
 
 ## Methods
 
 ### NewInputValueAnyOf1
 
-`func NewInputValueAnyOf1(workspaceMemberEmailAddress string, ) *InputValueAnyOf1`
+`func NewInputValueAnyOf1(value bool, ) *InputValueAnyOf1`
 
 NewInputValueAnyOf1 instantiates a new InputValueAnyOf1 object
 This constructor will assign default values to properties that have it defined,
@@ -25,24 +25,24 @@ NewInputValueAnyOf1WithDefaults instantiates a new InputValueAnyOf1 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetWorkspaceMemberEmailAddress
+### GetValue
 
-`func (o *InputValueAnyOf1) GetWorkspaceMemberEmailAddress() string`
+`func (o *InputValueAnyOf1) GetValue() bool`
 
-GetWorkspaceMemberEmailAddress returns the WorkspaceMemberEmailAddress field if non-nil, zero value otherwise.
+GetValue returns the Value field if non-nil, zero value otherwise.
 
-### GetWorkspaceMemberEmailAddressOk
+### GetValueOk
 
-`func (o *InputValueAnyOf1) GetWorkspaceMemberEmailAddressOk() (*string, bool)`
+`func (o *InputValueAnyOf1) GetValueOk() (*bool, bool)`
 
-GetWorkspaceMemberEmailAddressOk returns a tuple with the WorkspaceMemberEmailAddress field if it's non-nil, zero value otherwise
+GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetWorkspaceMemberEmailAddress
+### SetValue
 
-`func (o *InputValueAnyOf1) SetWorkspaceMemberEmailAddress(v string)`
+`func (o *InputValueAnyOf1) SetValue(v bool)`
 
-SetWorkspaceMemberEmailAddress sets WorkspaceMemberEmailAddress field to given value.
+SetValue sets Value field to given value.
 
 
 

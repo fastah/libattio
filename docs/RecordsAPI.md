@@ -541,7 +541,7 @@ Name | Type | Description  | Notes
 
 ## V2ObjectsObjectRecordsRecordIdPatch
 
-> V2ObjectsObjectRecordsPut200Response V2ObjectsObjectRecordsRecordIdPatch(ctx, object, recordId).V2ObjectsObjectRecordsPutRequest(v2ObjectsObjectRecordsPutRequest).Execute()
+> V2ObjectsObjectRecordsPut200Response V2ObjectsObjectRecordsRecordIdPatch(ctx, object, recordId).V2ObjectsObjectRecordsRecordIdPatchRequest(v2ObjectsObjectRecordsRecordIdPatchRequest).Execute()
 
 Update a record (append multiselect values)
 
@@ -562,11 +562,11 @@ import (
 func main() {
 	object := "people" // string | 
 	recordId := "891dcbfc-9141-415d-9b2a-2238a6cc012d" // string | 
-	v2ObjectsObjectRecordsPutRequest := *libattio.NewV2ObjectsObjectRecordsPutRequest(*libattio.NewV2ObjectsObjectRecordsPutRequestData(map[string][]interface{}{"key": []interface{}{nil}})) // V2ObjectsObjectRecordsPutRequest | 
+	v2ObjectsObjectRecordsRecordIdPatchRequest := *libattio.NewV2ObjectsObjectRecordsRecordIdPatchRequest(*libattio.NewV2ObjectsObjectRecordsRecordIdPatchRequestData(map[string][]interface{}{"key": []interface{}{nil}})) // V2ObjectsObjectRecordsRecordIdPatchRequest | 
 
 	configuration := libattio.NewConfiguration()
 	apiClient := libattio.NewAPIClient(configuration)
-	resp, r, err := apiClient.RecordsAPI.V2ObjectsObjectRecordsRecordIdPatch(context.Background(), object, recordId).V2ObjectsObjectRecordsPutRequest(v2ObjectsObjectRecordsPutRequest).Execute()
+	resp, r, err := apiClient.RecordsAPI.V2ObjectsObjectRecordsRecordIdPatch(context.Background(), object, recordId).V2ObjectsObjectRecordsRecordIdPatchRequest(v2ObjectsObjectRecordsRecordIdPatchRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecordsAPI.V2ObjectsObjectRecordsRecordIdPatch``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -594,7 +594,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **v2ObjectsObjectRecordsPutRequest** | [**V2ObjectsObjectRecordsPutRequest**](V2ObjectsObjectRecordsPutRequest.md) |  | 
+ **v2ObjectsObjectRecordsRecordIdPatchRequest** | [**V2ObjectsObjectRecordsRecordIdPatchRequest**](V2ObjectsObjectRecordsRecordIdPatchRequest.md) |  | 
 
 ### Return type
 

@@ -4,13 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | **string** | A date represents a single calendar year, month and day, independent of timezone. If hours, months, seconds or timezones are provided, they will be trimmed. For example, \&quot;2023\&quot; and \&quot;2023-01\&quot; will be coerced into \&quot;2023-01-01\&quot;, and \&quot;2023-01-02\&quot;, \&quot;2023-01-02T13:00\&quot;, \&quot;2023-01-02T14:00:00\&quot;, \&quot;2023-01-02T15:00:00.000000000\&quot;, and \&quot;2023-01-02T15:00:00.000000000+02:00\&quot; will all be coerced to \&quot;2023-01-02\&quot;. If a timezone is provided that would result in a different calendar date in UTC, the date will be coerced to UTC and then the timezone component will be trimmed. For example, the value \&quot;2023-01-02T23:00:00-10:00\&quot; will be returned as \&quot;2023-01-03\&quot;. The maximum date is \&quot;9999-12-31\&quot;. | 
+**TargetObject** | **string** | A UUID or slug to identify the object that the referenced record belongs to. | 
+**TargetRecordId** | **string** | A UUID to identify the referenced record. | 
 
 ## Methods
 
 ### NewInputValueAnyOf4
 
-`func NewInputValueAnyOf4(value string, ) *InputValueAnyOf4`
+`func NewInputValueAnyOf4(targetObject string, targetRecordId string, ) *InputValueAnyOf4`
 
 NewInputValueAnyOf4 instantiates a new InputValueAnyOf4 object
 This constructor will assign default values to properties that have it defined,
@@ -25,24 +26,44 @@ NewInputValueAnyOf4WithDefaults instantiates a new InputValueAnyOf4 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetValue
+### GetTargetObject
 
-`func (o *InputValueAnyOf4) GetValue() string`
+`func (o *InputValueAnyOf4) GetTargetObject() string`
 
-GetValue returns the Value field if non-nil, zero value otherwise.
+GetTargetObject returns the TargetObject field if non-nil, zero value otherwise.
 
-### GetValueOk
+### GetTargetObjectOk
 
-`func (o *InputValueAnyOf4) GetValueOk() (*string, bool)`
+`func (o *InputValueAnyOf4) GetTargetObjectOk() (*string, bool)`
 
-GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
+GetTargetObjectOk returns a tuple with the TargetObject field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetValue
+### SetTargetObject
 
-`func (o *InputValueAnyOf4) SetValue(v string)`
+`func (o *InputValueAnyOf4) SetTargetObject(v string)`
 
-SetValue sets Value field to given value.
+SetTargetObject sets TargetObject field to given value.
+
+
+### GetTargetRecordId
+
+`func (o *InputValueAnyOf4) GetTargetRecordId() string`
+
+GetTargetRecordId returns the TargetRecordId field if non-nil, zero value otherwise.
+
+### GetTargetRecordIdOk
+
+`func (o *InputValueAnyOf4) GetTargetRecordIdOk() (*string, bool)`
+
+GetTargetRecordIdOk returns a tuple with the TargetRecordId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTargetRecordId
+
+`func (o *InputValueAnyOf4) SetTargetRecordId(v string)`
+
+SetTargetRecordId sets TargetRecordId field to given value.
 
 
 

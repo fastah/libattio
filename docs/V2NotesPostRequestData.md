@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Format** | **string** | Specify the format for the note&#39;s content. Choose from: - &#x60;plaintext&#x60;: Standard text format where &#x60;\\n&#x60; signifies a new line. - &#x60;markdown&#x60;: Enables rich text formatting using a subset of Markdown syntax:   - **Headings**: Levels 1-3 (&#x60;#&#x60;, &#x60;##&#x60;, &#x60;###&#x60;).   - **Lists**: Unordered (&#x60;-&#x60;, &#x60;*&#x60;, &#x60;+&#x60;) and ordered (&#x60;1.&#x60;, &#x60;2.&#x60;).   - **Text styles**: Bold (&#x60;**bold**&#x60; or &#x60;__bold__&#x60;), italic (&#x60;*italic*&#x60; or &#x60;_italic_&#x60;), strikethrough (&#x60;~~strikethrough~~&#x60;), and highlight (&#x60;&#x3D;&#x3D;highlighted&#x3D;&#x3D;&#x60;).   - **Links**: Standard Markdown links (&#x60;[link text](https://example.com)&#x60;).    *Note: While the Attio interface supports image embeds, they cannot currently be added or retrieved via the API&#39;s markdown format.* | 
 **Content** | **string** | The main content of the note, formatted according to the value provided in the &#x60;format&#x60; field. Use &#x60;\\n&#x60; for line breaks in &#x60;plaintext&#x60;. For &#x60;markdown&#x60;, utilize the supported syntax elements to structure and style your note. | 
 **CreatedAt** | Pointer to **string** | &#x60;created_at&#x60; will default to the current time. However, if you wish to backdate a note for migration or other purposes, you can override with a custom &#x60;created_at&#x60; value. Note that dates before 1970 or in the future are not allowed. | [optional] 
+**MeetingId** | Pointer to **NullableString** | An optional ID to associate this note with a meeting. If provided, the meeting must exist. Use &#x60;null&#x60; to explicitly set no meeting association. | [optional] 
 
 ## Methods
 
@@ -155,6 +156,41 @@ SetCreatedAt sets CreatedAt field to given value.
 
 HasCreatedAt returns a boolean if a field has been set.
 
+### GetMeetingId
+
+`func (o *V2NotesPostRequestData) GetMeetingId() string`
+
+GetMeetingId returns the MeetingId field if non-nil, zero value otherwise.
+
+### GetMeetingIdOk
+
+`func (o *V2NotesPostRequestData) GetMeetingIdOk() (*string, bool)`
+
+GetMeetingIdOk returns a tuple with the MeetingId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMeetingId
+
+`func (o *V2NotesPostRequestData) SetMeetingId(v string)`
+
+SetMeetingId sets MeetingId field to given value.
+
+### HasMeetingId
+
+`func (o *V2NotesPostRequestData) HasMeetingId() bool`
+
+HasMeetingId returns a boolean if a field has been set.
+
+### SetMeetingIdNil
+
+`func (o *V2NotesPostRequestData) SetMeetingIdNil(b bool)`
+
+ SetMeetingIdNil sets the value for MeetingId to be an explicit nil
+
+### UnsetMeetingId
+`func (o *V2NotesPostRequestData) UnsetMeetingId()`
+
+UnsetMeetingId ensures that no value is present for MeetingId, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

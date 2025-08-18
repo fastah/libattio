@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **SlugOrIdOfMatchingAttribute** | [**[]V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInner**](V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInner.md) | In addition to referencing records directly by record ID, you may also reference by a matching attribute of your choice. For example, if you want to add a reference to the person record with email \&quot;alice@website.com\&quot;, you should pass a value with &#x60;target_object&#x60; set to &#x60;\&quot;people\&quot;&#x60; and &#x60;email_addresses&#x60; set to &#x60;[{email_address:\&quot;alice@website.com\&quot;}]&#x60;. The key should be the slug or ID of the matching attribute you would like to use and the value should be an array containing a single value of the appropriate attribute type (as specified below). Matching on multiple values is not currently supported. Matching attributes must be unique. This process is similar to how you use the &#x60;matching_attribute&#x60; query param in Attio&#39;s [assert endpoints](/rest-api/endpoint-reference/records/assert-a-record). | 
 **InteractionType** | **string** | The type of interaction e.g. calendar or email. | 
 **InteractedAt** | **time.Time** | When the interaction occurred. | 
-**OwnerActor** | [**V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor**](V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor.md) |  | 
+**OwnerActor** | [**V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor**](V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor.md) |  | 
 **Line1** | **string** | The first line of the address. Note that this value is not currently represented in the UI but will be persisted and readable through API calls. | 
 **Line2** | **string** | The second line of the address. Note that this value is not currently represented in the UI but will be persisted and readable through API calls. | 
 **Line3** | **string** | The third line of the address. Note that this value is not currently represented in the UI but will be persisted and readable through API calls. | 
@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 
 ### NewInputValue
 
-`func NewInputValue(referencedActorType string, referencedActorId string, workspaceMemberEmailAddress string, value string, currencyValue float32, targetObject string, targetRecordId string, slugOrIdOfMatchingAttribute []V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInner, interactionType string, interactedAt time.Time, ownerActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor, line1 string, line2 string, line3 string, line4 string, locality string, region string, postcode string, countryCode string, latitude string, longitude string, originalPhoneNumber string, status string, option string, ) *InputValue`
+`func NewInputValue(referencedActorType string, referencedActorId string, workspaceMemberEmailAddress string, value string, currencyValue float32, targetObject string, targetRecordId string, slugOrIdOfMatchingAttribute []V2TasksPostRequestDataLinkedRecordsInnerAnyOf1SlugOrIdOfMatchingAttributeInner, interactionType string, interactedAt time.Time, ownerActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, line1 string, line2 string, line3 string, line4 string, locality string, region string, postcode string, countryCode string, latitude string, longitude string, originalPhoneNumber string, status string, option string, ) *InputValue`
 
 NewInputValue instantiates a new InputValue object
 This constructor will assign default values to properties that have it defined,
@@ -305,20 +305,20 @@ SetInteractedAt sets InteractedAt field to given value.
 
 ### GetOwnerActor
 
-`func (o *InputValue) GetOwnerActor() V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor`
+`func (o *InputValue) GetOwnerActor() V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor`
 
 GetOwnerActor returns the OwnerActor field if non-nil, zero value otherwise.
 
 ### GetOwnerActorOk
 
-`func (o *InputValue) GetOwnerActorOk() (*V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor, bool)`
+`func (o *InputValue) GetOwnerActorOk() (*V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, bool)`
 
 GetOwnerActorOk returns a tuple with the OwnerActor field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOwnerActor
 
-`func (o *InputValue) SetOwnerActor(v V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOfCreatedByActor)`
+`func (o *InputValue) SetOwnerActor(v V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor)`
 
 SetOwnerActor sets OwnerActor field to given value.
 

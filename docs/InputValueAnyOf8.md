@@ -4,13 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | **float32** | Numbers are persisted as 64 bit floats. | 
+**FirstName** | Pointer to **string** | The first name. | [optional] 
+**LastName** | Pointer to **string** | The last name. | [optional] 
+**FullName** | Pointer to **string** | The full name. | [optional] 
 
 ## Methods
 
 ### NewInputValueAnyOf8
 
-`func NewInputValueAnyOf8(value float32, ) *InputValueAnyOf8`
+`func NewInputValueAnyOf8() *InputValueAnyOf8`
 
 NewInputValueAnyOf8 instantiates a new InputValueAnyOf8 object
 This constructor will assign default values to properties that have it defined,
@@ -25,25 +27,80 @@ NewInputValueAnyOf8WithDefaults instantiates a new InputValueAnyOf8 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetValue
+### GetFirstName
 
-`func (o *InputValueAnyOf8) GetValue() float32`
+`func (o *InputValueAnyOf8) GetFirstName() string`
 
-GetValue returns the Value field if non-nil, zero value otherwise.
+GetFirstName returns the FirstName field if non-nil, zero value otherwise.
 
-### GetValueOk
+### GetFirstNameOk
 
-`func (o *InputValueAnyOf8) GetValueOk() (*float32, bool)`
+`func (o *InputValueAnyOf8) GetFirstNameOk() (*string, bool)`
 
-GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
+GetFirstNameOk returns a tuple with the FirstName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetValue
+### SetFirstName
 
-`func (o *InputValueAnyOf8) SetValue(v float32)`
+`func (o *InputValueAnyOf8) SetFirstName(v string)`
 
-SetValue sets Value field to given value.
+SetFirstName sets FirstName field to given value.
 
+### HasFirstName
+
+`func (o *InputValueAnyOf8) HasFirstName() bool`
+
+HasFirstName returns a boolean if a field has been set.
+
+### GetLastName
+
+`func (o *InputValueAnyOf8) GetLastName() string`
+
+GetLastName returns the LastName field if non-nil, zero value otherwise.
+
+### GetLastNameOk
+
+`func (o *InputValueAnyOf8) GetLastNameOk() (*string, bool)`
+
+GetLastNameOk returns a tuple with the LastName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastName
+
+`func (o *InputValueAnyOf8) SetLastName(v string)`
+
+SetLastName sets LastName field to given value.
+
+### HasLastName
+
+`func (o *InputValueAnyOf8) HasLastName() bool`
+
+HasLastName returns a boolean if a field has been set.
+
+### GetFullName
+
+`func (o *InputValueAnyOf8) GetFullName() string`
+
+GetFullName returns the FullName field if non-nil, zero value otherwise.
+
+### GetFullNameOk
+
+`func (o *InputValueAnyOf8) GetFullNameOk() (*string, bool)`
+
+GetFullNameOk returns a tuple with the FullName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFullName
+
+`func (o *InputValueAnyOf8) SetFullName(v string)`
+
+SetFullName sets FullName field to given value.
+
+### HasFullName
+
+`func (o *InputValueAnyOf8) HasFullName() bool`
+
+HasFullName returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
