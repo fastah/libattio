@@ -14,7 +14,6 @@ package libattio
 import (
 	"encoding/json"
 	"fmt"
-	"gopkg.in/validator.v2"
 )
 
 // V2TargetIdentifierAttributesPostRequestDataDefaultValue - The default value for this attribute. Static values are used to directly populate values using their contents. Dynamic values are used to lookup data at the point of creation. For example, you could use a dynamic value to insert a value for the currently logged in user. Which default values are available is dependent on the type of the attribute. Default values are not currently supported on people or company objects.
@@ -51,51 +50,39 @@ func (dst *V2TargetIdentifierAttributesPostRequestDataDefaultValue) UnmarshalJSO
 	var err error
 	match := 0
 	// try to unmarshal data into V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf
-	err = newStrictDecoder(data).Decode(&dst.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf)
+	err = json.Unmarshal(data, &dst.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf)
 	if err == nil {
 		jsonV2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf, _ := json.Marshal(dst.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf)
 		if string(jsonV2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf) == "{}" { // empty struct
 			dst.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf = nil
 		} else {
-			if err = validator.Validate(dst.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf); err != nil {
-				dst.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf = nil
-			} else {
-				match++
-			}
+			match++
 		}
 	} else {
 		dst.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf = nil
 	}
 
 	// try to unmarshal data into V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf1
-	err = newStrictDecoder(data).Decode(&dst.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf1)
+	err = json.Unmarshal(data, &dst.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf1)
 	if err == nil {
 		jsonV2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf1, _ := json.Marshal(dst.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf1)
 		if string(jsonV2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf1) == "{}" { // empty struct
 			dst.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf1 = nil
 		} else {
-			if err = validator.Validate(dst.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf1); err != nil {
-				dst.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf1 = nil
-			} else {
-				match++
-			}
+			match++
 		}
 	} else {
 		dst.V2TargetIdentifierAttributesPostRequestDataDefaultValueOneOf1 = nil
 	}
 
 	// try to unmarshal data into Any
-	err = newStrictDecoder(data).Decode(&dst.Any)
+	err = json.Unmarshal(data, &dst.Any)
 	if err == nil {
 		jsonAny, _ := json.Marshal(dst.Any)
 		if string(jsonAny) == "{}" { // empty struct
 			dst.Any = nil
 		} else {
-			if err = validator.Validate(dst.Any); err != nil {
-				dst.Any = nil
-			} else {
-				match++
-			}
+			match++
 		}
 	} else {
 		dst.Any = nil

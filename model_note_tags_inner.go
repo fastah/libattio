@@ -14,7 +14,6 @@ package libattio
 import (
 	"encoding/json"
 	"fmt"
-	"gopkg.in/validator.v2"
 )
 
 // NoteTagsInner - struct for NoteTagsInner
@@ -43,34 +42,26 @@ func (dst *NoteTagsInner) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into NoteTagsInnerOneOf
-	err = newStrictDecoder(data).Decode(&dst.NoteTagsInnerOneOf)
+	err = json.Unmarshal(data, &dst.NoteTagsInnerOneOf)
 	if err == nil {
 		jsonNoteTagsInnerOneOf, _ := json.Marshal(dst.NoteTagsInnerOneOf)
 		if string(jsonNoteTagsInnerOneOf) == "{}" { // empty struct
 			dst.NoteTagsInnerOneOf = nil
 		} else {
-			if err = validator.Validate(dst.NoteTagsInnerOneOf); err != nil {
-				dst.NoteTagsInnerOneOf = nil
-			} else {
-				match++
-			}
+			match++
 		}
 	} else {
 		dst.NoteTagsInnerOneOf = nil
 	}
 
 	// try to unmarshal data into NoteTagsInnerOneOf1
-	err = newStrictDecoder(data).Decode(&dst.NoteTagsInnerOneOf1)
+	err = json.Unmarshal(data, &dst.NoteTagsInnerOneOf1)
 	if err == nil {
 		jsonNoteTagsInnerOneOf1, _ := json.Marshal(dst.NoteTagsInnerOneOf1)
 		if string(jsonNoteTagsInnerOneOf1) == "{}" { // empty struct
 			dst.NoteTagsInnerOneOf1 = nil
 		} else {
-			if err = validator.Validate(dst.NoteTagsInnerOneOf1); err != nil {
-				dst.NoteTagsInnerOneOf1 = nil
-			} else {
-				match++
-			}
+			match++
 		}
 	} else {
 		dst.NoteTagsInnerOneOf1 = nil

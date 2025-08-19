@@ -14,7 +14,6 @@ package libattio
 import (
 	"encoding/json"
 	"fmt"
-	"gopkg.in/validator.v2"
 )
 
 // V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner - struct for V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
@@ -163,289 +162,221 @@ func (dst *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner) UnmarshalJS
 	var err error
 	match := 0
 	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf)
+	err = json.Unmarshal(data, &dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf)
 	if err == nil {
 		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf)
 		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf) == "{}" { // empty struct
 			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf = nil
 		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf = nil
-			} else {
-				match++
-			}
+			match++
 		}
 	} else {
 		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf = nil
 	}
 
 	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1)
+	err = json.Unmarshal(data, &dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1)
 	if err == nil {
 		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1)
 		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1) == "{}" { // empty struct
 			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1 = nil
 		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1 = nil
-			} else {
-				match++
-			}
+			match++
 		}
 	} else {
 		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf1 = nil
 	}
 
 	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10)
+	err = json.Unmarshal(data, &dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10)
 	if err == nil {
 		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10)
 		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) == "{}" { // empty struct
 			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10 = nil
 		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10 = nil
-			} else {
-				match++
-			}
+			match++
 		}
 	} else {
 		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10 = nil
 	}
 
 	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11)
+	err = json.Unmarshal(data, &dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11)
 	if err == nil {
 		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11)
 		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) == "{}" { // empty struct
 			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11 = nil
 		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11 = nil
-			} else {
-				match++
-			}
+			match++
 		}
 	} else {
 		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11 = nil
 	}
 
 	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12)
+	err = json.Unmarshal(data, &dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12)
 	if err == nil {
 		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12)
 		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12) == "{}" { // empty struct
 			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12 = nil
 		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12 = nil
-			} else {
-				match++
-			}
+			match++
 		}
 	} else {
 		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12 = nil
 	}
 
 	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13)
+	err = json.Unmarshal(data, &dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13)
 	if err == nil {
 		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13)
 		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13) == "{}" { // empty struct
 			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13 = nil
 		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13 = nil
-			} else {
-				match++
-			}
+			match++
 		}
 	} else {
 		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13 = nil
 	}
 
 	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2)
+	err = json.Unmarshal(data, &dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2)
 	if err == nil {
 		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2)
 		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2) == "{}" { // empty struct
 			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2 = nil
 		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2 = nil
-			} else {
-				match++
-			}
+			match++
 		}
 	} else {
 		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf2 = nil
 	}
 
 	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3)
+	err = json.Unmarshal(data, &dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3)
 	if err == nil {
 		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3)
 		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3) == "{}" { // empty struct
 			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3 = nil
 		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3 = nil
-			} else {
-				match++
-			}
+			match++
 		}
 	} else {
 		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf3 = nil
 	}
 
 	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4)
+	err = json.Unmarshal(data, &dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4)
 	if err == nil {
 		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4)
 		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4) == "{}" { // empty struct
 			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4 = nil
 		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4 = nil
-			} else {
-				match++
-			}
+			match++
 		}
 	} else {
 		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf4 = nil
 	}
 
 	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5)
+	err = json.Unmarshal(data, &dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5)
 	if err == nil {
 		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5)
 		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) == "{}" { // empty struct
 			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5 = nil
 		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5 = nil
-			} else {
-				match++
-			}
+			match++
 		}
 	} else {
 		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5 = nil
 	}
 
 	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6)
+	err = json.Unmarshal(data, &dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6)
 	if err == nil {
 		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6)
 		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6) == "{}" { // empty struct
 			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6 = nil
 		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6 = nil
-			} else {
-				match++
-			}
+			match++
 		}
 	} else {
 		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6 = nil
 	}
 
 	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7)
+	err = json.Unmarshal(data, &dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7)
 	if err == nil {
 		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7)
 		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) == "{}" { // empty struct
 			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7 = nil
 		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7 = nil
-			} else {
-				match++
-			}
+			match++
 		}
 	} else {
 		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7 = nil
 	}
 
 	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8)
+	err = json.Unmarshal(data, &dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8)
 	if err == nil {
 		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8)
 		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) == "{}" { // empty struct
 			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8 = nil
 		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8 = nil
-			} else {
-				match++
-			}
+			match++
 		}
 	} else {
 		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8 = nil
 	}
 
 	// try to unmarshal data into V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9)
+	err = json.Unmarshal(data, &dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9)
 	if err == nil {
 		jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9, _ := json.Marshal(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9)
 		if string(jsonV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) == "{}" { // empty struct
 			dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 = nil
 		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9); err != nil {
-				dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 = nil
-			} else {
-				match++
-			}
+			match++
 		}
 	} else {
 		dst.V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 = nil
 	}
 
 	// try to unmarshal data into V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11)
+	err = json.Unmarshal(data, &dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11)
 	if err == nil {
 		jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11, _ := json.Marshal(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11)
 		if string(jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11) == "{}" { // empty struct
 			dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11 = nil
 		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11); err != nil {
-				dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11 = nil
-			} else {
-				match++
-			}
+			match++
 		}
 	} else {
 		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11 = nil
 	}
 
 	// try to unmarshal data into V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5)
+	err = json.Unmarshal(data, &dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5)
 	if err == nil {
 		jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5, _ := json.Marshal(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5)
 		if string(jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5) == "{}" { // empty struct
 			dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5 = nil
 		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5); err != nil {
-				dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5 = nil
-			} else {
-				match++
-			}
+			match++
 		}
 	} else {
 		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5 = nil
 	}
 
 	// try to unmarshal data into V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9
-	err = newStrictDecoder(data).Decode(&dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9)
+	err = json.Unmarshal(data, &dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9)
 	if err == nil {
 		jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9, _ := json.Marshal(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9)
 		if string(jsonV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9) == "{}" { // empty struct
 			dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9 = nil
 		} else {
-			if err = validator.Validate(dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9); err != nil {
-				dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9 = nil
-			} else {
-				match++
-			}
+			match++
 		}
 	} else {
 		dst.V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9 = nil
