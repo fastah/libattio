@@ -18,30 +18,30 @@ import (
 	"fmt"
 )
 
-// checks if the V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9{}
+// checks if the V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15 type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15{}
 
-// V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 struct for V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9
-type V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 struct {
+// V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15 struct for V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15
+type V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15 struct {
 	// The point in time at which this value was made \"active\". `active_from` can be considered roughly analogous to `created_at`.
 	ActiveFrom time.Time `json:"active_from"`
 	// The point in time at which this value was deactivated. If `null`, the value is active.
 	ActiveUntil NullableTime `json:"active_until"`
 	CreatedByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor `json:"created_by_actor"`
-	// Numbers are persisted as 64 bit floats.
-	Value float32 `json:"value"`
+	// A raw text field. Values are limited to 10MB.
+	Value string `json:"value"`
 	// The attribute type of the value.
 	AttributeType string `json:"attribute_type"`
 }
 
-type _V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9
+type _V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15 V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15
 
-// NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 instantiates a new V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 object
+// NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15 instantiates a new V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, value float32, attributeType string) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 {
-	this := V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9{}
+func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, value string, attributeType string) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15 {
+	this := V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15{}
 	this.ActiveFrom = activeFrom
 	this.ActiveUntil = activeUntil
 	this.CreatedByActor = createdByActor
@@ -50,16 +50,16 @@ func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9(activeFro
 	return &this
 }
 
-// NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9WithDefaults instantiates a new V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 object
+// NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15WithDefaults instantiates a new V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15 object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9WithDefaults() *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 {
-	this := V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9{}
+func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15WithDefaults() *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15 {
+	this := V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15{}
 	return &this
 }
 
 // GetActiveFrom returns the ActiveFrom field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) GetActiveFrom() time.Time {
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15) GetActiveFrom() time.Time {
 	if o == nil {
 		var ret time.Time
 		return ret
@@ -70,7 +70,7 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) GetActi
 
 // GetActiveFromOk returns a tuple with the ActiveFrom field value
 // and a boolean to check if the value has been set.
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) GetActiveFromOk() (*time.Time, bool) {
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15) GetActiveFromOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -78,14 +78,14 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) GetActi
 }
 
 // SetActiveFrom sets field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) SetActiveFrom(v time.Time) {
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15) SetActiveFrom(v time.Time) {
 	o.ActiveFrom = v
 }
 
 
 // GetActiveUntil returns the ActiveUntil field value
 // If the value is explicit nil, the zero value for time.Time will be returned
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) GetActiveUntil() time.Time {
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15) GetActiveUntil() time.Time {
 	if o == nil || o.ActiveUntil.Get() == nil {
 		var ret time.Time
 		return ret
@@ -97,7 +97,7 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) GetActi
 // GetActiveUntilOk returns a tuple with the ActiveUntil field value
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) GetActiveUntilOk() (*time.Time, bool) {
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15) GetActiveUntilOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -105,13 +105,13 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) GetActi
 }
 
 // SetActiveUntil sets field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) SetActiveUntil(v time.Time) {
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15) SetActiveUntil(v time.Time) {
 	o.ActiveUntil.Set(&v)
 }
 
 
 // GetCreatedByActor returns the CreatedByActor field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) GetCreatedByActor() V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor {
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15) GetCreatedByActor() V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor {
 	if o == nil {
 		var ret V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor
 		return ret
@@ -122,7 +122,7 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) GetCrea
 
 // GetCreatedByActorOk returns a tuple with the CreatedByActor field value
 // and a boolean to check if the value has been set.
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) GetCreatedByActorOk() (*V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, bool) {
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15) GetCreatedByActorOk() (*V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -130,15 +130,15 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) GetCrea
 }
 
 // SetCreatedByActor sets field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) SetCreatedByActor(v V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor) {
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15) SetCreatedByActor(v V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor) {
 	o.CreatedByActor = v
 }
 
 
 // GetValue returns the Value field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) GetValue() float32 {
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15) GetValue() string {
 	if o == nil {
-		var ret float32
+		var ret string
 		return ret
 	}
 
@@ -147,7 +147,7 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) GetValu
 
 // GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) GetValueOk() (*float32, bool) {
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15) GetValueOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -155,13 +155,13 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) GetValu
 }
 
 // SetValue sets field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) SetValue(v float32) {
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15) SetValue(v string) {
 	o.Value = v
 }
 
 
 // GetAttributeType returns the AttributeType field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) GetAttributeType() string {
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15) GetAttributeType() string {
 	if o == nil {
 		var ret string
 		return ret
@@ -172,7 +172,7 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) GetAttr
 
 // GetAttributeTypeOk returns a tuple with the AttributeType field value
 // and a boolean to check if the value has been set.
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) GetAttributeTypeOk() (*string, bool) {
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15) GetAttributeTypeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -180,12 +180,12 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) GetAttr
 }
 
 // SetAttributeType sets field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) SetAttributeType(v string) {
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15) SetAttributeType(v string) {
 	o.AttributeType = v
 }
 
 
-func (o V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) MarshalJSON() ([]byte, error) {
+func (o V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -193,7 +193,7 @@ func (o V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) MarshalJ
 	return json.Marshal(toSerialize)
 }
 
-func (o V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) ToMap() (map[string]interface{}, error) {
+func (o V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	toSerialize["active_from"] = o.ActiveFrom
 	toSerialize["active_until"] = o.ActiveUntil.Get()
@@ -203,7 +203,7 @@ func (o V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) ToMap() 
 	return toSerialize, nil
 }
 
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) UnmarshalJSON(data []byte) (err error) {
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15) UnmarshalJSON(data []byte) (err error) {
 	// This validates that all required properties are included in the JSON object
 	// by unmarshalling the object into a generic map with string keys and checking
 	// that every required field exists as a key in the generic map.
@@ -246,53 +246,53 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) Unmarsh
 			return err
 		}
 	}
-	varV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 := _V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9{}
+	varV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15 := _V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15{}
 
 	decoder := json.NewDecoder(bytes.NewReader(data))
 	decoder.DisallowUnknownFields()
-	err = decoder.Decode(&varV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9)
+	err = decoder.Decode(&varV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15)
 
 	if err != nil {
 		return err
 	}
 
-	*o = V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9(varV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9)
+	*o = V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15(varV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15)
 
 	return err
 }
 
-type NullableV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 struct {
-	value *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9
+type NullableV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15 struct {
+	value *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15
 	isSet bool
 }
 
-func (v NullableV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) Get() *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 {
+func (v NullableV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15) Get() *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15 {
 	return v.value
 }
 
-func (v *NullableV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) Set(val *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) {
+func (v *NullableV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15) Set(val *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) IsSet() bool {
+func (v NullableV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) Unset() {
+func (v *NullableV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9(val *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) *NullableV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 {
-	return &NullableV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9{value: val, isSet: true}
+func NewNullableV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15(val *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15) *NullableV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15 {
+	return &NullableV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15{value: val, isSet: true}
 }
 
-func (v NullableV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) MarshalJSON() ([]byte, error) {
+func (v NullableV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) UnmarshalJSON(src []byte) error {
+func (v *NullableV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf15) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

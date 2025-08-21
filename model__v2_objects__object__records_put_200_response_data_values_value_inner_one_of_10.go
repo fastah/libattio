@@ -28,8 +28,12 @@ type V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10 struct {
 	// The point in time at which this value was deactivated. If `null`, the value is active.
 	ActiveUntil NullableTime `json:"active_until"`
 	CreatedByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor `json:"created_by_actor"`
-	// A number between 0 and 5 (inclusive) to represent a star rating.
-	Value float32 `json:"value"`
+	// The first name.
+	FirstName string `json:"first_name"`
+	// The last name.
+	LastName string `json:"last_name"`
+	// The full name.
+	FullName string `json:"full_name"`
 	// The attribute type of the value.
 	AttributeType string `json:"attribute_type"`
 }
@@ -40,12 +44,14 @@ type _V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10 V2ObjectsO
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, value float32, attributeType string) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10 {
+func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, firstName string, lastName string, fullName string, attributeType string) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10 {
 	this := V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10{}
 	this.ActiveFrom = activeFrom
 	this.ActiveUntil = activeUntil
 	this.CreatedByActor = createdByActor
-	this.Value = value
+	this.FirstName = firstName
+	this.LastName = lastName
+	this.FullName = fullName
 	this.AttributeType = attributeType
 	return &this
 }
@@ -135,28 +141,78 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) SetCre
 }
 
 
-// GetValue returns the Value field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) GetValue() float32 {
+// GetFirstName returns the FirstName field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) GetFirstName() string {
 	if o == nil {
-		var ret float32
+		var ret string
 		return ret
 	}
 
-	return o.Value
+	return o.FirstName
 }
 
-// GetValueOk returns a tuple with the Value field value
+// GetFirstNameOk returns a tuple with the FirstName field value
 // and a boolean to check if the value has been set.
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) GetValueOk() (*float32, bool) {
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) GetFirstNameOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Value, true
+	return &o.FirstName, true
 }
 
-// SetValue sets field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) SetValue(v float32) {
-	o.Value = v
+// SetFirstName sets field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) SetFirstName(v string) {
+	o.FirstName = v
+}
+
+
+// GetLastName returns the LastName field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) GetLastName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.LastName
+}
+
+// GetLastNameOk returns a tuple with the LastName field value
+// and a boolean to check if the value has been set.
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) GetLastNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.LastName, true
+}
+
+// SetLastName sets field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) SetLastName(v string) {
+	o.LastName = v
+}
+
+
+// GetFullName returns the FullName field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) GetFullName() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.FullName
+}
+
+// GetFullNameOk returns a tuple with the FullName field value
+// and a boolean to check if the value has been set.
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) GetFullNameOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FullName, true
+}
+
+// SetFullName sets field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) SetFullName(v string) {
+	o.FullName = v
 }
 
 
@@ -198,7 +254,9 @@ func (o V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) ToMap()
 	toSerialize["active_from"] = o.ActiveFrom
 	toSerialize["active_until"] = o.ActiveUntil.Get()
 	toSerialize["created_by_actor"] = o.CreatedByActor
-	toSerialize["value"] = o.Value
+	toSerialize["first_name"] = o.FirstName
+	toSerialize["last_name"] = o.LastName
+	toSerialize["full_name"] = o.FullName
 	toSerialize["attribute_type"] = o.AttributeType
 	return toSerialize, nil
 }
@@ -211,7 +269,9 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) Unmars
 		"active_from",
 		"active_until",
 		"created_by_actor",
-		"value",
+		"first_name",
+		"last_name",
+		"full_name",
 		"attribute_type",
 	}
 

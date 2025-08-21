@@ -28,12 +28,26 @@ type V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8 struct {
 	// The point in time at which this value was deactivated. If `null`, the value is active.
 	ActiveUntil NullableTime `json:"active_until"`
 	CreatedByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor `json:"created_by_actor"`
-	// The first name.
-	FirstName string `json:"first_name"`
-	// The last name.
-	LastName string `json:"last_name"`
-	// The full name.
-	FullName string `json:"full_name"`
+	// The first line of the address. Note that this value is not currently represented in the UI but will be persisted and readable through API calls.
+	Line1 NullableString `json:"line_1"`
+	// The second line of the address. Note that this value is not currently represented in the UI but will be persisted and readable through API calls.
+	Line2 NullableString `json:"line_2"`
+	// The third line of the address. Note that this value is not currently represented in the UI but will be persisted and readable through API calls.
+	Line3 NullableString `json:"line_3"`
+	// The fourth line of the address. Note that this value is not currently represented in the UI but will be persisted and readable through API calls.
+	Line4 NullableString `json:"line_4"`
+	// The town, neighborhood or area the location is in.
+	Locality NullableString `json:"locality"`
+	// The state, county, province or region that the location is in.
+	Region NullableString `json:"region"`
+	// The postcode or zip code for the location. Note that this value is not currently represented in the UI but will be persisted and readable through API calls.}
+	Postcode NullableString `json:"postcode"`
+	// The ISO 3166-1 alpha-2 country code for the country this location is in.
+	CountryCode NullableString `json:"country_code"`
+	// The latitude of the location. Validated by the regular expression `/^[-+]?([1-8]?\\d(\\.\\d+)?|90(\\.0+)?)$/`. Values are stored with up to 9 decimal places of precision. Note that this value is not currently represented in the UI but will be persisted and readable through API calls.}
+	Latitude NullableString `json:"latitude" validate:"regexp=^[-+]?([1-8]?\\\\d(\\\\.\\\\d+)?|90(\\\\.0+)?)$"`
+	// The longitude of the location. Validated by the regular expression `/^[-+]?(180(\\.0+)?|((1[0-7]\\d)|([1-9]?\\d))(\\.\\d+)?)$/`. Values are stored with up to 9 decimal places of precision. Note that this value is not currently represented in the UI but will be persisted and readable through API calls.}
+	Longitude NullableString `json:"longitude" validate:"regexp=^[-+]?(180(\\\\.0+)?|((1[0-7]\\\\d)|([1-9]?\\\\d))(\\\\.\\\\d+)?)$"`
 	// The attribute type of the value.
 	AttributeType string `json:"attribute_type"`
 }
@@ -44,14 +58,21 @@ type _V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8 V2ObjectsOb
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, firstName string, lastName string, fullName string, attributeType string) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8 {
+func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, line1 NullableString, line2 NullableString, line3 NullableString, line4 NullableString, locality NullableString, region NullableString, postcode NullableString, countryCode NullableString, latitude NullableString, longitude NullableString, attributeType string) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8 {
 	this := V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8{}
 	this.ActiveFrom = activeFrom
 	this.ActiveUntil = activeUntil
 	this.CreatedByActor = createdByActor
-	this.FirstName = firstName
-	this.LastName = lastName
-	this.FullName = fullName
+	this.Line1 = line1
+	this.Line2 = line2
+	this.Line3 = line3
+	this.Line4 = line4
+	this.Locality = locality
+	this.Region = region
+	this.Postcode = postcode
+	this.CountryCode = countryCode
+	this.Latitude = latitude
+	this.Longitude = longitude
 	this.AttributeType = attributeType
 	return &this
 }
@@ -141,78 +162,273 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) SetCrea
 }
 
 
-// GetFirstName returns the FirstName field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) GetFirstName() string {
-	if o == nil {
+// GetLine1 returns the Line1 field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) GetLine1() string {
+	if o == nil || o.Line1.Get() == nil {
 		var ret string
 		return ret
 	}
 
-	return o.FirstName
+	return *o.Line1.Get()
 }
 
-// GetFirstNameOk returns a tuple with the FirstName field value
+// GetLine1Ok returns a tuple with the Line1 field value
 // and a boolean to check if the value has been set.
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) GetFirstNameOk() (*string, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) GetLine1Ok() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.FirstName, true
+	return o.Line1.Get(), o.Line1.IsSet()
 }
 
-// SetFirstName sets field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) SetFirstName(v string) {
-	o.FirstName = v
+// SetLine1 sets field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) SetLine1(v string) {
+	o.Line1.Set(&v)
 }
 
 
-// GetLastName returns the LastName field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) GetLastName() string {
-	if o == nil {
+// GetLine2 returns the Line2 field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) GetLine2() string {
+	if o == nil || o.Line2.Get() == nil {
 		var ret string
 		return ret
 	}
 
-	return o.LastName
+	return *o.Line2.Get()
 }
 
-// GetLastNameOk returns a tuple with the LastName field value
+// GetLine2Ok returns a tuple with the Line2 field value
 // and a boolean to check if the value has been set.
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) GetLastNameOk() (*string, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) GetLine2Ok() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.LastName, true
+	return o.Line2.Get(), o.Line2.IsSet()
 }
 
-// SetLastName sets field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) SetLastName(v string) {
-	o.LastName = v
+// SetLine2 sets field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) SetLine2(v string) {
+	o.Line2.Set(&v)
 }
 
 
-// GetFullName returns the FullName field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) GetFullName() string {
-	if o == nil {
+// GetLine3 returns the Line3 field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) GetLine3() string {
+	if o == nil || o.Line3.Get() == nil {
 		var ret string
 		return ret
 	}
 
-	return o.FullName
+	return *o.Line3.Get()
 }
 
-// GetFullNameOk returns a tuple with the FullName field value
+// GetLine3Ok returns a tuple with the Line3 field value
 // and a boolean to check if the value has been set.
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) GetFullNameOk() (*string, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) GetLine3Ok() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.FullName, true
+	return o.Line3.Get(), o.Line3.IsSet()
 }
 
-// SetFullName sets field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) SetFullName(v string) {
-	o.FullName = v
+// SetLine3 sets field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) SetLine3(v string) {
+	o.Line3.Set(&v)
+}
+
+
+// GetLine4 returns the Line4 field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) GetLine4() string {
+	if o == nil || o.Line4.Get() == nil {
+		var ret string
+		return ret
+	}
+
+	return *o.Line4.Get()
+}
+
+// GetLine4Ok returns a tuple with the Line4 field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) GetLine4Ok() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Line4.Get(), o.Line4.IsSet()
+}
+
+// SetLine4 sets field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) SetLine4(v string) {
+	o.Line4.Set(&v)
+}
+
+
+// GetLocality returns the Locality field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) GetLocality() string {
+	if o == nil || o.Locality.Get() == nil {
+		var ret string
+		return ret
+	}
+
+	return *o.Locality.Get()
+}
+
+// GetLocalityOk returns a tuple with the Locality field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) GetLocalityOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Locality.Get(), o.Locality.IsSet()
+}
+
+// SetLocality sets field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) SetLocality(v string) {
+	o.Locality.Set(&v)
+}
+
+
+// GetRegion returns the Region field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) GetRegion() string {
+	if o == nil || o.Region.Get() == nil {
+		var ret string
+		return ret
+	}
+
+	return *o.Region.Get()
+}
+
+// GetRegionOk returns a tuple with the Region field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) GetRegionOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Region.Get(), o.Region.IsSet()
+}
+
+// SetRegion sets field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) SetRegion(v string) {
+	o.Region.Set(&v)
+}
+
+
+// GetPostcode returns the Postcode field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) GetPostcode() string {
+	if o == nil || o.Postcode.Get() == nil {
+		var ret string
+		return ret
+	}
+
+	return *o.Postcode.Get()
+}
+
+// GetPostcodeOk returns a tuple with the Postcode field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) GetPostcodeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Postcode.Get(), o.Postcode.IsSet()
+}
+
+// SetPostcode sets field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) SetPostcode(v string) {
+	o.Postcode.Set(&v)
+}
+
+
+// GetCountryCode returns the CountryCode field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) GetCountryCode() string {
+	if o == nil || o.CountryCode.Get() == nil {
+		var ret string
+		return ret
+	}
+
+	return *o.CountryCode.Get()
+}
+
+// GetCountryCodeOk returns a tuple with the CountryCode field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) GetCountryCodeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.CountryCode.Get(), o.CountryCode.IsSet()
+}
+
+// SetCountryCode sets field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) SetCountryCode(v string) {
+	o.CountryCode.Set(&v)
+}
+
+
+// GetLatitude returns the Latitude field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) GetLatitude() string {
+	if o == nil || o.Latitude.Get() == nil {
+		var ret string
+		return ret
+	}
+
+	return *o.Latitude.Get()
+}
+
+// GetLatitudeOk returns a tuple with the Latitude field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) GetLatitudeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Latitude.Get(), o.Latitude.IsSet()
+}
+
+// SetLatitude sets field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) SetLatitude(v string) {
+	o.Latitude.Set(&v)
+}
+
+
+// GetLongitude returns the Longitude field value
+// If the value is explicit nil, the zero value for string will be returned
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) GetLongitude() string {
+	if o == nil || o.Longitude.Get() == nil {
+		var ret string
+		return ret
+	}
+
+	return *o.Longitude.Get()
+}
+
+// GetLongitudeOk returns a tuple with the Longitude field value
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) GetLongitudeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return o.Longitude.Get(), o.Longitude.IsSet()
+}
+
+// SetLongitude sets field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) SetLongitude(v string) {
+	o.Longitude.Set(&v)
 }
 
 
@@ -254,9 +470,16 @@ func (o V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) ToMap() 
 	toSerialize["active_from"] = o.ActiveFrom
 	toSerialize["active_until"] = o.ActiveUntil.Get()
 	toSerialize["created_by_actor"] = o.CreatedByActor
-	toSerialize["first_name"] = o.FirstName
-	toSerialize["last_name"] = o.LastName
-	toSerialize["full_name"] = o.FullName
+	toSerialize["line_1"] = o.Line1.Get()
+	toSerialize["line_2"] = o.Line2.Get()
+	toSerialize["line_3"] = o.Line3.Get()
+	toSerialize["line_4"] = o.Line4.Get()
+	toSerialize["locality"] = o.Locality.Get()
+	toSerialize["region"] = o.Region.Get()
+	toSerialize["postcode"] = o.Postcode.Get()
+	toSerialize["country_code"] = o.CountryCode.Get()
+	toSerialize["latitude"] = o.Latitude.Get()
+	toSerialize["longitude"] = o.Longitude.Get()
 	toSerialize["attribute_type"] = o.AttributeType
 	return toSerialize, nil
 }
@@ -269,9 +492,16 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf8) Unmarsh
 		"active_from",
 		"active_until",
 		"created_by_actor",
-		"first_name",
-		"last_name",
-		"full_name",
+		"line_1",
+		"line_2",
+		"line_3",
+		"line_4",
+		"locality",
+		"region",
+		"postcode",
+		"country_code",
+		"latitude",
+		"longitude",
 		"attribute_type",
 	}
 

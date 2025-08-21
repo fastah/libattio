@@ -28,10 +28,11 @@ type V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5 struct {
 	// The point in time at which this value was deactivated. If `null`, the value is active.
 	ActiveUntil NullableTime `json:"active_until"`
 	CreatedByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor `json:"created_by_actor"`
-	// A slug identifying the object that the referenced record belongs to.
-	TargetObject string `json:"target_object"`
-	// A UUID to identify the referenced record.
-	TargetRecordId string `json:"target_record_id"`
+	OriginalEmailAddress string `json:"original_email_address"`
+	EmailAddress string `json:"email_address"`
+	EmailDomain string `json:"email_domain"`
+	EmailRootDomain string `json:"email_root_domain"`
+	EmailLocalSpecifier string `json:"email_local_specifier"`
 	// The attribute type of the value.
 	AttributeType string `json:"attribute_type"`
 }
@@ -42,13 +43,16 @@ type _V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5 V2ObjectsOb
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, targetObject string, targetRecordId string, attributeType string) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5 {
+func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, originalEmailAddress string, emailAddress string, emailDomain string, emailRootDomain string, emailLocalSpecifier string, attributeType string) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5 {
 	this := V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5{}
 	this.ActiveFrom = activeFrom
 	this.ActiveUntil = activeUntil
 	this.CreatedByActor = createdByActor
-	this.TargetObject = targetObject
-	this.TargetRecordId = targetRecordId
+	this.OriginalEmailAddress = originalEmailAddress
+	this.EmailAddress = emailAddress
+	this.EmailDomain = emailDomain
+	this.EmailRootDomain = emailRootDomain
+	this.EmailLocalSpecifier = emailLocalSpecifier
 	this.AttributeType = attributeType
 	return &this
 }
@@ -138,53 +142,128 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) SetCrea
 }
 
 
-// GetTargetObject returns the TargetObject field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetTargetObject() string {
+// GetOriginalEmailAddress returns the OriginalEmailAddress field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetOriginalEmailAddress() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.TargetObject
+	return o.OriginalEmailAddress
 }
 
-// GetTargetObjectOk returns a tuple with the TargetObject field value
+// GetOriginalEmailAddressOk returns a tuple with the OriginalEmailAddress field value
 // and a boolean to check if the value has been set.
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetTargetObjectOk() (*string, bool) {
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetOriginalEmailAddressOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.TargetObject, true
+	return &o.OriginalEmailAddress, true
 }
 
-// SetTargetObject sets field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) SetTargetObject(v string) {
-	o.TargetObject = v
+// SetOriginalEmailAddress sets field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) SetOriginalEmailAddress(v string) {
+	o.OriginalEmailAddress = v
 }
 
 
-// GetTargetRecordId returns the TargetRecordId field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetTargetRecordId() string {
+// GetEmailAddress returns the EmailAddress field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetEmailAddress() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.TargetRecordId
+	return o.EmailAddress
 }
 
-// GetTargetRecordIdOk returns a tuple with the TargetRecordId field value
+// GetEmailAddressOk returns a tuple with the EmailAddress field value
 // and a boolean to check if the value has been set.
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetTargetRecordIdOk() (*string, bool) {
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetEmailAddressOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.TargetRecordId, true
+	return &o.EmailAddress, true
 }
 
-// SetTargetRecordId sets field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) SetTargetRecordId(v string) {
-	o.TargetRecordId = v
+// SetEmailAddress sets field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) SetEmailAddress(v string) {
+	o.EmailAddress = v
+}
+
+
+// GetEmailDomain returns the EmailDomain field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetEmailDomain() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.EmailDomain
+}
+
+// GetEmailDomainOk returns a tuple with the EmailDomain field value
+// and a boolean to check if the value has been set.
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetEmailDomainOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EmailDomain, true
+}
+
+// SetEmailDomain sets field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) SetEmailDomain(v string) {
+	o.EmailDomain = v
+}
+
+
+// GetEmailRootDomain returns the EmailRootDomain field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetEmailRootDomain() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.EmailRootDomain
+}
+
+// GetEmailRootDomainOk returns a tuple with the EmailRootDomain field value
+// and a boolean to check if the value has been set.
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetEmailRootDomainOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EmailRootDomain, true
+}
+
+// SetEmailRootDomain sets field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) SetEmailRootDomain(v string) {
+	o.EmailRootDomain = v
+}
+
+
+// GetEmailLocalSpecifier returns the EmailLocalSpecifier field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetEmailLocalSpecifier() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.EmailLocalSpecifier
+}
+
+// GetEmailLocalSpecifierOk returns a tuple with the EmailLocalSpecifier field value
+// and a boolean to check if the value has been set.
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetEmailLocalSpecifierOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.EmailLocalSpecifier, true
+}
+
+// SetEmailLocalSpecifier sets field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) SetEmailLocalSpecifier(v string) {
+	o.EmailLocalSpecifier = v
 }
 
 
@@ -226,8 +305,11 @@ func (o V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) ToMap() 
 	toSerialize["active_from"] = o.ActiveFrom
 	toSerialize["active_until"] = o.ActiveUntil.Get()
 	toSerialize["created_by_actor"] = o.CreatedByActor
-	toSerialize["target_object"] = o.TargetObject
-	toSerialize["target_record_id"] = o.TargetRecordId
+	toSerialize["original_email_address"] = o.OriginalEmailAddress
+	toSerialize["email_address"] = o.EmailAddress
+	toSerialize["email_domain"] = o.EmailDomain
+	toSerialize["email_root_domain"] = o.EmailRootDomain
+	toSerialize["email_local_specifier"] = o.EmailLocalSpecifier
 	toSerialize["attribute_type"] = o.AttributeType
 	return toSerialize, nil
 }
@@ -240,8 +322,11 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) Unmarsh
 		"active_from",
 		"active_until",
 		"created_by_actor",
-		"target_object",
-		"target_record_id",
+		"original_email_address",
+		"email_address",
+		"email_domain",
+		"email_root_domain",
+		"email_local_specifier",
 		"attribute_type",
 	}
 

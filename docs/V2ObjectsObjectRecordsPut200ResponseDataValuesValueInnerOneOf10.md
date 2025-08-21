@@ -7,14 +7,16 @@ Name | Type | Description | Notes
 **ActiveFrom** | **time.Time** | The point in time at which this value was made \&quot;active\&quot;. &#x60;active_from&#x60; can be considered roughly analogous to &#x60;created_at&#x60;. | 
 **ActiveUntil** | **NullableTime** | The point in time at which this value was deactivated. If &#x60;null&#x60;, the value is active. | 
 **CreatedByActor** | [**V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor**](V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor.md) |  | 
-**Value** | **float32** | A number between 0 and 5 (inclusive) to represent a star rating. | 
+**FirstName** | **string** | The first name. | 
+**LastName** | **string** | The last name. | 
+**FullName** | **string** | The full name. | 
 **AttributeType** | **string** | The attribute type of the value. | 
 
 ## Methods
 
 ### NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10
 
-`func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, value float32, attributeType string, ) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10`
+`func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, firstName string, lastName string, fullName string, attributeType string, ) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10`
 
 NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10 instantiates a new V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10 object
 This constructor will assign default values to properties that have it defined,
@@ -99,24 +101,64 @@ and a boolean to check if the value has been set.
 SetCreatedByActor sets CreatedByActor field to given value.
 
 
-### GetValue
+### GetFirstName
 
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) GetValue() float32`
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) GetFirstName() string`
 
-GetValue returns the Value field if non-nil, zero value otherwise.
+GetFirstName returns the FirstName field if non-nil, zero value otherwise.
 
-### GetValueOk
+### GetFirstNameOk
 
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) GetValueOk() (*float32, bool)`
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) GetFirstNameOk() (*string, bool)`
 
-GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
+GetFirstNameOk returns a tuple with the FirstName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetValue
+### SetFirstName
 
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) SetValue(v float32)`
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) SetFirstName(v string)`
 
-SetValue sets Value field to given value.
+SetFirstName sets FirstName field to given value.
+
+
+### GetLastName
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) GetLastName() string`
+
+GetLastName returns the LastName field if non-nil, zero value otherwise.
+
+### GetLastNameOk
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) GetLastNameOk() (*string, bool)`
+
+GetLastNameOk returns a tuple with the LastName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLastName
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) SetLastName(v string)`
+
+SetLastName sets LastName field to given value.
+
+
+### GetFullName
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) GetFullName() string`
+
+GetFullName returns the FullName field if non-nil, zero value otherwise.
+
+### GetFullNameOk
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) GetFullNameOk() (*string, bool)`
+
+GetFullNameOk returns a tuple with the FullName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFullName
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf10) SetFullName(v string)`
+
+SetFullName sets FullName field to given value.
 
 
 ### GetAttributeType

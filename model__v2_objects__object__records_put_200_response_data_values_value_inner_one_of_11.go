@@ -28,7 +28,11 @@ type V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11 struct {
 	// The point in time at which this value was deactivated. If `null`, the value is active.
 	ActiveUntil NullableTime `json:"active_until"`
 	CreatedByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor `json:"created_by_actor"`
-	Option SelectOption `json:"option"`
+	// The raw, original phone number, as inputted.
+	OriginalPhoneNumber string `json:"original_phone_number"`
+	// The ISO 3166-1 alpha-2 country code representing the country that this phone number belongs to.
+	CountryCode string `json:"country_code"`
+	PhoneNumber string `json:"phone_number"`
 	// The attribute type of the value.
 	AttributeType string `json:"attribute_type"`
 }
@@ -39,12 +43,14 @@ type _V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11 V2ObjectsO
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, option SelectOption, attributeType string) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11 {
+func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, originalPhoneNumber string, countryCode string, phoneNumber string, attributeType string) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11 {
 	this := V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11{}
 	this.ActiveFrom = activeFrom
 	this.ActiveUntil = activeUntil
 	this.CreatedByActor = createdByActor
-	this.Option = option
+	this.OriginalPhoneNumber = originalPhoneNumber
+	this.CountryCode = countryCode
+	this.PhoneNumber = phoneNumber
 	this.AttributeType = attributeType
 	return &this
 }
@@ -134,28 +140,78 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) SetCre
 }
 
 
-// GetOption returns the Option field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) GetOption() SelectOption {
+// GetOriginalPhoneNumber returns the OriginalPhoneNumber field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) GetOriginalPhoneNumber() string {
 	if o == nil {
-		var ret SelectOption
+		var ret string
 		return ret
 	}
 
-	return o.Option
+	return o.OriginalPhoneNumber
 }
 
-// GetOptionOk returns a tuple with the Option field value
+// GetOriginalPhoneNumberOk returns a tuple with the OriginalPhoneNumber field value
 // and a boolean to check if the value has been set.
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) GetOptionOk() (*SelectOption, bool) {
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) GetOriginalPhoneNumberOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Option, true
+	return &o.OriginalPhoneNumber, true
 }
 
-// SetOption sets field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) SetOption(v SelectOption) {
-	o.Option = v
+// SetOriginalPhoneNumber sets field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) SetOriginalPhoneNumber(v string) {
+	o.OriginalPhoneNumber = v
+}
+
+
+// GetCountryCode returns the CountryCode field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) GetCountryCode() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CountryCode
+}
+
+// GetCountryCodeOk returns a tuple with the CountryCode field value
+// and a boolean to check if the value has been set.
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) GetCountryCodeOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.CountryCode, true
+}
+
+// SetCountryCode sets field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) SetCountryCode(v string) {
+	o.CountryCode = v
+}
+
+
+// GetPhoneNumber returns the PhoneNumber field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) GetPhoneNumber() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.PhoneNumber
+}
+
+// GetPhoneNumberOk returns a tuple with the PhoneNumber field value
+// and a boolean to check if the value has been set.
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) GetPhoneNumberOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.PhoneNumber, true
+}
+
+// SetPhoneNumber sets field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) SetPhoneNumber(v string) {
+	o.PhoneNumber = v
 }
 
 
@@ -197,7 +253,9 @@ func (o V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) ToMap()
 	toSerialize["active_from"] = o.ActiveFrom
 	toSerialize["active_until"] = o.ActiveUntil.Get()
 	toSerialize["created_by_actor"] = o.CreatedByActor
-	toSerialize["option"] = o.Option
+	toSerialize["original_phone_number"] = o.OriginalPhoneNumber
+	toSerialize["country_code"] = o.CountryCode
+	toSerialize["phone_number"] = o.PhoneNumber
 	toSerialize["attribute_type"] = o.AttributeType
 	return toSerialize, nil
 }
@@ -210,7 +268,9 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) Unmars
 		"active_from",
 		"active_until",
 		"created_by_actor",
-		"option",
+		"original_phone_number",
+		"country_code",
+		"phone_number",
 		"attribute_type",
 	}
 

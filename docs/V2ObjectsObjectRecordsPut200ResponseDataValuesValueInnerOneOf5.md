@@ -7,15 +7,18 @@ Name | Type | Description | Notes
 **ActiveFrom** | **time.Time** | The point in time at which this value was made \&quot;active\&quot;. &#x60;active_from&#x60; can be considered roughly analogous to &#x60;created_at&#x60;. | 
 **ActiveUntil** | **NullableTime** | The point in time at which this value was deactivated. If &#x60;null&#x60;, the value is active. | 
 **CreatedByActor** | [**V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor**](V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor.md) |  | 
-**TargetObject** | **string** | A slug identifying the object that the referenced record belongs to. | 
-**TargetRecordId** | **string** | A UUID to identify the referenced record. | 
+**OriginalEmailAddress** | **string** |  | 
+**EmailAddress** | **string** |  | 
+**EmailDomain** | **string** |  | 
+**EmailRootDomain** | **string** |  | 
+**EmailLocalSpecifier** | **string** |  | 
 **AttributeType** | **string** | The attribute type of the value. | 
 
 ## Methods
 
 ### NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5
 
-`func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, targetObject string, targetRecordId string, attributeType string, ) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5`
+`func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, originalEmailAddress string, emailAddress string, emailDomain string, emailRootDomain string, emailLocalSpecifier string, attributeType string, ) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5`
 
 NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5 instantiates a new V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5 object
 This constructor will assign default values to properties that have it defined,
@@ -100,44 +103,104 @@ and a boolean to check if the value has been set.
 SetCreatedByActor sets CreatedByActor field to given value.
 
 
-### GetTargetObject
+### GetOriginalEmailAddress
 
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetTargetObject() string`
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetOriginalEmailAddress() string`
 
-GetTargetObject returns the TargetObject field if non-nil, zero value otherwise.
+GetOriginalEmailAddress returns the OriginalEmailAddress field if non-nil, zero value otherwise.
 
-### GetTargetObjectOk
+### GetOriginalEmailAddressOk
 
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetTargetObjectOk() (*string, bool)`
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetOriginalEmailAddressOk() (*string, bool)`
 
-GetTargetObjectOk returns a tuple with the TargetObject field if it's non-nil, zero value otherwise
+GetOriginalEmailAddressOk returns a tuple with the OriginalEmailAddress field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTargetObject
+### SetOriginalEmailAddress
 
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) SetTargetObject(v string)`
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) SetOriginalEmailAddress(v string)`
 
-SetTargetObject sets TargetObject field to given value.
+SetOriginalEmailAddress sets OriginalEmailAddress field to given value.
 
 
-### GetTargetRecordId
+### GetEmailAddress
 
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetTargetRecordId() string`
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetEmailAddress() string`
 
-GetTargetRecordId returns the TargetRecordId field if non-nil, zero value otherwise.
+GetEmailAddress returns the EmailAddress field if non-nil, zero value otherwise.
 
-### GetTargetRecordIdOk
+### GetEmailAddressOk
 
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetTargetRecordIdOk() (*string, bool)`
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetEmailAddressOk() (*string, bool)`
 
-GetTargetRecordIdOk returns a tuple with the TargetRecordId field if it's non-nil, zero value otherwise
+GetEmailAddressOk returns a tuple with the EmailAddress field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTargetRecordId
+### SetEmailAddress
 
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) SetTargetRecordId(v string)`
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) SetEmailAddress(v string)`
 
-SetTargetRecordId sets TargetRecordId field to given value.
+SetEmailAddress sets EmailAddress field to given value.
+
+
+### GetEmailDomain
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetEmailDomain() string`
+
+GetEmailDomain returns the EmailDomain field if non-nil, zero value otherwise.
+
+### GetEmailDomainOk
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetEmailDomainOk() (*string, bool)`
+
+GetEmailDomainOk returns a tuple with the EmailDomain field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEmailDomain
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) SetEmailDomain(v string)`
+
+SetEmailDomain sets EmailDomain field to given value.
+
+
+### GetEmailRootDomain
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetEmailRootDomain() string`
+
+GetEmailRootDomain returns the EmailRootDomain field if non-nil, zero value otherwise.
+
+### GetEmailRootDomainOk
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetEmailRootDomainOk() (*string, bool)`
+
+GetEmailRootDomainOk returns a tuple with the EmailRootDomain field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEmailRootDomain
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) SetEmailRootDomain(v string)`
+
+SetEmailRootDomain sets EmailRootDomain field to given value.
+
+
+### GetEmailLocalSpecifier
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetEmailLocalSpecifier() string`
+
+GetEmailLocalSpecifier returns the EmailLocalSpecifier field if non-nil, zero value otherwise.
+
+### GetEmailLocalSpecifierOk
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) GetEmailLocalSpecifierOk() (*string, bool)`
+
+GetEmailLocalSpecifierOk returns a tuple with the EmailLocalSpecifier field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEmailLocalSpecifier
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf5) SetEmailLocalSpecifier(v string)`
+
+SetEmailLocalSpecifier sets EmailLocalSpecifier field to given value.
 
 
 ### GetAttributeType

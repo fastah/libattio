@@ -7,14 +7,16 @@ Name | Type | Description | Notes
 **ActiveFrom** | **time.Time** | The point in time at which this value was made \&quot;active\&quot;. &#x60;active_from&#x60; can be considered roughly analogous to &#x60;created_at&#x60;. | 
 **ActiveUntil** | **NullableTime** | The point in time at which this value was deactivated. If &#x60;null&#x60;, the value is active. | 
 **CreatedByActor** | [**V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor**](V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor.md) |  | 
-**Option** | [**SelectOption**](SelectOption.md) |  | 
+**OriginalPhoneNumber** | **string** | The raw, original phone number, as inputted. | 
+**CountryCode** | **string** | The ISO 3166-1 alpha-2 country code representing the country that this phone number belongs to. | 
+**PhoneNumber** | **string** |  | 
 **AttributeType** | **string** | The attribute type of the value. | 
 
 ## Methods
 
 ### NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11
 
-`func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, option SelectOption, attributeType string, ) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11`
+`func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, originalPhoneNumber string, countryCode string, phoneNumber string, attributeType string, ) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11`
 
 NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11 instantiates a new V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11 object
 This constructor will assign default values to properties that have it defined,
@@ -99,24 +101,64 @@ and a boolean to check if the value has been set.
 SetCreatedByActor sets CreatedByActor field to given value.
 
 
-### GetOption
+### GetOriginalPhoneNumber
 
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) GetOption() SelectOption`
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) GetOriginalPhoneNumber() string`
 
-GetOption returns the Option field if non-nil, zero value otherwise.
+GetOriginalPhoneNumber returns the OriginalPhoneNumber field if non-nil, zero value otherwise.
 
-### GetOptionOk
+### GetOriginalPhoneNumberOk
 
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) GetOptionOk() (*SelectOption, bool)`
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) GetOriginalPhoneNumberOk() (*string, bool)`
 
-GetOptionOk returns a tuple with the Option field if it's non-nil, zero value otherwise
+GetOriginalPhoneNumberOk returns a tuple with the OriginalPhoneNumber field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOption
+### SetOriginalPhoneNumber
 
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) SetOption(v SelectOption)`
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) SetOriginalPhoneNumber(v string)`
 
-SetOption sets Option field to given value.
+SetOriginalPhoneNumber sets OriginalPhoneNumber field to given value.
+
+
+### GetCountryCode
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) GetCountryCode() string`
+
+GetCountryCode returns the CountryCode field if non-nil, zero value otherwise.
+
+### GetCountryCodeOk
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) GetCountryCodeOk() (*string, bool)`
+
+GetCountryCodeOk returns a tuple with the CountryCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCountryCode
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) SetCountryCode(v string)`
+
+SetCountryCode sets CountryCode field to given value.
+
+
+### GetPhoneNumber
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) GetPhoneNumber() string`
+
+GetPhoneNumber returns the PhoneNumber field if non-nil, zero value otherwise.
+
+### GetPhoneNumberOk
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) GetPhoneNumberOk() (*string, bool)`
+
+GetPhoneNumberOk returns a tuple with the PhoneNumber field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPhoneNumber
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf11) SetPhoneNumber(v string)`
+
+SetPhoneNumber sets PhoneNumber field to given value.
 
 
 ### GetAttributeType
