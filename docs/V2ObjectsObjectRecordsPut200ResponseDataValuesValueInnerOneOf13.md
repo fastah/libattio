@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 **ActiveFrom** | **time.Time** | The point in time at which this value was made \&quot;active\&quot;. &#x60;active_from&#x60; can be considered roughly analogous to &#x60;created_at&#x60;. | 
 **ActiveUntil** | **NullableTime** | The point in time at which this value was deactivated. If &#x60;null&#x60;, the value is active. | 
 **CreatedByActor** | [**V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor**](V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor.md) |  | 
-**Value** | **float32** | A number between 0 and 5 (inclusive) to represent a star rating. | 
 **AttributeType** | **string** | The attribute type of the value. | 
+**Value** | **string** | A timestamp value represents a single, universal moment in time using an ISO 8601 formatted string. This means that a timestamp consists of a date, a time (with nanosecond precision), and a time zone. Attio will coerce timestamps which do not provide full nanosecond precision and UTC is assumed if no time zone is provided. For example, \&quot;2023\&quot;, \&quot;2023-01\&quot;, \&quot;2023-01-02\&quot;, \&quot;2023-01-02T13:00\&quot;, \&quot;2023-01-02T13:00:00\&quot;, and \&quot;2023-01-02T13:00:00.000000000\&quot; will all be coerced to \&quot;2023-01-02T13:00:00.000000000Z\&quot;. Timestamps are always returned in UTC. For example, writing a timestamp value using the string \&quot;2023-01-02T13:00:00.000000000+02:00\&quot; will result in the value \&quot;2023-01-02T11:00:00.000000000Z\&quot; being returned. The maximum date is \&quot;9999-12-31T23:59:59.999999999Z\&quot;. | 
 
 ## Methods
 
 ### NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13
 
-`func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, value float32, attributeType string, ) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13`
+`func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, attributeType string, value string, ) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13`
 
 NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13 instantiates a new V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13 object
 This constructor will assign default values to properties that have it defined,
@@ -99,26 +99,6 @@ and a boolean to check if the value has been set.
 SetCreatedByActor sets CreatedByActor field to given value.
 
 
-### GetValue
-
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13) GetValue() float32`
-
-GetValue returns the Value field if non-nil, zero value otherwise.
-
-### GetValueOk
-
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13) GetValueOk() (*float32, bool)`
-
-GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetValue
-
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13) SetValue(v float32)`
-
-SetValue sets Value field to given value.
-
-
 ### GetAttributeType
 
 `func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13) GetAttributeType() string`
@@ -137,6 +117,26 @@ and a boolean to check if the value has been set.
 `func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13) SetAttributeType(v string)`
 
 SetAttributeType sets AttributeType field to given value.
+
+
+### GetValue
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13) GetValue() string`
+
+GetValue returns the Value field if non-nil, zero value otherwise.
+
+### GetValueOk
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13) GetValueOk() (*string, bool)`
+
+GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetValue
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13) SetValue(v string)`
+
+SetValue sets Value field to given value.
 
 
 

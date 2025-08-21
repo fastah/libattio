@@ -28,10 +28,11 @@ type V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6 struct {
 	// The point in time at which this value was deactivated. If `null`, the value is active.
 	ActiveUntil NullableTime `json:"active_until"`
 	CreatedByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor `json:"created_by_actor"`
-	// A slug identifying the object that the referenced record belongs to.
-	TargetObject string `json:"target_object"`
-	// A UUID to identify the referenced record.
-	TargetRecordId string `json:"target_record_id"`
+	// The type of interaction e.g. calendar or email.
+	InteractionType string `json:"interaction_type"`
+	// When the interaction occurred.
+	InteractedAt time.Time `json:"interacted_at"`
+	OwnerActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor `json:"owner_actor"`
 	// The attribute type of the value.
 	AttributeType string `json:"attribute_type"`
 }
@@ -42,13 +43,14 @@ type _V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6 V2ObjectsOb
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, targetObject string, targetRecordId string, attributeType string) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6 {
+func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, interactionType string, interactedAt time.Time, ownerActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, attributeType string) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6 {
 	this := V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6{}
 	this.ActiveFrom = activeFrom
 	this.ActiveUntil = activeUntil
 	this.CreatedByActor = createdByActor
-	this.TargetObject = targetObject
-	this.TargetRecordId = targetRecordId
+	this.InteractionType = interactionType
+	this.InteractedAt = interactedAt
+	this.OwnerActor = ownerActor
 	this.AttributeType = attributeType
 	return &this
 }
@@ -138,53 +140,78 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6) SetCrea
 }
 
 
-// GetTargetObject returns the TargetObject field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6) GetTargetObject() string {
+// GetInteractionType returns the InteractionType field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6) GetInteractionType() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.TargetObject
+	return o.InteractionType
 }
 
-// GetTargetObjectOk returns a tuple with the TargetObject field value
+// GetInteractionTypeOk returns a tuple with the InteractionType field value
 // and a boolean to check if the value has been set.
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6) GetTargetObjectOk() (*string, bool) {
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6) GetInteractionTypeOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.TargetObject, true
+	return &o.InteractionType, true
 }
 
-// SetTargetObject sets field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6) SetTargetObject(v string) {
-	o.TargetObject = v
+// SetInteractionType sets field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6) SetInteractionType(v string) {
+	o.InteractionType = v
 }
 
 
-// GetTargetRecordId returns the TargetRecordId field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6) GetTargetRecordId() string {
+// GetInteractedAt returns the InteractedAt field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6) GetInteractedAt() time.Time {
 	if o == nil {
-		var ret string
+		var ret time.Time
 		return ret
 	}
 
-	return o.TargetRecordId
+	return o.InteractedAt
 }
 
-// GetTargetRecordIdOk returns a tuple with the TargetRecordId field value
+// GetInteractedAtOk returns a tuple with the InteractedAt field value
 // and a boolean to check if the value has been set.
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6) GetTargetRecordIdOk() (*string, bool) {
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6) GetInteractedAtOk() (*time.Time, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.TargetRecordId, true
+	return &o.InteractedAt, true
 }
 
-// SetTargetRecordId sets field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6) SetTargetRecordId(v string) {
-	o.TargetRecordId = v
+// SetInteractedAt sets field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6) SetInteractedAt(v time.Time) {
+	o.InteractedAt = v
+}
+
+
+// GetOwnerActor returns the OwnerActor field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6) GetOwnerActor() V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor {
+	if o == nil {
+		var ret V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor
+		return ret
+	}
+
+	return o.OwnerActor
+}
+
+// GetOwnerActorOk returns a tuple with the OwnerActor field value
+// and a boolean to check if the value has been set.
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6) GetOwnerActorOk() (*V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.OwnerActor, true
+}
+
+// SetOwnerActor sets field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6) SetOwnerActor(v V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor) {
+	o.OwnerActor = v
 }
 
 
@@ -226,8 +253,9 @@ func (o V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6) ToMap() 
 	toSerialize["active_from"] = o.ActiveFrom
 	toSerialize["active_until"] = o.ActiveUntil.Get()
 	toSerialize["created_by_actor"] = o.CreatedByActor
-	toSerialize["target_object"] = o.TargetObject
-	toSerialize["target_record_id"] = o.TargetRecordId
+	toSerialize["interaction_type"] = o.InteractionType
+	toSerialize["interacted_at"] = o.InteractedAt
+	toSerialize["owner_actor"] = o.OwnerActor
 	toSerialize["attribute_type"] = o.AttributeType
 	return toSerialize, nil
 }
@@ -240,8 +268,9 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf6) Unmarsh
 		"active_from",
 		"active_until",
 		"created_by_actor",
-		"target_object",
-		"target_record_id",
+		"interaction_type",
+		"interacted_at",
+		"owner_actor",
 		"attribute_type",
 	}
 

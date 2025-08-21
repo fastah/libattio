@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 **ActiveFrom** | **time.Time** | The point in time at which this value was made \&quot;active\&quot;. &#x60;active_from&#x60; can be considered roughly analogous to &#x60;created_at&#x60;. | 
 **ActiveUntil** | **NullableTime** | The point in time at which this value was deactivated. If &#x60;null&#x60;, the value is active. | 
 **CreatedByActor** | [**V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor**](V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor.md) |  | 
-**Status** | [**Status**](Status.md) |  | 
+**Value** | **string** | A raw text field. Values are limited to 10MB. | 
 **AttributeType** | **string** | The attribute type of the value. | 
 
 ## Methods
 
 ### NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12
 
-`func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, status Status, attributeType string, ) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12`
+`func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, value string, attributeType string, ) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12`
 
 NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12 instantiates a new V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12 object
 This constructor will assign default values to properties that have it defined,
@@ -99,24 +99,24 @@ and a boolean to check if the value has been set.
 SetCreatedByActor sets CreatedByActor field to given value.
 
 
-### GetStatus
+### GetValue
 
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12) GetStatus() Status`
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12) GetValue() string`
 
-GetStatus returns the Status field if non-nil, zero value otherwise.
+GetValue returns the Value field if non-nil, zero value otherwise.
 
-### GetStatusOk
+### GetValueOk
 
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12) GetStatusOk() (*Status, bool)`
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12) GetValueOk() (*string, bool)`
 
-GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetStatus
+### SetValue
 
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12) SetStatus(v Status)`
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf12) SetValue(v string)`
 
-SetStatus sets Status field to given value.
+SetValue sets Value field to given value.
 
 
 ### GetAttributeType

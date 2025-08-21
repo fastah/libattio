@@ -28,10 +28,10 @@ type V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13 struct {
 	// The point in time at which this value was deactivated. If `null`, the value is active.
 	ActiveUntil NullableTime `json:"active_until"`
 	CreatedByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor `json:"created_by_actor"`
-	// A number between 0 and 5 (inclusive) to represent a star rating.
-	Value float32 `json:"value"`
 	// The attribute type of the value.
 	AttributeType string `json:"attribute_type"`
+	// A timestamp value represents a single, universal moment in time using an ISO 8601 formatted string. This means that a timestamp consists of a date, a time (with nanosecond precision), and a time zone. Attio will coerce timestamps which do not provide full nanosecond precision and UTC is assumed if no time zone is provided. For example, \"2023\", \"2023-01\", \"2023-01-02\", \"2023-01-02T13:00\", \"2023-01-02T13:00:00\", and \"2023-01-02T13:00:00.000000000\" will all be coerced to \"2023-01-02T13:00:00.000000000Z\". Timestamps are always returned in UTC. For example, writing a timestamp value using the string \"2023-01-02T13:00:00.000000000+02:00\" will result in the value \"2023-01-02T11:00:00.000000000Z\" being returned. The maximum date is \"9999-12-31T23:59:59.999999999Z\".
+	Value string `json:"value"`
 }
 
 type _V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13 V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13
@@ -40,13 +40,13 @@ type _V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13 V2ObjectsO
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, value float32, attributeType string) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13 {
+func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, attributeType string, value string) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13 {
 	this := V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13{}
 	this.ActiveFrom = activeFrom
 	this.ActiveUntil = activeUntil
 	this.CreatedByActor = createdByActor
-	this.Value = value
 	this.AttributeType = attributeType
+	this.Value = value
 	return &this
 }
 
@@ -135,31 +135,6 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13) SetCre
 }
 
 
-// GetValue returns the Value field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13) GetValue() float32 {
-	if o == nil {
-		var ret float32
-		return ret
-	}
-
-	return o.Value
-}
-
-// GetValueOk returns a tuple with the Value field value
-// and a boolean to check if the value has been set.
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13) GetValueOk() (*float32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Value, true
-}
-
-// SetValue sets field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13) SetValue(v float32) {
-	o.Value = v
-}
-
-
 // GetAttributeType returns the AttributeType field value
 func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13) GetAttributeType() string {
 	if o == nil {
@@ -185,6 +160,31 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13) SetAtt
 }
 
 
+// GetValue returns the Value field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13) GetValue() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Value
+}
+
+// GetValueOk returns a tuple with the Value field value
+// and a boolean to check if the value has been set.
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13) GetValueOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Value, true
+}
+
+// SetValue sets field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13) SetValue(v string) {
+	o.Value = v
+}
+
+
 func (o V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -198,8 +198,8 @@ func (o V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13) ToMap()
 	toSerialize["active_from"] = o.ActiveFrom
 	toSerialize["active_until"] = o.ActiveUntil.Get()
 	toSerialize["created_by_actor"] = o.CreatedByActor
-	toSerialize["value"] = o.Value
 	toSerialize["attribute_type"] = o.AttributeType
+	toSerialize["value"] = o.Value
 	return toSerialize, nil
 }
 
@@ -211,8 +211,8 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf13) Unmars
 		"active_from",
 		"active_until",
 		"created_by_actor",
-		"value",
 		"attribute_type",
+		"value",
 	}
 
 	// defaultValueFuncMap captures the default values for required properties.

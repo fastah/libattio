@@ -7481,8 +7481,7 @@
                                                                             "email_root_domain",
                                                                             "email_local_specifier",
                                                                             "attribute_type"
-                                                                        ],
-                                                                        "additionalProperties": false
+                                                                        ]
                                                                     },
                                                                     {
                                                                         "type": "object",
@@ -8138,8 +8137,7 @@
                                                                             "created_by_actor",
                                                                             "value",
                                                                             "attribute_type"
-                                                                        ],
-                                                                        "additionalProperties": false
+                                                                        ]
                                                                     },
                                                                     {
                                                                         "type": "object",
@@ -8549,8 +8547,7 @@
                                                                             "country_code",
                                                                             "phone_number",
                                                                             "attribute_type"
-                                                                        ],
-                                                                        "additionalProperties": false
+                                                                        ]
                                                                     },
                                                                     {
                                                                         "type": "object",

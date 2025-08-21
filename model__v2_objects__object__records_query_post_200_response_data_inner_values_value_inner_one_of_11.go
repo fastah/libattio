@@ -14,6 +14,7 @@ package libattio
 import (
 	"encoding/json"
 	"time"
+	"bytes"
 	"fmt"
 )
 
@@ -34,7 +35,6 @@ type V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11 
 	PhoneNumber string `json:"phone_number"`
 	// The attribute type of the value.
 	AttributeType string `json:"attribute_type"`
-	AdditionalProperties map[string]interface{}
 }
 
 type _V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11 V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11
@@ -257,11 +257,6 @@ func (o V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf
 	toSerialize["country_code"] = o.CountryCode
 	toSerialize["phone_number"] = o.PhoneNumber
 	toSerialize["attribute_type"] = o.AttributeType
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
@@ -312,26 +307,15 @@ func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneO
 	}
 	varV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11 := _V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11{}
 
-	err = json.Unmarshal(data, &varV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11)
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11)
 
 	if err != nil {
 		return err
 	}
 
 	*o = V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11(varV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf11)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "active_from")
-		delete(additionalProperties, "active_until")
-		delete(additionalProperties, "created_by_actor")
-		delete(additionalProperties, "original_phone_number")
-		delete(additionalProperties, "country_code")
-		delete(additionalProperties, "phone_number")
-		delete(additionalProperties, "attribute_type")
-		o.AdditionalProperties = additionalProperties
-	}
 
 	return err
 }

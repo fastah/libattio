@@ -7,16 +7,23 @@ Name | Type | Description | Notes
 **ActiveFrom** | **time.Time** | The point in time at which this value was made \&quot;active\&quot;. &#x60;active_from&#x60; can be considered roughly analogous to &#x60;created_at&#x60;. | 
 **ActiveUntil** | **NullableTime** | The point in time at which this value was deactivated. If &#x60;null&#x60;, the value is active. | 
 **CreatedByActor** | [**V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor**](V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor.md) |  | 
-**InteractionType** | **string** | The type of interaction e.g. calendar or email. | 
-**InteractedAt** | **time.Time** | When the interaction occurred. | 
-**OwnerActor** | [**V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor**](V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor.md) |  | 
+**Line1** | **NullableString** | The first line of the address. Note that this value is not currently represented in the UI but will be persisted and readable through API calls. | 
+**Line2** | **NullableString** | The second line of the address. Note that this value is not currently represented in the UI but will be persisted and readable through API calls. | 
+**Line3** | **NullableString** | The third line of the address. Note that this value is not currently represented in the UI but will be persisted and readable through API calls. | 
+**Line4** | **NullableString** | The fourth line of the address. Note that this value is not currently represented in the UI but will be persisted and readable through API calls. | 
+**Locality** | **NullableString** | The town, neighborhood or area the location is in. | 
+**Region** | **NullableString** | The state, county, province or region that the location is in. | 
+**Postcode** | **NullableString** | The postcode or zip code for the location. Note that this value is not currently represented in the UI but will be persisted and readable through API calls.} | 
+**CountryCode** | **NullableString** | The ISO 3166-1 alpha-2 country code for the country this location is in. | 
+**Latitude** | **NullableString** | The latitude of the location. Validated by the regular expression &#x60;/^[-+]?([1-8]?\\d(\\.\\d+)?|90(\\.0+)?)$/&#x60;. Values are stored with up to 9 decimal places of precision. Note that this value is not currently represented in the UI but will be persisted and readable through API calls.} | 
+**Longitude** | **NullableString** | The longitude of the location. Validated by the regular expression &#x60;/^[-+]?(180(\\.0+)?|((1[0-7]\\d)|([1-9]?\\d))(\\.\\d+)?)$/&#x60;. Values are stored with up to 9 decimal places of precision. Note that this value is not currently represented in the UI but will be persisted and readable through API calls.} | 
 **AttributeType** | **string** | The attribute type of the value. | 
 
 ## Methods
 
 ### NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7
 
-`func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, interactionType string, interactedAt time.Time, ownerActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, attributeType string, ) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7`
+`func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, line1 NullableString, line2 NullableString, line3 NullableString, line4 NullableString, locality NullableString, region NullableString, postcode NullableString, countryCode NullableString, latitude NullableString, longitude NullableString, attributeType string, ) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7`
 
 NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7 instantiates a new V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7 object
 This constructor will assign default values to properties that have it defined,
@@ -101,66 +108,306 @@ and a boolean to check if the value has been set.
 SetCreatedByActor sets CreatedByActor field to given value.
 
 
-### GetInteractionType
+### GetLine1
 
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetInteractionType() string`
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetLine1() string`
 
-GetInteractionType returns the InteractionType field if non-nil, zero value otherwise.
+GetLine1 returns the Line1 field if non-nil, zero value otherwise.
 
-### GetInteractionTypeOk
+### GetLine1Ok
 
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetInteractionTypeOk() (*string, bool)`
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetLine1Ok() (*string, bool)`
 
-GetInteractionTypeOk returns a tuple with the InteractionType field if it's non-nil, zero value otherwise
+GetLine1Ok returns a tuple with the Line1 field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetInteractionType
+### SetLine1
 
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) SetInteractionType(v string)`
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) SetLine1(v string)`
 
-SetInteractionType sets InteractionType field to given value.
+SetLine1 sets Line1 field to given value.
 
 
-### GetInteractedAt
+### SetLine1Nil
 
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetInteractedAt() time.Time`
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) SetLine1Nil(b bool)`
 
-GetInteractedAt returns the InteractedAt field if non-nil, zero value otherwise.
+ SetLine1Nil sets the value for Line1 to be an explicit nil
 
-### GetInteractedAtOk
+### UnsetLine1
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) UnsetLine1()`
 
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetInteractedAtOk() (*time.Time, bool)`
+UnsetLine1 ensures that no value is present for Line1, not even an explicit nil
+### GetLine2
 
-GetInteractedAtOk returns a tuple with the InteractedAt field if it's non-nil, zero value otherwise
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetLine2() string`
+
+GetLine2 returns the Line2 field if non-nil, zero value otherwise.
+
+### GetLine2Ok
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetLine2Ok() (*string, bool)`
+
+GetLine2Ok returns a tuple with the Line2 field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetInteractedAt
+### SetLine2
 
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) SetInteractedAt(v time.Time)`
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) SetLine2(v string)`
 
-SetInteractedAt sets InteractedAt field to given value.
+SetLine2 sets Line2 field to given value.
 
 
-### GetOwnerActor
+### SetLine2Nil
 
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetOwnerActor() V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor`
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) SetLine2Nil(b bool)`
 
-GetOwnerActor returns the OwnerActor field if non-nil, zero value otherwise.
+ SetLine2Nil sets the value for Line2 to be an explicit nil
 
-### GetOwnerActorOk
+### UnsetLine2
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) UnsetLine2()`
 
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetOwnerActorOk() (*V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, bool)`
+UnsetLine2 ensures that no value is present for Line2, not even an explicit nil
+### GetLine3
 
-GetOwnerActorOk returns a tuple with the OwnerActor field if it's non-nil, zero value otherwise
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetLine3() string`
+
+GetLine3 returns the Line3 field if non-nil, zero value otherwise.
+
+### GetLine3Ok
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetLine3Ok() (*string, bool)`
+
+GetLine3Ok returns a tuple with the Line3 field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetOwnerActor
+### SetLine3
 
-`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) SetOwnerActor(v V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor)`
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) SetLine3(v string)`
 
-SetOwnerActor sets OwnerActor field to given value.
+SetLine3 sets Line3 field to given value.
 
 
+### SetLine3Nil
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) SetLine3Nil(b bool)`
+
+ SetLine3Nil sets the value for Line3 to be an explicit nil
+
+### UnsetLine3
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) UnsetLine3()`
+
+UnsetLine3 ensures that no value is present for Line3, not even an explicit nil
+### GetLine4
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetLine4() string`
+
+GetLine4 returns the Line4 field if non-nil, zero value otherwise.
+
+### GetLine4Ok
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetLine4Ok() (*string, bool)`
+
+GetLine4Ok returns a tuple with the Line4 field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLine4
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) SetLine4(v string)`
+
+SetLine4 sets Line4 field to given value.
+
+
+### SetLine4Nil
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) SetLine4Nil(b bool)`
+
+ SetLine4Nil sets the value for Line4 to be an explicit nil
+
+### UnsetLine4
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) UnsetLine4()`
+
+UnsetLine4 ensures that no value is present for Line4, not even an explicit nil
+### GetLocality
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetLocality() string`
+
+GetLocality returns the Locality field if non-nil, zero value otherwise.
+
+### GetLocalityOk
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetLocalityOk() (*string, bool)`
+
+GetLocalityOk returns a tuple with the Locality field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLocality
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) SetLocality(v string)`
+
+SetLocality sets Locality field to given value.
+
+
+### SetLocalityNil
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) SetLocalityNil(b bool)`
+
+ SetLocalityNil sets the value for Locality to be an explicit nil
+
+### UnsetLocality
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) UnsetLocality()`
+
+UnsetLocality ensures that no value is present for Locality, not even an explicit nil
+### GetRegion
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetRegion() string`
+
+GetRegion returns the Region field if non-nil, zero value otherwise.
+
+### GetRegionOk
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetRegionOk() (*string, bool)`
+
+GetRegionOk returns a tuple with the Region field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRegion
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) SetRegion(v string)`
+
+SetRegion sets Region field to given value.
+
+
+### SetRegionNil
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) SetRegionNil(b bool)`
+
+ SetRegionNil sets the value for Region to be an explicit nil
+
+### UnsetRegion
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) UnsetRegion()`
+
+UnsetRegion ensures that no value is present for Region, not even an explicit nil
+### GetPostcode
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetPostcode() string`
+
+GetPostcode returns the Postcode field if non-nil, zero value otherwise.
+
+### GetPostcodeOk
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetPostcodeOk() (*string, bool)`
+
+GetPostcodeOk returns a tuple with the Postcode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPostcode
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) SetPostcode(v string)`
+
+SetPostcode sets Postcode field to given value.
+
+
+### SetPostcodeNil
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) SetPostcodeNil(b bool)`
+
+ SetPostcodeNil sets the value for Postcode to be an explicit nil
+
+### UnsetPostcode
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) UnsetPostcode()`
+
+UnsetPostcode ensures that no value is present for Postcode, not even an explicit nil
+### GetCountryCode
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetCountryCode() string`
+
+GetCountryCode returns the CountryCode field if non-nil, zero value otherwise.
+
+### GetCountryCodeOk
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetCountryCodeOk() (*string, bool)`
+
+GetCountryCodeOk returns a tuple with the CountryCode field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCountryCode
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) SetCountryCode(v string)`
+
+SetCountryCode sets CountryCode field to given value.
+
+
+### SetCountryCodeNil
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) SetCountryCodeNil(b bool)`
+
+ SetCountryCodeNil sets the value for CountryCode to be an explicit nil
+
+### UnsetCountryCode
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) UnsetCountryCode()`
+
+UnsetCountryCode ensures that no value is present for CountryCode, not even an explicit nil
+### GetLatitude
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetLatitude() string`
+
+GetLatitude returns the Latitude field if non-nil, zero value otherwise.
+
+### GetLatitudeOk
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetLatitudeOk() (*string, bool)`
+
+GetLatitudeOk returns a tuple with the Latitude field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLatitude
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) SetLatitude(v string)`
+
+SetLatitude sets Latitude field to given value.
+
+
+### SetLatitudeNil
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) SetLatitudeNil(b bool)`
+
+ SetLatitudeNil sets the value for Latitude to be an explicit nil
+
+### UnsetLatitude
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) UnsetLatitude()`
+
+UnsetLatitude ensures that no value is present for Latitude, not even an explicit nil
+### GetLongitude
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetLongitude() string`
+
+GetLongitude returns the Longitude field if non-nil, zero value otherwise.
+
+### GetLongitudeOk
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetLongitudeOk() (*string, bool)`
+
+GetLongitudeOk returns a tuple with the Longitude field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLongitude
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) SetLongitude(v string)`
+
+SetLongitude sets Longitude field to given value.
+
+
+### SetLongitudeNil
+
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) SetLongitudeNil(b bool)`
+
+ SetLongitudeNil sets the value for Longitude to be an explicit nil
+
+### UnsetLongitude
+`func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) UnsetLongitude()`
+
+UnsetLongitude ensures that no value is present for Longitude, not even an explicit nil
 ### GetAttributeType
 
 `func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf7) GetAttributeType() string`

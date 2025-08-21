@@ -5770,7 +5770,6 @@ components:
       - domain
       - root_domain
     _v2_objects__object__records_query_post_200_response_data_inner_values_value_inner_oneOf_5:
-      additionalProperties: {}
       properties:
         active_from:
           description: The point in time at which this value was made "active". `active_from`
@@ -6274,7 +6273,6 @@ components:
       - postcode
       - region
     _v2_objects__object__records_query_post_200_response_data_inner_values_value_inner_oneOf_9:
-      additionalProperties: {}
       properties:
         active_from:
           description: The point in time at which this value was made "active". `active_from`
@@ -6352,7 +6350,6 @@ components:
       - full_name
       - last_name
     _v2_objects__object__records_query_post_200_response_data_inner_values_value_inner_oneOf_11:
-      additionalProperties: {}
       properties:
         active_from:
           description: The point in time at which this value was made "active". `active_from`
@@ -7285,54 +7282,6 @@ components:
       - domain
       - root_domain
     _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_5:
-      properties:
-        active_from:
-          description: The point in time at which this value was made "active". `active_from`
-            can be considered roughly analogous to `created_at`.
-          example: 2023-01-01T15:00:00.000000000Z
-          format: date-time
-          type: string
-        active_until:
-          description: "The point in time at which this value was deactivated. If\
-            \ `null`, the value is active."
-          example: 2023-01-01T15:00:00.000000000Z
-          format: date-time
-          nullable: true
-          type: string
-        created_by_actor:
-          $ref: "#/components/schemas/_v2_objects__object__records_query_post_200_response_data_inner_values_value_inner_oneOf_1_created_by_actor"
-        original_email_address:
-          example: alice@app.attio.com
-          type: string
-        email_address:
-          example: alice@app.attio.com
-          type: string
-        email_domain:
-          example: app.attio.com
-          type: string
-        email_root_domain:
-          example: attio.com
-          type: string
-        email_local_specifier:
-          example: alice
-          type: string
-        attribute_type:
-          description: The attribute type of the value.
-          enum:
-          - email-address
-          example: email-address
-          type: string
-      required:
-      - active_from
-      - active_until
-      - attribute_type
-      - created_by_actor
-      - email_address
-      - email_domain
-      - email_local_specifier
-      - email_root_domain
-      - original_email_address
-    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_6:
       additionalProperties: false
       properties:
         active_from:
@@ -7373,7 +7322,7 @@ components:
       - created_by_actor
       - target_object
       - target_record_id
-    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_7:
+    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_6:
       additionalProperties: false
       properties:
         active_from:
@@ -7423,7 +7372,7 @@ components:
       - interacted_at
       - interaction_type
       - owner_actor
-    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_8:
+    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_7:
       additionalProperties: false
       properties:
         active_from:
@@ -7787,40 +7736,7 @@ components:
       - longitude
       - postcode
       - region
-    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_9:
-      properties:
-        active_from:
-          description: The point in time at which this value was made "active". `active_from`
-            can be considered roughly analogous to `created_at`.
-          example: 2023-01-01T15:00:00.000000000Z
-          format: date-time
-          type: string
-        active_until:
-          description: "The point in time at which this value was deactivated. If\
-            \ `null`, the value is active."
-          example: 2023-01-01T15:00:00.000000000Z
-          format: date-time
-          nullable: true
-          type: string
-        created_by_actor:
-          $ref: "#/components/schemas/_v2_objects__object__records_query_post_200_response_data_inner_values_value_inner_oneOf_1_created_by_actor"
-        value:
-          description: Numbers are persisted as 64 bit floats.
-          example: 42
-          type: number
-        attribute_type:
-          description: The attribute type of the value.
-          enum:
-          - number
-          example: number
-          type: string
-      required:
-      - active_from
-      - active_until
-      - attribute_type
-      - created_by_actor
-      - value
-    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_10:
+    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_8:
       additionalProperties: false
       properties:
         active_from:
@@ -7864,303 +7780,7 @@ components:
       - first_name
       - full_name
       - last_name
-    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_11:
-      properties:
-        active_from:
-          description: The point in time at which this value was made "active". `active_from`
-            can be considered roughly analogous to `created_at`.
-          example: 2023-01-01T15:00:00.000000000Z
-          format: date-time
-          type: string
-        active_until:
-          description: "The point in time at which this value was deactivated. If\
-            \ `null`, the value is active."
-          example: 2023-01-01T15:00:00.000000000Z
-          format: date-time
-          nullable: true
-          type: string
-        created_by_actor:
-          $ref: "#/components/schemas/_v2_objects__object__records_query_post_200_response_data_inner_values_value_inner_oneOf_1_created_by_actor"
-        original_phone_number:
-          description: "The raw, original phone number, as inputted."
-          example: "5558675309"
-          type: string
-        country_code:
-          description: The ISO 3166-1 alpha-2 country code representing the country
-            that this phone number belongs to.
-          enum:
-          - AF
-          - AX
-          - AL
-          - DZ
-          - AS
-          - AD
-          - AO
-          - AI
-          - AQ
-          - AG
-          - AR
-          - AM
-          - AW
-          - AU
-          - AT
-          - AZ
-          - BS
-          - BH
-          - BD
-          - BB
-          - BY
-          - BE
-          - BZ
-          - BJ
-          - BM
-          - BT
-          - BO
-          - BA
-          - BW
-          - BV
-          - BR
-          - IO
-          - BN
-          - BG
-          - BF
-          - BI
-          - KH
-          - CM
-          - CA
-          - CV
-          - KY
-          - CF
-          - TD
-          - CL
-          - CN
-          - CX
-          - CC
-          - CO
-          - KM
-          - CG
-          - CD
-          - CK
-          - CR
-          - CI
-          - HR
-          - CU
-          - CW
-          - CY
-          - CZ
-          - DK
-          - DJ
-          - DM
-          - DO
-          - EC
-          - EG
-          - SV
-          - GQ
-          - ER
-          - EE
-          - ET
-          - FK
-          - FO
-          - FJ
-          - FI
-          - FR
-          - GF
-          - PF
-          - TF
-          - GA
-          - GM
-          - GE
-          - DE
-          - GH
-          - GI
-          - GR
-          - GL
-          - GD
-          - GP
-          - GU
-          - GT
-          - GG
-          - GN
-          - GW
-          - GY
-          - HT
-          - HM
-          - VA
-          - HN
-          - HK
-          - HU
-          - IS
-          - IN
-          - ID
-          - IR
-          - IQ
-          - IE
-          - IM
-          - IL
-          - IT
-          - JM
-          - JP
-          - JE
-          - JO
-          - KZ
-          - KE
-          - KI
-          - KR
-          - KW
-          - KG
-          - LA
-          - LV
-          - LB
-          - LS
-          - LR
-          - LY
-          - LI
-          - LT
-          - LU
-          - MO
-          - MK
-          - MG
-          - MW
-          - MY
-          - MV
-          - ML
-          - MT
-          - MH
-          - MQ
-          - MR
-          - MU
-          - YT
-          - MX
-          - FM
-          - MD
-          - MC
-          - MN
-          - ME
-          - MS
-          - MA
-          - MZ
-          - MM
-          - NA
-          - NR
-          - NP
-          - NL
-          - AN
-          - NC
-          - NZ
-          - NI
-          - NE
-          - NG
-          - NU
-          - NF
-          - MP
-          - "NO"
-          - OM
-          - PK
-          - PW
-          - PS
-          - PA
-          - PG
-          - PY
-          - PE
-          - PH
-          - PN
-          - PL
-          - PT
-          - PR
-          - QA
-          - RE
-          - RO
-          - RU
-          - RW
-          - BL
-          - SH
-          - KN
-          - LC
-          - MF
-          - PM
-          - VC
-          - WS
-          - SM
-          - ST
-          - SA
-          - SN
-          - SS
-          - RS
-          - SC
-          - SL
-          - SG
-          - SK
-          - SI
-          - SB
-          - SO
-          - ZA
-          - GS
-          - ES
-          - LK
-          - SD
-          - SR
-          - SJ
-          - SZ
-          - SE
-          - CH
-          - SY
-          - TW
-          - TJ
-          - TZ
-          - TH
-          - TL
-          - TG
-          - TK
-          - TO
-          - TT
-          - TN
-          - TR
-          - TM
-          - TC
-          - TV
-          - UG
-          - UA
-          - AE
-          - GB
-          - US
-          - UM
-          - UY
-          - UZ
-          - VU
-          - VE
-          - VN
-          - VG
-          - VI
-          - WF
-          - EH
-          - YE
-          - ZM
-          - ZW
-          - BQ
-          - KP
-          - SX
-          - XK
-          - AC
-          example: US
-          type: string
-        phone_number:
-          example: "+15558675309"
-          type: string
-        attribute_type:
-          description: The attribute type of the value.
-          enum:
-          - phone-number
-          example: phone-number
-          type: string
-      required:
-      - active_from
-      - active_until
-      - attribute_type
-      - country_code
-      - created_by_actor
-      - original_phone_number
-      - phone_number
-    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_12:
+    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_9:
       additionalProperties: false
       properties:
         active_from:
@@ -8192,7 +7812,7 @@ components:
       - attribute_type
       - created_by_actor
       - status
-    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_13:
+    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_10:
       additionalProperties: false
       properties:
         active_from:
@@ -8226,7 +7846,7 @@ components:
       - attribute_type
       - created_by_actor
       - value
-    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_14:
+    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_11:
       additionalProperties: false
       properties:
         active_from:
@@ -8258,7 +7878,7 @@ components:
       - attribute_type
       - created_by_actor
       - option
-    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_15:
+    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_12:
       additionalProperties: false
       properties:
         active_from:
@@ -8293,7 +7913,7 @@ components:
       - attribute_type
       - created_by_actor
       - value
-    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_16:
+    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_13:
       additionalProperties: false
       properties:
         active_from:
@@ -8345,18 +7965,18 @@ components:
       - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_2"
       - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_3"
       - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_4"
+      - $ref: "#/components/schemas/_v2_objects__object__records_query_post_200_response_data_inner_values_value_inner_oneOf_5"
       - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_5"
       - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_6"
       - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_7"
+      - $ref: "#/components/schemas/_v2_objects__object__records_query_post_200_response_data_inner_values_value_inner_oneOf_9"
       - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_8"
+      - $ref: "#/components/schemas/_v2_objects__object__records_query_post_200_response_data_inner_values_value_inner_oneOf_11"
       - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_9"
       - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_10"
       - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_11"
       - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_12"
       - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_13"
-      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_14"
-      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_15"
-      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_16"
     _v2_objects__object__records_put_200_response_data:
       example:
         web_url: https://app.attio.com/salarya/person/bf071e1f-6035-429d-b874-d83ea64ea13b

@@ -14,6 +14,7 @@ package libattio
 import (
 	"encoding/json"
 	"time"
+	"bytes"
 	"fmt"
 )
 
@@ -34,7 +35,6 @@ type V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5 s
 	EmailLocalSpecifier string `json:"email_local_specifier"`
 	// The attribute type of the value.
 	AttributeType string `json:"attribute_type"`
-	AdditionalProperties map[string]interface{}
 }
 
 type _V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5 V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5
@@ -311,11 +311,6 @@ func (o V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf
 	toSerialize["email_root_domain"] = o.EmailRootDomain
 	toSerialize["email_local_specifier"] = o.EmailLocalSpecifier
 	toSerialize["attribute_type"] = o.AttributeType
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
@@ -368,28 +363,15 @@ func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneO
 	}
 	varV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5 := _V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5{}
 
-	err = json.Unmarshal(data, &varV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5)
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5)
 
 	if err != nil {
 		return err
 	}
 
 	*o = V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5(varV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf5)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "active_from")
-		delete(additionalProperties, "active_until")
-		delete(additionalProperties, "created_by_actor")
-		delete(additionalProperties, "original_email_address")
-		delete(additionalProperties, "email_address")
-		delete(additionalProperties, "email_domain")
-		delete(additionalProperties, "email_root_domain")
-		delete(additionalProperties, "email_local_specifier")
-		delete(additionalProperties, "attribute_type")
-		o.AdditionalProperties = additionalProperties
-	}
 
 	return err
 }

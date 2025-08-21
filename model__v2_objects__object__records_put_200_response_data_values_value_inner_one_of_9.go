@@ -28,8 +28,7 @@ type V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 struct {
 	// The point in time at which this value was deactivated. If `null`, the value is active.
 	ActiveUntil NullableTime `json:"active_until"`
 	CreatedByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor `json:"created_by_actor"`
-	// Numbers are persisted as 64 bit floats.
-	Value float32 `json:"value"`
+	Status Status `json:"status"`
 	// The attribute type of the value.
 	AttributeType string `json:"attribute_type"`
 }
@@ -40,12 +39,12 @@ type _V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 V2ObjectsOb
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, value float32, attributeType string) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 {
+func NewV2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9(activeFrom time.Time, activeUntil NullableTime, createdByActor V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf1CreatedByActor, status Status, attributeType string) *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9 {
 	this := V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9{}
 	this.ActiveFrom = activeFrom
 	this.ActiveUntil = activeUntil
 	this.CreatedByActor = createdByActor
-	this.Value = value
+	this.Status = status
 	this.AttributeType = attributeType
 	return &this
 }
@@ -135,28 +134,28 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) SetCrea
 }
 
 
-// GetValue returns the Value field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) GetValue() float32 {
+// GetStatus returns the Status field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) GetStatus() Status {
 	if o == nil {
-		var ret float32
+		var ret Status
 		return ret
 	}
 
-	return o.Value
+	return o.Status
 }
 
-// GetValueOk returns a tuple with the Value field value
+// GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) GetValueOk() (*float32, bool) {
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) GetStatusOk() (*Status, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return &o.Value, true
+	return &o.Status, true
 }
 
-// SetValue sets field value
-func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) SetValue(v float32) {
-	o.Value = v
+// SetStatus sets field value
+func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) SetStatus(v Status) {
+	o.Status = v
 }
 
 
@@ -198,7 +197,7 @@ func (o V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) ToMap() 
 	toSerialize["active_from"] = o.ActiveFrom
 	toSerialize["active_until"] = o.ActiveUntil.Get()
 	toSerialize["created_by_actor"] = o.CreatedByActor
-	toSerialize["value"] = o.Value
+	toSerialize["status"] = o.Status
 	toSerialize["attribute_type"] = o.AttributeType
 	return toSerialize, nil
 }
@@ -211,7 +210,7 @@ func (o *V2ObjectsObjectRecordsPut200ResponseDataValuesValueInnerOneOf9) Unmarsh
 		"active_from",
 		"active_until",
 		"created_by_actor",
-		"value",
+		"status",
 		"attribute_type",
 	}
 

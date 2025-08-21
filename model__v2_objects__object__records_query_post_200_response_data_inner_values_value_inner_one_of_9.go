@@ -14,6 +14,7 @@ package libattio
 import (
 	"encoding/json"
 	"time"
+	"bytes"
 	"fmt"
 )
 
@@ -31,7 +32,6 @@ type V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9 s
 	Value float32 `json:"value"`
 	// The attribute type of the value.
 	AttributeType string `json:"attribute_type"`
-	AdditionalProperties map[string]interface{}
 }
 
 type _V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9 V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9
@@ -200,11 +200,6 @@ func (o V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf
 	toSerialize["created_by_actor"] = o.CreatedByActor
 	toSerialize["value"] = o.Value
 	toSerialize["attribute_type"] = o.AttributeType
-
-	for key, value := range o.AdditionalProperties {
-		toSerialize[key] = value
-	}
-
 	return toSerialize, nil
 }
 
@@ -253,24 +248,15 @@ func (o *V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneO
 	}
 	varV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9 := _V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9{}
 
-	err = json.Unmarshal(data, &varV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9)
+	decoder := json.NewDecoder(bytes.NewReader(data))
+	decoder.DisallowUnknownFields()
+	err = decoder.Decode(&varV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9)
 
 	if err != nil {
 		return err
 	}
 
 	*o = V2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9(varV2ObjectsObjectRecordsQueryPost200ResponseDataInnerValuesValueInnerOneOf9)
-
-	additionalProperties := make(map[string]interface{})
-
-	if err = json.Unmarshal(data, &additionalProperties); err == nil {
-		delete(additionalProperties, "active_from")
-		delete(additionalProperties, "active_until")
-		delete(additionalProperties, "created_by_actor")
-		delete(additionalProperties, "value")
-		delete(additionalProperties, "attribute_type")
-		o.AdditionalProperties = additionalProperties
-	}
 
 	return err
 }
