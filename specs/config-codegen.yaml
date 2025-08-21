@@ -1,9 +1,0 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/oapi-codegen/oapi-codegen/refs/tags/v2.4.1/configuration-schema.json
-package: github.com/fastah/libattio
-output: attio.gen.go
-generate:
-  client: true
-output-options:
-  nullable-type: true
-  overlay:
-    path: overlay-3.1-to-3.0.yaml
