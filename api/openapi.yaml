@@ -1022,7 +1022,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/_v2_objects__object__records_put_200_response"
+                $ref: "#/components/schemas/_v2_objects__object__records_post_200_response"
           description: Success
         "400":
           content:
@@ -7031,7 +7031,7 @@ components:
           $ref: "#/components/schemas/_v2_objects__object__records_put_request_data"
       required:
       - data
-    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf:
+    _v2_objects__object__records_put_200_response_data_values_value_inner_anyOf:
       additionalProperties: false
       example:
         referenced_actor_type: workspace-member
@@ -7087,7 +7087,7 @@ components:
       - created_by_actor
       - referenced_actor_id
       - referenced_actor_type
-    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_1:
+    _v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_1:
       additionalProperties: false
       properties:
         active_from:
@@ -7122,7 +7122,7 @@ components:
       - attribute_type
       - created_by_actor
       - value
-    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_2:
+    _v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_2:
       additionalProperties: false
       properties:
         active_from:
@@ -7201,7 +7201,7 @@ components:
       - attribute_type
       - created_by_actor
       - currency_value
-    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_3:
+    _v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_3:
       additionalProperties: false
       properties:
         active_from:
@@ -7244,7 +7244,7 @@ components:
       - attribute_type
       - created_by_actor
       - value
-    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_4:
+    _v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_4:
       additionalProperties: false
       properties:
         active_from:
@@ -7281,7 +7281,7 @@ components:
       - created_by_actor
       - domain
       - root_domain
-    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_5:
+    _v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_5:
       additionalProperties: false
       properties:
         active_from:
@@ -7322,7 +7322,7 @@ components:
       - created_by_actor
       - target_object
       - target_record_id
-    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_6:
+    _v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_6:
       additionalProperties: false
       properties:
         active_from:
@@ -7372,7 +7372,7 @@ components:
       - interacted_at
       - interaction_type
       - owner_actor
-    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_7:
+    _v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_7:
       additionalProperties: false
       properties:
         active_from:
@@ -7736,7 +7736,7 @@ components:
       - longitude
       - postcode
       - region
-    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_8:
+    _v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_8:
       additionalProperties: false
       properties:
         active_from:
@@ -7780,7 +7780,7 @@ components:
       - first_name
       - full_name
       - last_name
-    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_9:
+    _v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_9:
       additionalProperties: false
       properties:
         active_from:
@@ -7812,7 +7812,7 @@ components:
       - attribute_type
       - created_by_actor
       - status
-    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_10:
+    _v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_10:
       additionalProperties: false
       properties:
         active_from:
@@ -7846,7 +7846,7 @@ components:
       - attribute_type
       - created_by_actor
       - value
-    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_11:
+    _v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_11:
       additionalProperties: false
       properties:
         active_from:
@@ -7878,7 +7878,7 @@ components:
       - attribute_type
       - created_by_actor
       - option
-    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_12:
+    _v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_12:
       additionalProperties: false
       properties:
         active_from:
@@ -7913,7 +7913,7 @@ components:
       - attribute_type
       - created_by_actor
       - value
-    _v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_13:
+    _v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_13:
       additionalProperties: false
       properties:
         active_from:
@@ -7959,24 +7959,24 @@ components:
       - created_by_actor
       - value
     _v2_objects__object__records_put_200_response_data_values_value_inner:
-      oneOf:
-      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf"
-      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_1"
-      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_2"
-      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_3"
-      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_4"
+      anyOf:
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf"
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_1"
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_2"
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_3"
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_4"
       - $ref: "#/components/schemas/_v2_objects__object__records_query_post_200_response_data_inner_values_value_inner_oneOf_5"
-      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_5"
-      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_6"
-      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_7"
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_5"
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_6"
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_7"
       - $ref: "#/components/schemas/_v2_objects__object__records_query_post_200_response_data_inner_values_value_inner_oneOf_9"
-      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_8"
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_8"
       - $ref: "#/components/schemas/_v2_objects__object__records_query_post_200_response_data_inner_values_value_inner_oneOf_11"
-      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_9"
-      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_10"
-      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_11"
-      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_12"
-      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_oneOf_13"
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_9"
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_10"
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_11"
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_12"
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_13"
     _v2_objects__object__records_put_200_response_data:
       example:
         web_url: https://app.attio.com/salarya/person/bf071e1f-6035-429d-b874-d83ea64ea13b
@@ -8109,6 +8109,108 @@ components:
       properties:
         data:
           $ref: "#/components/schemas/_v2_objects__object__records_post_request_data"
+      required:
+      - data
+    _v2_objects__object__records_post_200_response_data_values_value_inner:
+      oneOf:
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf"
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_1"
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_2"
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_3"
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_4"
+      - $ref: "#/components/schemas/_v2_objects__object__records_query_post_200_response_data_inner_values_value_inner_oneOf_5"
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_5"
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_6"
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_7"
+      - $ref: "#/components/schemas/_v2_objects__object__records_query_post_200_response_data_inner_values_value_inner_oneOf_9"
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_8"
+      - $ref: "#/components/schemas/_v2_objects__object__records_query_post_200_response_data_inner_values_value_inner_oneOf_11"
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_9"
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_10"
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_11"
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_12"
+      - $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner_anyOf_13"
+    _v2_objects__object__records_post_200_response_data:
+      example:
+        web_url: https://app.attio.com/salarya/person/bf071e1f-6035-429d-b874-d83ea64ea13b
+        values:
+          key:
+          - referenced_actor_type: workspace-member
+            referenced_actor_id: 50cf242c-7fa3-4cad-87d0-75b1af71c57b
+            attribute_type: actor-reference
+            active_from: 2023-01-01T15:00:00.000000000Z
+            created_by_actor:
+              type: workspace-member
+              id: 50cf242c-7fa3-4cad-87d0-75b1af71c57b
+            active_until: 2023-01-01T15:00:00.000000000Z
+          - referenced_actor_type: workspace-member
+            referenced_actor_id: 50cf242c-7fa3-4cad-87d0-75b1af71c57b
+            attribute_type: actor-reference
+            active_from: 2023-01-01T15:00:00.000000000Z
+            created_by_actor:
+              type: workspace-member
+              id: 50cf242c-7fa3-4cad-87d0-75b1af71c57b
+            active_until: 2023-01-01T15:00:00.000000000Z
+        created_at: 2022-11-21T13:22:49.061281000Z
+        id:
+          workspace_id: 14beef7a-99f7-4534-a87e-70b564330a4c
+          record_id: bf071e1f-6035-429d-b874-d83ea64ea13b
+          object_id: 97052eb9-e65e-443f-a297-f2d9a4a7f795
+      properties:
+        id:
+          $ref: "#/components/schemas/_v2_objects__object__records_query_post_200_response_data_inner_id"
+        created_at:
+          description: When this record was created.
+          example: 2022-11-21T13:22:49.061281000Z
+          type: string
+        web_url:
+          description: A URL that links directly to the record page in the Attio web
+            application.
+          example: https://app.attio.com/salarya/person/bf071e1f-6035-429d-b874-d83ea64ea13b
+          format: uri
+          type: string
+        values:
+          additionalProperties:
+            items:
+              $ref: "#/components/schemas/_v2_objects__object__records_post_200_response_data_values_value_inner"
+          description: "A record type with an attribute `api_slug` as the key, and\
+            \ an array of value objects as the values."
+      required:
+      - created_at
+      - id
+      - values
+      - web_url
+    _v2_objects__object__records_post_200_response:
+      description: Success
+      example:
+        data:
+          web_url: https://app.attio.com/salarya/person/bf071e1f-6035-429d-b874-d83ea64ea13b
+          values:
+            key:
+            - referenced_actor_type: workspace-member
+              referenced_actor_id: 50cf242c-7fa3-4cad-87d0-75b1af71c57b
+              attribute_type: actor-reference
+              active_from: 2023-01-01T15:00:00.000000000Z
+              created_by_actor:
+                type: workspace-member
+                id: 50cf242c-7fa3-4cad-87d0-75b1af71c57b
+              active_until: 2023-01-01T15:00:00.000000000Z
+            - referenced_actor_type: workspace-member
+              referenced_actor_id: 50cf242c-7fa3-4cad-87d0-75b1af71c57b
+              attribute_type: actor-reference
+              active_from: 2023-01-01T15:00:00.000000000Z
+              created_by_actor:
+                type: workspace-member
+                id: 50cf242c-7fa3-4cad-87d0-75b1af71c57b
+              active_until: 2023-01-01T15:00:00.000000000Z
+          created_at: 2022-11-21T13:22:49.061281000Z
+          id:
+            workspace_id: 14beef7a-99f7-4534-a87e-70b564330a4c
+            record_id: bf071e1f-6035-429d-b874-d83ea64ea13b
+            object_id: 97052eb9-e65e-443f-a297-f2d9a4a7f795
+      properties:
+        data:
+          $ref: "#/components/schemas/_v2_objects__object__records_post_200_response_data"
       required:
       - data
     _v2_objects__object__records_post_400_response:
@@ -8244,7 +8346,7 @@ components:
       properties:
         data:
           items:
-            $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner"
+            $ref: "#/components/schemas/_v2_objects__object__records_post_200_response_data_values_value_inner"
           type: array
       required:
       - data
@@ -8760,7 +8862,7 @@ components:
         entry_values:
           additionalProperties:
             items:
-              $ref: "#/components/schemas/_v2_objects__object__records_put_200_response_data_values_value_inner"
+              $ref: "#/components/schemas/_v2_objects__object__records_post_200_response_data_values_value_inner"
           description: A list of attribute values for the list entry (not attribute
             values for its parent record).
           example:

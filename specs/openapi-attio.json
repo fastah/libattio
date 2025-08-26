@@ -11229,7 +11229,7 @@
                                                     "additionalProperties": {
                                                         "type": "array",
                                                         "items": {
-                                                            "oneOf": [
+                                                            "anyOf": [
                                                                 {
                                                                     "type": "object",
                                                                     "properties": {
@@ -13315,7 +13315,7 @@
                                                     "additionalProperties": {
                                                         "type": "array",
                                                         "items": {
-                                                            "oneOf": [
+                                                            "anyOf": [
                                                                 {
                                                                     "type": "object",
                                                                     "properties": {
@@ -15395,7 +15395,7 @@
                                                     "additionalProperties": {
                                                         "type": "array",
                                                         "items": {
-                                                            "oneOf": [
+                                                            "anyOf": [
                                                                 {
                                                                     "type": "object",
                                                                     "properties": {
@@ -17516,7 +17516,7 @@
                                                     "additionalProperties": {
                                                         "type": "array",
                                                         "items": {
-                                                            "oneOf": [
+                                                            "anyOf": [
                                                                 {
                                                                     "type": "object",
                                                                     "properties": {

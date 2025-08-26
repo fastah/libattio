@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## V2ObjectsObjectRecordsPost
 
-> V2ObjectsObjectRecordsPut200Response V2ObjectsObjectRecordsPost(ctx, object).V2ObjectsObjectRecordsPostRequest(v2ObjectsObjectRecordsPostRequest).Execute()
+> V2ObjectsObjectRecordsPost200Response V2ObjectsObjectRecordsPost(ctx, object).V2ObjectsObjectRecordsPostRequest(v2ObjectsObjectRecordsPostRequest).Execute()
 
 Create a record
 
@@ -47,7 +47,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `RecordsAPI.V2ObjectsObjectRecordsPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `V2ObjectsObjectRecordsPost`: V2ObjectsObjectRecordsPut200Response
+	// response from `V2ObjectsObjectRecordsPost`: V2ObjectsObjectRecordsPost200Response
 	fmt.Fprintf(os.Stdout, "Response from `RecordsAPI.V2ObjectsObjectRecordsPost`: %v\n", resp)
 }
 ```
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V2ObjectsObjectRecordsPut200Response**](V2ObjectsObjectRecordsPut200Response.md)
+[**V2ObjectsObjectRecordsPost200Response**](V2ObjectsObjectRecordsPost200Response.md)
 
 ### Authorization
 

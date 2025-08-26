@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | [**[]V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner**](V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner.md) |  | 
+**Data** | [**[]V2ObjectsObjectRecordsPost200ResponseDataValuesValueInner**](V2ObjectsObjectRecordsPost200ResponseDataValuesValueInner.md) |  | 
 
 ## Methods
 
 ### NewV2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response
 
-`func NewV2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response(data []V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner, ) *V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response`
+`func NewV2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response(data []V2ObjectsObjectRecordsPost200ResponseDataValuesValueInner, ) *V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response`
 
 NewV2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response instantiates a new V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response object
 This constructor will assign default values to properties that have it defined,
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetData
 
-`func (o *V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response) GetData() []V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner`
+`func (o *V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response) GetData() []V2ObjectsObjectRecordsPost200ResponseDataValuesValueInner`
 
 GetData returns the Data field if non-nil, zero value otherwise.
 
 ### GetDataOk
 
-`func (o *V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response) GetDataOk() (*[]V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner, bool)`
+`func (o *V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response) GetDataOk() (*[]V2ObjectsObjectRecordsPost200ResponseDataValuesValueInner, bool)`
 
 GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetData
 
-`func (o *V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response) SetData(v []V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner)`
+`func (o *V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response) SetData(v []V2ObjectsObjectRecordsPost200ResponseDataValuesValueInner)`
 
 SetData sets Data field to given value.
 

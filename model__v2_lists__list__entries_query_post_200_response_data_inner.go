@@ -30,7 +30,7 @@ type V2ListsListEntriesQueryPost200ResponseDataInner struct {
 	// When this entry was created.
 	CreatedAt string `json:"created_at"`
 	// A list of attribute values for the list entry (not attribute values for its parent record).
-	EntryValues map[string][]V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner `json:"entry_values"`
+	EntryValues map[string][]V2ObjectsObjectRecordsPost200ResponseDataValuesValueInner `json:"entry_values"`
 }
 
 type _V2ListsListEntriesQueryPost200ResponseDataInner V2ListsListEntriesQueryPost200ResponseDataInner
@@ -39,7 +39,7 @@ type _V2ListsListEntriesQueryPost200ResponseDataInner V2ListsListEntriesQueryPos
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2ListsListEntriesQueryPost200ResponseDataInner(id V2ListsListEntriesQueryPost200ResponseDataInnerId, parentRecordId string, parentObject string, createdAt string, entryValues map[string][]V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner) *V2ListsListEntriesQueryPost200ResponseDataInner {
+func NewV2ListsListEntriesQueryPost200ResponseDataInner(id V2ListsListEntriesQueryPost200ResponseDataInnerId, parentRecordId string, parentObject string, createdAt string, entryValues map[string][]V2ObjectsObjectRecordsPost200ResponseDataValuesValueInner) *V2ListsListEntriesQueryPost200ResponseDataInner {
 	this := V2ListsListEntriesQueryPost200ResponseDataInner{}
 	this.Id = id
 	this.ParentRecordId = parentRecordId
@@ -158,9 +158,9 @@ func (o *V2ListsListEntriesQueryPost200ResponseDataInner) SetCreatedAt(v string)
 
 
 // GetEntryValues returns the EntryValues field value
-func (o *V2ListsListEntriesQueryPost200ResponseDataInner) GetEntryValues() map[string][]V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
+func (o *V2ListsListEntriesQueryPost200ResponseDataInner) GetEntryValues() map[string][]V2ObjectsObjectRecordsPost200ResponseDataValuesValueInner {
 	if o == nil {
-		var ret map[string][]V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
+		var ret map[string][]V2ObjectsObjectRecordsPost200ResponseDataValuesValueInner
 		return ret
 	}
 
@@ -169,15 +169,15 @@ func (o *V2ListsListEntriesQueryPost200ResponseDataInner) GetEntryValues() map[s
 
 // GetEntryValuesOk returns a tuple with the EntryValues field value
 // and a boolean to check if the value has been set.
-func (o *V2ListsListEntriesQueryPost200ResponseDataInner) GetEntryValuesOk() (map[string][]V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner, bool) {
+func (o *V2ListsListEntriesQueryPost200ResponseDataInner) GetEntryValuesOk() (map[string][]V2ObjectsObjectRecordsPost200ResponseDataValuesValueInner, bool) {
 	if o == nil {
-		return map[string][]V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner{}, false
+		return map[string][]V2ObjectsObjectRecordsPost200ResponseDataValuesValueInner{}, false
 	}
 	return o.EntryValues, true
 }
 
 // SetEntryValues sets field value
-func (o *V2ListsListEntriesQueryPost200ResponseDataInner) SetEntryValues(v map[string][]V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner) {
+func (o *V2ListsListEntriesQueryPost200ResponseDataInner) SetEntryValues(v map[string][]V2ObjectsObjectRecordsPost200ResponseDataValuesValueInner) {
 	o.EntryValues = v
 }
 

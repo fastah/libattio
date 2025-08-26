@@ -22,7 +22,7 @@ var _ MappedNullable = &V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesG
 
 // V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response Success
 type V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response struct {
-	Data []V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner `json:"data"`
+	Data []V2ObjectsObjectRecordsPost200ResponseDataValuesValueInner `json:"data"`
 }
 
 type _V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response
@@ -31,7 +31,7 @@ type _V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response V2Ob
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewV2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response(data []V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner) *V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response {
+func NewV2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response(data []V2ObjectsObjectRecordsPost200ResponseDataValuesValueInner) *V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response {
 	this := V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response{}
 	this.Data = data
 	return &this
@@ -46,9 +46,9 @@ func NewV2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200ResponseWit
 }
 
 // GetData returns the Data field value
-func (o *V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response) GetData() []V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner {
+func (o *V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response) GetData() []V2ObjectsObjectRecordsPost200ResponseDataValuesValueInner {
 	if o == nil {
-		var ret []V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner
+		var ret []V2ObjectsObjectRecordsPost200ResponseDataValuesValueInner
 		return ret
 	}
 
@@ -57,7 +57,7 @@ func (o *V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response) 
 
 // GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
-func (o *V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response) GetDataOk() ([]V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner, bool) {
+func (o *V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response) GetDataOk() ([]V2ObjectsObjectRecordsPost200ResponseDataValuesValueInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -65,7 +65,7 @@ func (o *V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response) 
 }
 
 // SetData sets field value
-func (o *V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response) SetData(v []V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner) {
+func (o *V2ObjectsObjectRecordsRecordIdAttributesAttributeValuesGet200Response) SetData(v []V2ObjectsObjectRecordsPost200ResponseDataValuesValueInner) {
 	o.Data = v
 }
 

@@ -5,7 +5,7 @@ GEN_DIR=../
 # Tool reference: https://openapi-generator.tech/docs/configuration/
 # Tool reference (Go specific): https://openapi-generator.tech/docs/generators/go
 codegen: 
-	openapi-generator generate -i $(OAS3_API_SPEC) -g go -o $(GEN_DIR) -p packageName="libattio" -p useDefaultValuesForRequiredVars=true -p useOneOfDiscriminatorLookup=true
+	openapi-generator generate -i $(OAS3_API_SPEC) -g go -o $(GEN_DIR) -p packageName="libattio" -p useDefaultValuesForRequiredVars=true 
 	find $(GEN_DIR) -type f \( -name '*.go' -o -name '*.mod'  -o -name '*.md'  -o -name 'go.*' \) -exec sed -i '' \
 		-e 's|openapiclient|libattio|g' \
 		-e 's|github\.com/GIT_USER_ID/GIT_REPO_ID|github.com/fastah/libattio|g' {} +

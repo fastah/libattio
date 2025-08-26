@@ -8,13 +8,13 @@ Name | Type | Description | Notes
 **ParentRecordId** | **string** | A UUID identifying the record that is parent of the list entry. | 
 **ParentObject** | **string** | A UUID or slug identifying the object that the parent record belongs to. | 
 **CreatedAt** | **string** | When this entry was created. | 
-**EntryValues** | [**map[string][]V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner**](array.md) | A list of attribute values for the list entry (not attribute values for its parent record). | 
+**EntryValues** | [**map[string][]V2ObjectsObjectRecordsPost200ResponseDataValuesValueInner**](array.md) | A list of attribute values for the list entry (not attribute values for its parent record). | 
 
 ## Methods
 
 ### NewV2ListsListEntriesQueryPost200ResponseDataInner
 
-`func NewV2ListsListEntriesQueryPost200ResponseDataInner(id V2ListsListEntriesQueryPost200ResponseDataInnerId, parentRecordId string, parentObject string, createdAt string, entryValues map[string][]V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner, ) *V2ListsListEntriesQueryPost200ResponseDataInner`
+`func NewV2ListsListEntriesQueryPost200ResponseDataInner(id V2ListsListEntriesQueryPost200ResponseDataInnerId, parentRecordId string, parentObject string, createdAt string, entryValues map[string][]V2ObjectsObjectRecordsPost200ResponseDataValuesValueInner, ) *V2ListsListEntriesQueryPost200ResponseDataInner`
 
 NewV2ListsListEntriesQueryPost200ResponseDataInner instantiates a new V2ListsListEntriesQueryPost200ResponseDataInner object
 This constructor will assign default values to properties that have it defined,
@@ -111,20 +111,20 @@ SetCreatedAt sets CreatedAt field to given value.
 
 ### GetEntryValues
 
-`func (o *V2ListsListEntriesQueryPost200ResponseDataInner) GetEntryValues() map[string][]V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner`
+`func (o *V2ListsListEntriesQueryPost200ResponseDataInner) GetEntryValues() map[string][]V2ObjectsObjectRecordsPost200ResponseDataValuesValueInner`
 
 GetEntryValues returns the EntryValues field if non-nil, zero value otherwise.
 
 ### GetEntryValuesOk
 
-`func (o *V2ListsListEntriesQueryPost200ResponseDataInner) GetEntryValuesOk() (*map[string][]V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner, bool)`
+`func (o *V2ListsListEntriesQueryPost200ResponseDataInner) GetEntryValuesOk() (*map[string][]V2ObjectsObjectRecordsPost200ResponseDataValuesValueInner, bool)`
 
 GetEntryValuesOk returns a tuple with the EntryValues field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEntryValues
 
-`func (o *V2ListsListEntriesQueryPost200ResponseDataInner) SetEntryValues(v map[string][]V2ObjectsObjectRecordsPut200ResponseDataValuesValueInner)`
+`func (o *V2ListsListEntriesQueryPost200ResponseDataInner) SetEntryValues(v map[string][]V2ObjectsObjectRecordsPost200ResponseDataValuesValueInner)`
 
 SetEntryValues sets EntryValues field to given value.
 

@@ -36,7 +36,7 @@ func (r ApiV2ObjectsObjectRecordsPostRequest) V2ObjectsObjectRecordsPostRequest(
 	return r
 }
 
-func (r ApiV2ObjectsObjectRecordsPostRequest) Execute() (*V2ObjectsObjectRecordsPut200Response, *http.Response, error) {
+func (r ApiV2ObjectsObjectRecordsPostRequest) Execute() (*V2ObjectsObjectRecordsPost200Response, *http.Response, error) {
 	return r.ApiService.V2ObjectsObjectRecordsPostExecute(r)
 }
 
@@ -60,13 +60,13 @@ func (a *RecordsAPIService) V2ObjectsObjectRecordsPost(ctx context.Context, obje
 }
 
 // Execute executes the request
-//  @return V2ObjectsObjectRecordsPut200Response
-func (a *RecordsAPIService) V2ObjectsObjectRecordsPostExecute(r ApiV2ObjectsObjectRecordsPostRequest) (*V2ObjectsObjectRecordsPut200Response, *http.Response, error) {
+//  @return V2ObjectsObjectRecordsPost200Response
+func (a *RecordsAPIService) V2ObjectsObjectRecordsPostExecute(r ApiV2ObjectsObjectRecordsPostRequest) (*V2ObjectsObjectRecordsPost200Response, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *V2ObjectsObjectRecordsPut200Response
+		localVarReturnValue  *V2ObjectsObjectRecordsPost200Response
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "RecordsAPIService.V2ObjectsObjectRecordsPost")
